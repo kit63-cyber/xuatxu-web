@@ -285,7 +285,10 @@
                     if(data.success) {
                         const p = data.product;
                         document.getElementById('qrProductName').innerText = p.display_name;
-                        document.getElementById('qrImageDisplay').src = `/api/generate-qr?url=${encodeURIComponent(data.qr_target_url)}`;
+                        
+                        // Tự động lấy chính xác URL trang web hiện tại (ví dụ: http://www.xuatxunguongoc.id.vn/#detail/PID)
+                        const currentFullUrl = `${window.location.origin}/#detail/${productId}`;
+                        document.getElementById('qrImageDisplay').src = `/api/generate-qr?url=${encodeURIComponent(currentFullUrl)}`;
                         document.getElementById('btnGoToDetail').onclick = function() { loadProductDetail(productId); };
                         document.getElementById('qrDisplayBox').style.display = 'block';
                     }

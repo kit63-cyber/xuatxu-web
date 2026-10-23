@@ -141,7 +141,12 @@ def api_product_detail(product_id):
     ledger_records = [l for l in data['ledger'] if l.get('lot_id') == lot_id]
     
     # Sử dụng tên miền chính thức
-    qr_target_url = f"{BASE_URL}/#detail/{pid}"
+    # Lấy chính xác host hiện tại (nhận diện tên miền xuatxunguongoc.id.vn hoặc ngrok)
+    host = request.headers.get('X-Forwarded-Host', request.host)
+    scheme = request.headers.get('X-Forwarded-Proto', 'http')
+    
+    # Đảm bảo đường link trong QR trùng khớp tuyệt đối với link trang web chi tiết
+    qr_target_url = f"{scheme}://{host}/#detail/{pid}"
     
     return jsonify({
         "success": True,

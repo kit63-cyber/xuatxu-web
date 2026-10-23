@@ -70,17 +70,17 @@ def api_init():
     for p in products:
         pid = p.get('product_id', '')
         b = next((x for x in batches if x.get('product_id') == pid or x.get('lot_id') == p.get('primary_lot_id')), {})
-        
+        #ảnh của sản phẩm
         img = p.get('image_url') or ''
         if not img or img.startswith('Cần') or 'example' in img:
             brand_upper = p.get('brand', '').upper()
             name_upper = p.get('display_name', '').upper()
             if 'ZESPRI' in brand_upper or 'KIWI' in name_upper:
-                img = 'https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?w=600&q=80'
+                img = 'https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?w=600&q=80' # thay link ảnh chổ này
             elif 'ENVY' in brand_upper or 'TÁO' in name_upper or 'APPLE' in name_upper:
-                img = 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=600&q=80'
+                img = 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=600&q=80' # thay link ảnh chổ này
             else:
-                img = 'https://images.unsplash.com/photo-1588347818036-558601350947?w=600&q=80'
+                img = 'https://images.unsplash.com/photo-1588347818036-558601350947?w=600&q=80' # thay link ảnh chổ này
 
         combined_products.append({
             'product_id': pid,
@@ -123,11 +123,11 @@ def api_product_detail(product_id):
         brand_upper = product.get('brand', '').upper()
         name_upper = product.get('display_name', '').upper()
         if 'ZESPRI' in brand_upper or 'KIWI' in name_upper:
-            img = 'https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?w=600&q=80'
+            img = 'https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?w=600&q=80' # thay link ảnh chổ này
         elif 'ENVY' in brand_upper or 'TÁO' in name_upper or 'APPLE' in name_upper:
-            img = 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=600&q=80'
+            img = 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=600&q=80' # thay link ảnh chổ này
         else:
-            img = 'https://images.unsplash.com/photo-1588347818036-558601350947?w=600&q=80'
+            img = 'https://images.unsplash.com/photo-1588347818036-558601350947?w=600&q=80' # thay link ảnh chổ này
     
     product_copy = dict(product)
     product_copy['image_url'] = img

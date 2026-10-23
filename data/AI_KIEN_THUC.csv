@@ -1,0 +1,9 @@
+﻿kb_id,product_id,topic,fact,source_evidence_ids,confidence,allowed_answer
+KB-E-01,P-ENVY-USA-01,nguon_goc,"Trong kịch bản mô phỏng, lô táo được gắn nhãn xuất xứ Hoa Kỳ. Chưa có nhãn gốc/chứng từ nhập khẩu thật.","[""E-ENVY-03"",""E-ENVY-06""]",DEMO_ONLY,"Có thể giải thích đây là dữ liệu giả lập, không được nói xuất xứ đã được xác minh."
+KB-E-02,P-ENVY-USA-01,thuong_hieu,ENVY công bố các vùng trồng và nhà trồng tại bang Washington.,"[""E-ENVY-01""]",GENERAL_SOURCE,"Nêu là thông tin chung, không liên hệ tới mã lô demo."
+KB-E-03,P-ENVY-USA-01,ben_vung,Chưa có chứng cứ áp dụng cho lô để xác nhận tuyên bố canh tác bền vững.,"[""E-ENVY-05""]",INSUFFICIENT,Trả lời chưa đủ bằng chứng; không kết luận sản phẩm tẩy xanh.
+KB-E-04,P-ENVY-USA-01,blockchain,"Bộ demo lưu hash SHA-256 cục bộ, chưa ghi nhận giao dịch on-chain.",[],TECHNICAL_FACT,Không mô tả là Blockchain Verified.
+KB-Z-01,P-ZESPRI-NZ-01,nguon_goc,"Trong kịch bản mô phỏng, lô Zespri SunGold được gắn xuất xứ New Zealand. Hãng còn có sản phẩm trồng ngoài New Zealand.","[""E-ZESPRI-03""]",DEMO_ONLY,Yêu cầu ảnh nhãn/thùng thực để xác minh xuất xứ cụ thể.
+KB-Z-02,P-ZESPRI-NZ-01,chung_nhan,Zespri công bố chương trình Zespri GAP và tiêu chuẩn GLOBALG.A.P. cho nhà trồng xuất khẩu. Bộ demo không có chứng chỉ cụ thể.,"[""E-ZESPRI-02"",""E-ZESPRI-05""]",SYSTEM_POLICY_ONLY,Không nói lô hàng demo đã được cấp chứng nhận.
+KB-Z-03,P-ZESPRI-NZ-01,truy_xuat,"Zespri công bố mỗi thùng có thể truy ngược về nơi trồng và đóng gói, nhưng không có mã thùng thật trong bộ demo.","[""E-ZESPRI-02"",""E-ZESPRI-06""]",SYSTEM_POLICY_ONLY,Giải thích khác biệt giữa khả năng hệ thống và trạng thái lô demo.
+KB-Z-04,P-ZESPRI-NZ-01,organic,Bộ dữ liệu demo không chứng minh lô là hữu cơ; dòng Zespri SunGold và Organic SunGold không mặc nhiên giống nhau.,"[""E-ZESPRI-05""]",INSUFFICIENT,Không xác nhận hữu cơ.

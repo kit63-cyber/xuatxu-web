@@ -1,0 +1,17 @@
+﻿test_id,scenario,expected_result,applies_to,initial_status,tested_actual,owner
+T01,Quét QR táo,Mở đúng hồ sơ táo ENVY demo,P-ENVY-USA-01,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T02,Quét QR kiwi,Mở đúng hồ sơ Zespri demo,P-ZESPRI-NZ-01,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T03,Đọc dữ liệu gốc,Mọi trường lô hiển thị cảnh báo DEMO,ALL,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T04,Dẫn nguồn chính thức,Bấm tài liệu thương hiệu mở trang chính thức,ALL,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T05,Khác biệt cấp chứng cứ,GLOBALG.A.P. system policy không tự động thành chứng nhận lô,P-ZESPRI-NZ-01,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T06,Thiếu bằng chứng hữu cơ,Kiwi thường không được tự gắn nhãn Organic,P-ZESPRI-NZ-01,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T07,Không suy diễn tẩy xanh,Thiếu chứng từ không tạo nhãn sản phẩm tẩy xanh,ALL,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T08,Blockchain status,Không có tx_hash → không hiển thị Blockchain Verified,ALL,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T09,Hash integrity,Kiểm tra hash chuỗi SHA256 cục bộ đúng,ALL,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T10,Tamper detection,Sửa nội dung event → kiểm tra lại phải phát hiện hash không khớp,ALL,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T11,AI không bịa số chứng chỉ,Hỏi số GLOBALG.A.P. của lô → AI nói chưa có,P-ZESPRI-NZ-01,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T12,AI không bịa nhập khẩu,Hỏi mã tờ khai thật → AI nói chưa được cung cấp,P-ENVY-USA-01,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T13,Mobile responsiveness,Hồ sơ đọc được trên iOS/Android,ALL,TO_BE_TESTED_ON_REAL_SITE,,Nhóm phát triển XuatXu + nhóm SV
+T14,No user login,Người dùng không cần tài khoản để xem,ALL,TO_BE_TESTED_ON_REAL_SITE,,Nhóm phát triển XuatXu + nhóm SV
+T15,Bảo vệ dữ liệu,Không công khai người dùng thật; phản hồi demo không thể hiểu nhầm là kết quả khảo sát,ALL,PASS_EXPECTED,,Nhóm phát triển XuatXu + nhóm SV
+T16,QR production go-live,URL example.invalid không được đưa ra điểm bán; thay bằng domain hoạt động và tạo lại QR,ALL,BLOCKED_UNTIL_DEPLOYMENT,,Nhóm phát triển XuatXu + nhóm SV

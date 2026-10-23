@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XuatXu - Truy Xuất Nguồn Gốc Nông Sản Nhập Khẩu Minh Bạch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <a href="#" class="brand-logo" onclick="showTab('home')">
+            <i class="fa-solid fa-leaf"></i> XuatXu <span class="badge-verify"><i class="fa-solid fa-shield-halved"></i> Phân Lớp Thông Tin</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#" id="nav-home" class="active" onclick="showTab('home')"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+            <li><a href="#" id="nav-qr" onclick="showTab('qr')"><i class="fa-solid fa-qrcode"></i> Quét mã QR</a></li>
+            <li><a href="#" id="nav-detail" onclick="showTab('detail')"><i class="fa-solid fa-circle-info"></i> Chi tiết lô hàng</a></li>
+            <li><a href="#" id="nav-ai" onclick="showTab('ai')"><i class="fa-solid fa-robot"></i> Trợ lý AI</a></li>
+            <li><a href="#" id="nav-about" onclick="showTab('about')"><i class="fa-solid fa-circle-question"></i> Về XuatXu</a></li>
+        </ul>
+        <button class="btn-search-header" onclick="showTab('home')"><i class="fa-solid fa-magnifying-glass"></i> Tra cứu nhanh</button>
+    </header>
+
+    <!-- TAB 1: TRANG CHỦ -->
+    <div id="tab-home" class="tab-content">
+        <section class="hero-section">
+            <span class="hero-subtitle"><i class="fa-solid fa-circle-check"></i> MINH BẠCH THEO TẦNG - THÔNG TIN VỪA ĐỦ</span>
+            <h1 style="font-size: 38px; margin: 12px 0; font-weight: 800;">Truy Xuất Nông Sản Nhập Khẩu Chính Ngạch</h1>
+            <p style="max-width: 750px; margin: 0 auto; opacity: 0.95; font-size: 15px;">
+                Cung cấp thông tin thiết yếu trong 30 giây. Cho phép người dùng chủ động mở xem bằng chứng đối chiếu chi tiết khi có nhu cầu.
+            </p>
+
+            <div class="search-box-container">
+                <input type="text" id="searchInput" placeholder="Nhập Mã Lô Hàng (Ví dụ: L-ENVY-US-2026-DEMO) hoặc tên sản phẩm...">
+                <button onclick="searchProduct()"><i class="fa-solid fa-magnifying-glass"></i> Tra cứu</button>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                <div>
+                    <div class="stat-num">30 Giây</div>
+                    <div class="stat-label">Xem Nhanh Thông Tin</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-file-contract"></i></div>
+                <div>
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Gắn Nhãn Bằng Chứng</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <div>
+                    <div class="stat-num">Phân Lớp</div>
+                    <div class="stat-label">Chống Quá Tải Dữ Liệu</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-flask"></i></div>
+                <div>
+                    <div class="stat-num">DEMO</div>
+                    <div class="stat-label">Dữ Liệu Thử Nghiệm</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container">
+            <div style="background: #fff3cd; border: 1px solid #ffeba8; padding: 12px 20px; border-radius: 12px; margin-bottom: 25px; color: #856404; font-size: 13.5px; font-weight: bold; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size: 18px;"></i>
+                <span>GHI CHÚ HỆ THỐNG: [DỮ LIỆU MÔ PHỎNG – CHỈ PHỤC VỤ THỬ NGHIỆM CHIẾN LƯỢC NCKH NĂM 2026]</span>
+            </div>
+
+            <div class="section-title-box">
+                <div>
+                    <h3 style="font-size: 22px; margin: 0; font-weight: 800; color: #0f172a;"><i class="fa-solid fa-boxes-stacked" style="color: #00a859;"></i> Danh Sách Hồ Sơ Nông Sản Mô Phỏng</h3>
+                    <p style="color: var(--text-muted); font-size: 13px; margin: 4px 0 0;">Chọn sản phẩm để xem cấu trúc minh bạch phân lớp</p>
+                </div>
+            </div>
+
+            <div class="product-grid" id="productGrid"></div>
+        </div>
+    </div>
+
+    <!-- TAB 2: QUÉT MÃ QR -->
+    <div id="tab-qr" class="tab-content" style="display: none;">
+        <div class="main-container" style="text-align: center;">
+            <h2><i class="fa-solid fa-qrcode" style="color: #00a859;"></i> Quét / Chọn Mã QR Sản Phẩm</h2>
+            <div style="background: white; padding: 30px; border-radius: 20px; max-width: 680px; margin: 25px auto; border: 1px solid #e2e8f0;">
+                <div style="background: #fff3cd; color: #856404; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: bold; margin-bottom: 15px;">
+                    NHÃN: DỮ LIỆU MÔ PHỎNG – CHỈ PHỤC VỤ THỬ NGHIỆM
+                </div>
+                <h4 style="font-weight: 700;">Chọn mẫu sản phẩm để xem Mã QR & Hồ sơ:</h4>
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 12px;" id="qrQuickButtons"></div>
+
+                <div id="qrDisplayBox" style="display: none; margin-top: 25px; padding: 20px; background: #f8faf8; border-radius: 16px; border: 1px solid #a5d6a7;">
+                    <h3 id="qrProductName" style="margin: 0 0 8px; color: #008f4c;"></h3>
+                    <img id="qrImageDisplay" src="" style="width: 180px; height: 180px; background: white; padding: 10px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                    <div style="margin-top: 15px;">
+                        <button id="btnGoToDetail" style="background: #00a859; color: white; border: none; padding: 10px 24px; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 14px;">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i> Mở Hồ Sơ Sản Phẩm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 3: CHI TIẾT LÔ HÀNG -->
+    <div id="tab-detail" class="tab-content" style="display: none;">
+        <div class="main-container" id="detailContent">
+            <p>Vui lòng chọn một sản phẩm từ Trang chủ để xem chi tiết.</p>
+        </div>
+    </div>
+
+    <!-- TAB 4: TRỢ LÝ AI -->
+    <div id="tab-ai" class="tab-content" style="display: none;">
+        <div class="main-container">
+            <div style="background: white; border-radius: 20px; padding: 30px; border: 1px solid #e2e8f0; max-width: 850px; margin: 0 auto;">
+                <h3><i class="fa-solid fa-robot" style="color: #00a859;"></i> Trợ Lý XuatXu AI Assistant</h3>
+                <p style="color: var(--text-muted); font-size: 13.5px;">Hỗ trợ giải thích thông tin truy xuất dựa trên chứng từ minh bạch có nguồn đối chiếu.</p>
+
+                <div style="margin: 15px 0; display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span style="font-size: 12px; font-weight: bold; color: #64748b; width: 100%;">Gợi ý câu hỏi chuẩn:</span>
+                    <button class="suggest-btn" onclick="askGlobalSuggest('Sản phẩm này từ đâu?')">Sản phẩm này từ đâu?</button>
+                    <button class="suggest-btn" onclick="askGlobalSuggest('Thông tin nào đã có bằng chứng?')">Thông tin nào đã có bằng chứng?</button>
+                    <button class="suggest-btn" onclick="askGlobalSuggest('Chứng nhận này nói lên điều gì?')">Chứng nhận này nói lên điều gì?</button>
+                    <button class="suggest-btn" onclick="askGlobalSuggest('Thông tin nào hiện chưa kiểm chứng?')">Thông tin nào hiện chưa kiểm chứng?</button>
+                </div>
+                
+                <div class="chat-history-sidebar" id="chatHistory" style="height: 320px; margin-bottom: 15px;">
+                    <div class="chat-msg ai">Xin chào! Tôi có thể hỗ trợ giải thích thông tin nguồn gốc, chứng nhận hoặc các tài liệu đối chiếu của sản phẩm. Bạn hãy chọn câu hỏi gợi ý hoặc nhập thắc mắc bên dưới.</div>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="aiInput" style="flex: 1; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 12px; font-size: 14px;" placeholder="Đặt câu hỏi về thông tin lô hàng..." onkeypress="if(event.key==='Enter') sendGlobalAIMessage()">
+                    <button onclick="sendGlobalAIMessage()" style="background: #00a859; color: white; border: none; padding: 0 24px; border-radius: 12px; font-weight: bold; cursor: pointer;">Gửi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 5: GIỚI THIỆU -->
+    <div id="tab-about" class="tab-content" style="display: none;">
+        <div class="main-container">
+            <div style="background: white; padding: 35px; border-radius: 20px; border: 1px solid #e2e8f0; max-width: 900px; margin: 0 auto;">
+                <h2 style="color: #0f172a; font-weight: 800;">Về Nền Tảng XuatXu</h2>
+                
+                <div style="background: #e8f5e9; border: 1px solid #a5d6a7; padding: 20px; border-radius: 16px; margin: 20px 0;">
+                    <h3 style="margin-top: 0; color: #008f4c; font-size: 18px;"><i class="fa-solid fa-circle-info"></i> Vì sao XuatXu hiển thị thông tin theo lớp?</h3>
+                    <p style="font-size: 14px; color: #2e7d32; line-height: 1.6; margin: 0;">
+                        XuatXu ưu tiên thông tin thiết yếu trong 30 giây đầu tiên, đồng thời giữ đường dẫn để người dùng chủ động mở xem bằng chứng và chi tiết khi cần.
+                    </p>
+                </div>
+
+                <h4 style="margin-top: 25px;">Nguyên Tắc Minh Bạch Đầy Đủ:</h4>
+                <ul style="font-size: 14px; color: #475569; line-height: 1.8;">
+                    <li><strong>Mọi tuyên bố đều có trạng thái:</strong> Tự công bố, Có tài liệu đối chiếu, Được bên thứ ba xác nhận, hoặc Chưa đủ bằng chứng.</li>
+                    <li><strong>Phân biệt rõ ràng:</strong> Giữa dữ liệu thực tế và dữ liệu thử nghiệm mô phỏng (DEMO).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="brand-logo" style="color: white; margin-bottom: 12px;">
+                    <i class="fa-solid fa-leaf" style="color: #00a859;"></i> XuatXu
+                </a>
+                <p style="font-size: 13px; color: #94a3b8; line-height: 1.6;">Cổng thông tin xác thực minh bạch nguồn gốc nông sản nhập khẩu chính ngạch bằng công nghệ Sổ cái khối Blockchain.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Chức Năng</h4>
+                <ul>
+                    <li><a href="#" onclick="showTab('home')">Trang chủ</a></li>
+                    <li><a href="#" onclick="showTab('qr')">Quét mã QR</a></li>
+                    <li><a href="#" onclick="showTab('ai')">Trợ lý AI</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Pháp Lý & Quy Chuẩn</h4>
+                <ul>
+                    <li><a href="#">Tiêu chuẩn ISO 22005:2007</a></li>
+                    <li><a href="#">Quy định Kiểm dịch Thực vật</a></li>
+                    <li><a href="#">Luật An toàn thực phẩm</a></li>
+                    <li><a href="#">Xác thực Khối SHA-256</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Liên Hệ Hỗ Trợ</h4>
+                <ul>
+                    <li><i class="fa-solid fa-envelope"></i> hotro@agritrace.gov.vn</li>
+                    <li><i class="fa-solid fa-phone"></i> 1900 6868 (Tổng đài)</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Hà Nội & TP. Hồ Chí Minh</li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid #1e293b; padding-top: 20px; text-align: center; color: #64748b;">
+            <p>© 2026 Cổng Dịch Vụ Truy Xuất Nguồn Gốc Nông Sản Nhập Khẩu Quốc Gia AgriTrace. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let globalProducts = [];
+        let globalQAs = [];
+        let currentDetailProductId = '';
+        let localReviews = {};
+
+        // Headers mặc định cho tất cả các kết nối (bao gồm ngrok bypass)
+        const fetchHeaders = {
+            'ngrok-skip-browser-warning': 'true',
+            'Accept': 'application/json'
+        };
+
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.nav-links a').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-' + tabName).style.display = 'block';
+            if(document.getElementById('nav-' + tabName)) {
+                document.getElementById('nav-' + tabName).classList.add('active');
+            }
+            window.scrollTo(0,0);
+        }
+
+        window.onload = function() {
+            fetch('/api/init', { headers: fetchHeaders })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.success) {
+                        globalProducts = data.products;
+                        globalQAs = data.qa_list || [];
+                        renderProducts(data.products);
+                        renderQRButtons(data.products);
+
+                        if(window.location.hash && window.location.hash.startsWith('#detail/')) {
+                            const pid = window.location.hash.replace('#detail/', '');
+                            loadProductDetail(pid);
+                        }
+                    }
+                })
+                .catch(err => console.error("Lỗi khởi tạo ứng dụng:", err));
+        };
+
+        function renderProducts(products) {
+            let html = '';
+            products.forEach(p => {
+                html += `
+                <div class="product-card">
+                    <img src="${p.image_url}" class="product-img" alt="${p.display_name}">
+                    <div class="product-body">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
+                            <span style="font-size: 11px; font-weight: 800; background: #fff3cd; color: #856404; padding: 3px 8px; border-radius: 12px;">DEMO</span>
+                            <span style="font-size: 11px; color: #64748b;">Mã lô: <strong>${p.primary_lot_id}</strong></span>
+                        </div>
+                        <div class="product-title">${p.display_name}</div>
+                        <div class="info-row"><i class="fa-solid fa-earth-americas" style="color: #00a859;"></i> <strong>Xuất xứ:</strong> ${p.country} (${p.region})</div>
+                        <div class="info-row"><i class="fa-solid fa-truck-ramp-box"></i> <strong>Nhập khẩu:</strong> ${p.importer}</div>
+                        <a href="#" class="btn-detail" onclick="loadProductDetail('${p.product_id}')"><i class="fa-solid fa-eye"></i> Xem Hồ Sơ Sản Phẩm</a>
+                    </div>
+                </div>`;
+            });
+            document.getElementById('productGrid').innerHTML = html;
+        }
+
+        function renderQRButtons(products) {
+            let html = '';
+            products.forEach(p => {
+                html += `<button onclick="selectProductForQR('${p.product_id}')" class="suggest-btn" style="padding: 8px 16px;">${p.display_name}</button>`;
+            });
+            document.getElementById('qrQuickButtons').innerHTML = html;
+        }
+
+        function selectProductForQR(productId) {
+            fetch(`/api/product-detail/${productId}`, { headers: fetchHeaders })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.success) {
+                        const p = data.product;
+                        document.getElementById('qrProductName').innerText = p.display_name;
+                        document.getElementById('qrImageDisplay').src = `/api/generate-qr?url=${encodeURIComponent(data.qr_target_url)}`;
+                        document.getElementById('btnGoToDetail').onclick = function() { loadProductDetail(productId); };
+                        document.getElementById('qrDisplayBox').style.display = 'block';
+                    }
+                });
+        }
+
+        function loadProductDetail(productId) {
+            currentDetailProductId = productId;
+            window.location.hash = 'detail/' + productId;
+            
+            const currentIndex = globalProducts.findIndex(item => item.product_id === productId);
+            const prevProduct = currentIndex > 0 ? globalProducts[currentIndex - 1] : null;
+            const nextProduct = currentIndex < globalProducts.length - 1 ? globalProducts[currentIndex + 1] : null;
+
+            fetch(`/api/product-detail/${productId}`, { headers: fetchHeaders })
+                .then(res => res.json())
+                .then(data => {
+                    if(!data.success) return alert(data.message);
+                    
+                    const p = data.product;
+                    const lot = data.lot;
+                    const qrUrl = data.qr_target_url;
+                    const qrImgSrc = `/api/generate-qr?url=${encodeURIComponent(qrUrl)}`;
+
+                    let journeyHTML = '';
+                    data.journeys.forEach(j => {
+                        journeyHTML += `
+                        <div class="timeline-event">
+                            <strong style="color: #00a859;">${j.event_title_vi || 'Công đoạn'}</strong>
+                            <div style="font-size: 12px; color: #64748b;"><i class="fa-regular fa-clock"></i> ${j.event_date} - ${j.location || 'N/A'}</div>
+                            <div style="font-size: 12.5px; margin-top: 5px; background: #f8faf8; padding: 8px 12px; border-radius: 6px;">
+                                Chứng từ đối chiếu: ${j.supporting_document_label || 'Đã ghi nhận'}
+                            </div>
+                        </div>`;
+                    });
+
+                    let certHTML = '';
+                    data.certifications.forEach(c => {
+                        certHTML += `
+                        <div style="background: #f8faf8; padding: 12px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #e2e8f0;">
+                            <strong style="color: #008f4c; font-size: 14px;"><i class="fa-solid fa-certificate"></i> ${c.certification_name}</strong>
+                            <div style="font-size: 12px; color: #475569; margin-top: 4px;">Cấp bởi: <strong>${c.issuer || 'N/A'}</strong></div>
+                            <span style="font-size: 11px; background: #e8f5e9; color: #2e7d32; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-top: 5px; font-weight: bold;">
+                                <i class="fa-solid fa-circle-check"></i> Được bên thứ ba xác nhận
+                            </span>
+                        </div>`;
+                    });
+
+                    let ledgerHTML = '';
+                    data.ledger.forEach(l => {
+                        ledgerHTML += `
+                        <tr style="border-bottom: 1px solid #f1f5f9; font-size: 12px;">
+                            <td style="padding: 8px; font-weight: bold; color: #00a859;">#${l.ledger_record_id}</td>
+                            <td style="padding: 8px; font-family: monospace;">${l.sha256}</td>
+                        </tr>`;
+                    });
+
+                    let navButtonsHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 30px; padding-top: 18px; border-top: 2px dashed #cbd5e1;">
+                        ${prevProduct ? `
+                            <button onclick="loadProductDetail('${prevProduct.product_id}')" style="background: white; border: 1.5px solid #00a859; color: #00a859; padding: 10px 18px; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 13px;">
+                                <i class="fa-solid fa-arrow-left"></i> Lô Trước: ${prevProduct.display_name}
+                            </button>
+                        ` : '<div></div>'}
+                        
+                        ${nextProduct ? `
+                            <button onclick="loadProductDetail('${nextProduct.product_id}')" style="background: #00a859; border: none; color: white; padding: 10px 18px; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 13px;">
+                                Lô Tiếp Theo: ${nextProduct.display_name} <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        ` : '<div></div>'}
+                    </div>`;
+
+                    const reviewsForThisLot = localReviews[productId] || [
+                        { name: "Khách hàng siêu thị WinMart", rating: 5, amount: "Vừa đủ", comment: "Thông tin xem nhanh 30s rất dễ hiểu, mở bằng chứng ra có đủ số tờ khai hải quan.", date: "15/05/2026" }
+                    ];
+
+                    let reviewsHTML = '';
+                    reviewsForThisLot.forEach(r => {
+                        reviewsHTML += `
+                        <div style="padding: 12px; background: #f8faf8; border-radius: 10px; margin-bottom: 8px; border: 1px solid #edf2ed; font-size: 12.5px;">
+                            <div style="display:flex; justify-content:space-between; font-weight:bold;">
+                                <span>${r.name}</span>
+                                <span style="color:#00a859;">Lượng thông tin: ${r.amount || 'Vừa đủ'}</span>
+                            </div>
+                            <p style="margin: 4px 0 0; color: #475569;">"${r.comment}"</p>
+                        </div>`;
+                    });
+
+                    document.getElementById('detailContent').innerHTML = `
+                        <div style="background: #fff3cd; color: #856404; padding: 10px 16px; border-radius: 10px; font-size: 12.5px; font-weight: bold; margin-bottom: 20px;">
+                            <i class="fa-solid fa-triangle-exclamation"></i> DỮ LIỆU MÔ PHỎNG – CHỈ PHỤC VỤ THỬ NGHIỆM CHIẾN LƯỢC XUATXU
+                        </div>
+
+                        <!-- TẦNG 1: TRUY XUẤT NHANH 30 GIÂY -->
+                        <div class="detail-header-card">
+                            <div class="detail-img-wrapper">
+                                <img src="${p.image_url}" class="detail-img" alt="${p.display_name}">
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
+                                    <span class="badge-verify"><i class="fa-solid fa-clock"></i> Tầng 1: Xem nhanh 30s</span>
+                                    <span style="font-size: 12px; color: #64748b;">Mã lô: <strong>${lot.lot_code || lot.lot_id}</strong></span>
+                                </div>
+                                <h2 style="margin: 0 0 6px; font-size: 26px; color: #0f172a; font-weight: 800;">${p.display_name}</h2>
+                                <p style="color: #475569; font-size: 13.5px; margin: 0;">${p.description || ''}</p>
+                                
+                                <div class="detail-meta-grid">
+                                    <div class="meta-item"><label>Quốc Gia Xuất Xứ</label><span>${lot.country_of_origin || p.assumed_country_of_origin}</span></div>
+                                    <div class="meta-item"><label>Đơn Vị Công Bố</label><span>${p.importer_display || 'BioViet JSC'}</span></div>
+                                    <div class="meta-item"><label>Cập Nhật Gần Nhất</label><span>10/05/2026</span></div>
+                                    <div class="meta-item"><label>Số Tờ Khai Hải Quan</label><span>${lot.import_declaration_number || '102384759201'}</span></div>
+                                    <div class="meta-item"><label>Giấy Kiểm Dịch TV</label><span>${lot.plant_health_certificate_number || 'PHYTO-2026-OK'}</span></div>
+                                    <div class="meta-item"><label>Trạng Thái Bằng Chứng</label><span style="color:#00a859;">Có tài liệu đối chiếu</span></div>
+                                </div>
+
+                                <div style="margin-top: 18px;">
+                                    <button onclick="toggleLayer2()" id="btnToggleLayer2" style="background: #00a859; color: white; border: none; padding: 12px 24px; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
+                                        <i class="fa-solid fa-folder-open"></i> <span id="layer2BtnText">Xem bằng chứng chi tiết & Lịch sử hành trình</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TẦNG 2: XEM BẰNG CHỨNG CHI TIẾT -->
+                        <div id="layer2Container" style="display: none; margin-top: 25px;">
+                            <div class="detail-layout-2col">
+                                <div>
+                                    <div class="detail-card">
+                                        <h3><i class="fa-solid fa-route" style="color: #00a859;"></i> Hành Trình & Nhật Ký Vận Chuyển Chi Tiết</h3>
+                                        <div class="timeline">${journeyHTML}</div>
+                                    </div>
+
+                                    <div class="detail-card">
+                                        <h3>
+                                            <i class="fa-solid fa-link" style="color: #00a859;"></i> Sổ Cái Khối Hash SHA-256 
+                                            <span style="font-size: 11px; font-weight: normal; color: #64748b; margin-left: auto;">(?) Hash giúp phát hiện dữ liệu bị sửa đổi</span>
+                                        </h3>
+                                        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                                            <thead><tr style="background:#f8faf8; text-align:left; font-size:11px;"><th>BLOCK ID</th><th>SHA-256 HASH KHỐI</th></tr></thead>
+                                            <tbody>${ledgerHTML}</tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="detail-card">
+                                        <h3><i class="fa-solid fa-comments" style="color: #00a859;"></i> Đánh Giá Của Người Dùng Về Hồ Sơ Này</h3>
+                                        <div style="margin-top: 12px;">${reviewsHTML}</div>
+
+                                        <div style="background: #f8faf8; padding: 16px; border-radius: 12px; margin-top: 15px; border: 1px solid #e2e8f0;">
+                                            <h4 style="margin: 0 0 10px; font-size: 14px; color: #1e293b;">Gửi Phản Hồi Về Trải Nghiệm Thông Tin:</h4>
+                                            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                                <input type="text" id="reviewerName" placeholder="Tên của bạn..." style="flex:1; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 12.5px;">
+                                                <select id="reviewAmount" style="padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 12.5px; font-weight: bold;">
+                                                    <option value="Vừa đủ">Lượng thông tin: Vừa đủ</option>
+                                                    <option value="Quá ít">Lượng thông tin: Quá ít</option>
+                                                    <option value="Quá nhiều">Lượng thông tin: Quá nhiều</option>
+                                                </select>
+                                            </div>
+                                            <textarea id="reviewComment" rows="2" placeholder="Góp ý về độ dễ tìm thông tin hoặc đối chiếu bằng chứng..." style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 12.5px;"></textarea>
+                                            <button onclick="submitReview('${productId}')" style="background: #00a859; color: white; border: none; padding: 8px 18px; border-radius: 18px; font-weight: bold; cursor: pointer; font-size: 12.5px; margin-top: 8px;">Gửi Phản Hồi</button>
+                                        </div>
+                                    </div>
+
+                                    ${navButtonsHTML}
+                                </div>
+
+                                <div class="sidebar-sticky">
+                                    <div class="qr-card-sidebar">
+                                        <h4 style="margin: 0; font-size: 15px;"><i class="fa-solid fa-qrcode"></i> Mã QR Lô Hàng</h4>
+                                        <img src="${qrImgSrc}" class="qr-code-img" alt="QR Code">
+                                        <div style="font-size: 10px; opacity: 0.8; word-break: break-all;">${qrUrl}</div>
+                                    </div>
+
+                                    <div class="detail-card">
+                                        <h3><i class="fa-solid fa-award" style="color: #00a859;"></i> Chứng Nhận Chất Lượng</h3>
+                                        <div style="margin-top: 10px;">${certHTML}</div>
+                                    </div>
+
+                                    <!-- KHỐI CHAT TRỢ LÝ AI TRONG CHI TIẾT LÔ HÀNG -->
+                                    <div class="ai-sidebar-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 20px; box-shadow: var(--shadow-sm); margin-top: 20px;">
+                                        <h3 style="margin-top:0; color:#008f4c; font-size: 16px; font-weight: 800; display:flex; align-items:center; gap:8px;">
+                                            <i class="fa-solid fa-robot"></i> Trợ Lý AI Về Lô Hàng
+                                        </h3>
+                                        <p style="font-size:12px; color:#64748b; margin-bottom: 12px;">Hỏi AI bất kỳ điều gì hoặc gõ từ khóa về lô hàng ${p.display_name}:</p>
+                                        
+                                        <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;">
+                                            <button class="suggest-btn" onclick="askInlineSuggest('Sản phẩm này từ đâu?')">Xuất xứ từ đâu?</button>
+                                            <button class="suggest-btn" onclick="askInlineSuggest('Thông tin nào đã có bằng chứng?')">Thông tin bằng chứng?</button>
+                                            <button class="suggest-btn" onclick="askInlineSuggest('Lô hàng có chứng nhận kiểm dịch chưa?')">Kiểm dịch chưa?</button>
+                                        </div>
+
+                                        <div class="chat-history-sidebar" id="chatHistoryInline" style="height: 200px; overflow-y: auto; background: #f8faf8; padding: 12px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 12px; font-size: 12.5px;">
+                                            <div class="chat-msg ai" style="background: #e8f5e9; color: #1b5e20; padding: 8px 12px; border-radius: 10px; margin-bottom: 8px; border-left: 3px solid #00a859;">
+                                                Xin chào! Tôi là Trợ lý AI. Bạn có thể gõ câu hỏi hoặc từ khóa về nguồn gốc, kiểm dịch, chứng nhận của lô hàng ${p.display_name} này.
+                                            </div>
+                                        </div>
+
+                                        <div style="display:flex; gap:8px;">
+                                            <input type="text" id="aiInputInline" style="flex:1; padding:10px 12px; border:1px solid #cbd5e1; border-radius:10px; font-size:12.5px;" placeholder="Nhập câu hỏi hoặc từ khóa..." onkeypress="if(event.key==='Enter') sendInlineAIMessage()">
+                                            <button onclick="sendInlineAIMessage()" style="background:#00a859; color:white; border:none; padding:0 16px; border-radius:10px; font-weight:bold; cursor:pointer; font-size:12.5px;">Hỏi AI</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    showTab('detail');
+                });
+        }
+
+        function toggleLayer2() {
+            const container = document.getElementById('layer2Container');
+            const btnText = document.getElementById('layer2BtnText');
+            if(container.style.display === 'none') {
+                container.style.display = 'block';
+                btnText.innerText = 'Thu gọn bằng chứng chi tiết';
+            } else {
+                container.style.display = 'none';
+                btnText.innerText = 'Xem bằng chứng chi tiết & Lịch sử hành trình';
+            }
+        }
+
+        function submitReview(productId) {
+            const name = document.getElementById('reviewerName').value.trim() || 'Người dùng';
+            const amount = document.getElementById('reviewAmount').value;
+            const comment = document.getElementById('reviewComment').value.trim();
+
+            if(!comment) return alert('Vui lòng nhập nội dung góp ý!');
+
+            if(!localReviews[productId]) localReviews[productId] = [];
+            localReviews[productId].unshift({ name: name, amount: amount, comment: comment });
+
+            alert('Cảm ơn bạn đã đóng góp ý kiến về lượng thông tin!');
+            loadProductDetail(productId);
+            toggleLayer2();
+        }
+
+        function askInlineSuggest(text) {
+            document.getElementById('aiInputInline').value = text;
+            sendInlineAIMessage();
+        }
+
+        function sendInlineAIMessage() {
+            const input = document.getElementById('aiInputInline');
+            const q = input.value.trim();
+            if(!q) return;
+
+            const history = document.getElementById('chatHistoryInline');
+            history.innerHTML += `<div class="chat-msg user" style="background: #00a859; color: white; padding: 8px 12px; border-radius: 10px; margin-bottom: 8px; margin-left: 20px; text-align: right;">${q}</div>`;
+            input.value = '';
+            history.scrollTop = history.scrollHeight;
+
+            fetch('/api/ai-ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'ngrok-skip-browser-warning': 'true'
+                },
+                body: JSON.stringify({question: q, product_id: currentDetailProductId})
+            })
+            .then(res => res.json())
+            .then(data => {
+                history.innerHTML += `<div class="chat-msg ai" style="background: #e8f5e9; color: #1b5e20; padding: 8px 12px; border-radius: 10px; margin-bottom: 8px; border-left: 3px solid #00a859;">${data.answer}</div>`;
+                history.scrollTop = history.scrollHeight;
+            });
+        }
+
+        function askGlobalSuggest(text) {
+            document.getElementById('aiInput').value = text;
+            sendGlobalAIMessage();
+        }
+
+        function sendGlobalAIMessage() {
+            const input = document.getElementById('aiInput');
+            const q = input.value.trim();
+            if(!q) return;
+
+            const history = document.getElementById('chatHistory');
+            history.innerHTML += `<div class="chat-msg user">${q}</div>`;
+            input.value = '';
+            history.scrollTop = history.scrollHeight;
+
+            fetch('/api/ai-ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'ngrok-skip-browser-warning': 'true'
+                },
+                body: JSON.stringify({question: q})
+            })
+            .then(res => res.json())
+            .then(data => {
+                history.innerHTML += `<div class="chat-msg ai">${data.answer}</div>`;
+                history.scrollTop = history.scrollHeight;
+            });
+        }
+
+        function searchProduct() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            if(!query) return renderProducts(globalProducts);
+
+            const filtered = globalProducts.filter(p => 
+                p.display_name.toLowerCase().includes(query) || 
+                p.product_id.toLowerCase().includes(query) ||
+                p.primary_lot_id.toLowerCase().includes(query)
+            );
+            renderProducts(filtered);
+        }
+    </script>
+</body>
+</html>

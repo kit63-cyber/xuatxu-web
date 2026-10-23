@@ -1,0 +1,11 @@
+﻿actor_id,product_id,role,name,region,country,note,verification_level
+AC-E-01,P-ENVY-USA-01,grower,VƯỜN TÁO GIẢ LẬP – WASHINGTON,Washington,Hoa Kỳ,KHÔNG PHẢI VƯỜN TÁO CỤ THỂ CỦA ENVY,SYNTHETIC
+AC-E-02,P-ENVY-USA-01,packer,ĐƠN VỊ ĐÓNG GÓI GIẢ LẬP – WA,Washington,Hoa Kỳ,KHÔNG XÁC NHẬN ĐƠN VỊ ĐÓNG GÓI,SYNTHETIC
+AC-E-03,P-ENVY-USA-01,exporter,NHÀ XUẤT KHẨU GIẢ LẬP – US,Seattle area,Hoa Kỳ,KHÔNG XÁC NHẬN NHÀ XUẤT KHẨU,SYNTHETIC
+AC-E-04,P-ENVY-USA-01,importer,NHÀ NHẬP KHẨU GIẢ LẬP – VN,TP. Hồ Chí Minh,Việt Nam,KHÔNG XÁC NHẬN NHÀ NHẬP KHẨU,SYNTHETIC
+AC-E-05,P-ENVY-USA-01,retailer,SIÊU THỊ MÔ PHỎNG – VN,TP. Hồ Chí Minh,Việt Nam,KHÔNG GẮN VỚI SIÊU THỊ THẬT,SYNTHETIC
+AC-Z-01,P-ZESPRI-NZ-01,grower,VƯỜN KIWI GIẢ LẬP – BAY OF PLENTY,Bay of Plenty,New Zealand,KHÔNG PHẢI VƯỜN CỦA ZESPRI ĐƯỢC XÁC NHẬN,SYNTHETIC
+AC-Z-02,P-ZESPRI-NZ-01,packer,CƠ SỞ ĐÓNG GÓI GIẢ LẬP – NZ,Bay of Plenty,New Zealand,KHÔNG XÁC NHẬN CƠ SỞ ĐÓNG GÓI,SYNTHETIC
+AC-Z-03,P-ZESPRI-NZ-01,exporter,ĐƠN VỊ XUẤT KHẨU GIẢ LẬP – NZ,Tauranga,New Zealand,KHÔNG XÁC NHẬN ĐỐI TÁC CỦA ZESPRI,SYNTHETIC
+AC-Z-04,P-ZESPRI-NZ-01,importer,NHÀ NHẬP KHẨU GIẢ LẬP – VN,TP. Hồ Chí Minh,Việt Nam,KHÔNG XÁC NHẬN NHÀ NHẬP KHẨU,SYNTHETIC
+AC-Z-05,P-ZESPRI-NZ-01,retailer,SIÊU THỊ MÔ PHỎNG – VN,TP. Hồ Chí Minh,Việt Nam,KHÔNG GẮN VỚI SIÊU THỊ THẬT,SYNTHETIC

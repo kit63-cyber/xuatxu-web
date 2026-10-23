@@ -1,0 +1,4 @@
+﻿cert_id,product_id,certification_name,issuer,certificate_number,valid_from,valid_to,link,scope,status,note
+CERT-E-01,P-ENVY-USA-01,Không có chứng nhận cấp lô trong bộ demo,,,,,,LO_HANG,CHUA_CO_BANG_CHUNG,Không sinh số chứng nhận giả
+CERT-Z-01,P-ZESPRI-NZ-01,GLOBALG.A.P. – chính sách nhà trồng xuất khẩu của Zespri,GLOBALG.A.P. (tên chuẩn; KHÔNG có chứng nhận cho lô DEMO),,,,https://www.zespri.com/en-NZ/zespri-system-assurance-program,CHINH_SACH_CHUNG,CHUA_XAC_MINH_LO,Không được thể hiện “lô này đã được chứng nhận”; cần mã nhà trồng và giấy còn hiệu lực thực tế
+CERT-Z-02,P-ZESPRI-NZ-01,Organic,,,,,,LO_HANG,KHONG_CO_BANG_CHUNG,Dòng SunGold trong kịch bản không được giả định là Organic SunGold

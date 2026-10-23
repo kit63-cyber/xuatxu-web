@@ -1,0 +1,9 @@
+﻿qa_id,product_id,user_question,recommended_answer,source_policy,demo_only
+QA-E-01,P-ENVY-USA-01,Táo này có chắc chắn xuất xứ Mỹ không?,"Chưa thể xác nhận lô hàng thật. Đây là bộ dữ liệu mô phỏng giả định xuất xứ Mỹ. Cần nhãn gốc, nhãn phụ và chứng từ lô thực tế.",ANSWER_WITH_EVIDENCE_AND_LIMITS,True
+QA-E-02,P-ENVY-USA-01,Táo ENVY có được trồng ở Washington không?,"Có vùng trồng ENVY được thương hiệu giới thiệu tại Washington, nhưng điều này không xác nhận vườn trồng của lô DEMO. Xem nguồn ENVY chính thức.",ANSWER_WITH_EVIDENCE_AND_LIMITS,True
+QA-E-03,P-ENVY-USA-01,Táo này có được chứng nhận bền vững không?,Chưa đủ bằng chứng cho lô DEMO để xác nhận chứng nhận bền vững. Cần chứng chỉ còn hiệu lực và phạm vi áp dụng rõ ràng.,ANSWER_WITH_EVIDENCE_AND_LIMITS,True
+QA-E-04,P-ENVY-USA-01,XuatXu đã dùng blockchain thật chưa?,Chưa. Bộ thử nghiệm hiện tạo chuỗi hash SHA-256 cục bộ để kiểm tra tính toàn vẹn; không có giao dịch on-chain.,ANSWER_WITH_EVIDENCE_AND_LIMITS,True
+QA-Z-01,P-ZESPRI-NZ-01,Kiwi SunGold này có chắc chắn từ New Zealand không?,Chưa thể xác nhận lô thật. Xuất xứ New Zealand ở đây là kịch bản DEMO; Zespri còn có nhà trồng ở các quốc gia khác.,ANSWER_WITH_EVIDENCE_AND_LIMITS,True
+QA-Z-02,P-ZESPRI-NZ-01,Kiwi này có chứng nhận GLOBALG.A.P. không?,"Zespri công bố chương trình GAP yêu cầu GLOBALG.A.P. đối với nhà trồng xuất khẩu, nhưng chưa có chứng nhận gắn với lô DEMO.",ANSWER_WITH_EVIDENCE_AND_LIMITS,True
+QA-Z-03,P-ZESPRI-NZ-01,Có thể truy xuất lô kiwi đến trang trại thật không?,Zespri công bố có khả năng truy xuất mỗi thùng về nơi trồng và đóng gói. Bộ demo chưa có mã thùng/vườn thật nên chưa thể kiểm tra lô cụ thể.,ANSWER_WITH_EVIDENCE_AND_LIMITS,True
+QA-Z-04,P-ZESPRI-NZ-01,Kiwi này hữu cơ và chắc chắn không tẩy xanh phải không?,"Không thể kết luận như vậy. Bộ DEMO không có chứng nhận hữu cơ của lô, cũng không đủ bằng chứng để đánh giá một kết luận tẩy xanh.",ANSWER_WITH_EVIDENCE_AND_LIMITS,True

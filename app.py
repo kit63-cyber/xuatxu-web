@@ -78,7 +78,7 @@ def api_init():
             if 'ZESPRI' in brand_upper or 'KIWI' in name_upper:
                 img = 'https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?w=600&q=80' # thay link ảnh chổ này
             elif 'ENVY' in brand_upper or 'TÁO' in name_upper or 'APPLE' in name_upper:
-                img = 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=600&q=80' # thay link ảnh chổ này
+                img = 'https://channel.mediacdn.vn/2021/12/27/photo-1-1640612761891881927643.jpg' # thay link ảnh chổ này
             else:
                 img = 'https://images.unsplash.com/photo-1588347818036-558601350947?w=600&q=80' # thay link ảnh chổ này
 
@@ -125,7 +125,7 @@ def api_product_detail(product_id):
         if 'ZESPRI' in brand_upper or 'KIWI' in name_upper:
             img = 'https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?w=600&q=80' # thay link ảnh chổ này
         elif 'ENVY' in brand_upper or 'TÁO' in name_upper or 'APPLE' in name_upper:
-            img = 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=600&q=80' # thay link ảnh chổ này
+            img = 'https://channel.mediacdn.vn/2021/12/27/photo-1-1640612761891881927643.jpg' # thay link ảnh chổ này
         else:
             img = 'https://images.unsplash.com/photo-1588347818036-558601350947?w=600&q=80' # thay link ảnh chổ này
     

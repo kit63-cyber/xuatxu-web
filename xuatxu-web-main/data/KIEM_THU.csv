@@ -1,0 +1,17 @@
+test_id,scenario,expected_result,applies_to,initial_status,tested_actual,owner
+T01,Mở hồ sơ ENVY bằng đường dẫn HTTPS,"Hiển thị túi ENVY tại VICHI, không tạo số lô",P-ENVY-VICHI-01,NOT_EXECUTED,PASS (25/10/2026) - Hồ sơ mở đúng qua HTTPS không số lô giả,SV phụ trách website / nhóm nghiên cứu
+T02,Mở hồ sơ Zespri qua QR HTTPS,"Đúng hộp 4 quả, không gộp Organic",P-ZESPRI-VICHI-01,NOT_EXECUTED,PASS (25/10/2026) - Mở đúng hộp 4 quả không nhầm Organic,SV phụ trách website / nhóm nghiên cứu
+T03,Ảnh sản phẩm từ static/images,"Tải được ảnh VICHI thật, có chú thích",ALL,NOT_EXECUTED,PASS (25/10/2026) - Tải đủ 2 ảnh chính VICHI thật,SV phụ trách website / nhóm nghiên cứu
+T04,Hiển thị nguồn ENVY,T&G/ENVY có URL công khai; không gán xuất xứ Mỹ cho lô,P-ENVY-VICHI-01,NOT_EXECUTED,PASS (25/10/2026) - Có link ENVY công khai không gán xuất xứ Mỹ,SV phụ trách website / nhóm nghiên cứu
+T05,Hiển thị nguồn Zespri,"Có link Zespri System Assurance, không gán chứng chỉ cấp lô",P-ZESPRI-VICHI-01,NOT_EXECUTED,PASS (25/10/2026) - Có link Zespri System Assurance không gán lô,SV phụ trách website / nhóm nghiên cứu
+T06,Trạng thái chứng từ trống,Không tự điền số tờ khai hoặc kiểm dịch,ALL,NOT_EXECUTED,PASS (25/10/2026) - Không tự điền số tờ khai/kiểm dịch,SV phụ trách website / nhóm nghiên cứu
+T07,Phân biệt SKU kiwi Organic 3 quả và thường 4 quả,Không gắn nhãn Organic cho hộp 4 quả,P-ZESPRI-VICHI-01,NOT_EXECUTED,PASS (25/10/2026) - Phân biệt rõ ràng 2 SKU không gắn nhãn Organic,SV phụ trách website / nhóm nghiên cứu
+T08,Phân biệt mã SP bán lẻ với mã lô,SP12345950 không hiển thị là lot_id,P-ZESPRI-VICHI-01,NOT_EXECUTED,PASS (25/10/2026) - SP12345950 hiển thị mã bán lẻ không phải mã lô,SV phụ trách website / nhóm nghiên cứu
+T09,Thông tin táo bán rời không bị gán vào túi 1 kg,205.000 VND/kg chỉ ở biến thể bán rời,P-ENVY-VICHI-01,NOT_EXECUTED,PASS (25/10/2026) - Giá 205k chỉ ở biến thể rời còn túi 1kg là 185k,SV phụ trách website / nhóm nghiên cứu
+T10,Dữ liệu tình huống mô phỏng,"Hành trình demo hiển thị chế độ DEMO riêng, không dưới hồ sơ thật",ALL,NOT_EXECUTED,PASS (25/10/2026) - Mô phỏng kỹ thuật tách riêng tab riêng biệt,SV phụ trách website / nhóm nghiên cứu
+T11,Giải thích kiểm dịch,"Nêu chưa có bằng chứng theo lô, không kết luận có",P-ZESPRI-VICHI-01,NOT_EXECUTED,PASS (25/10/2026) - Trợ lý nêu rõ chưa có kiểm dịch theo lô,SV phụ trách website / nhóm nghiên cứu
+T12,Giải thích xuất xứ ENVY,Không khẳng định Mỹ nếu ảnh túi không ghi đủ,P-ENVY-VICHI-01,NOT_EXECUTED,PASS (25/10/2026) - Trợ lý không khẳng định xuất xứ Mỹ cho túi ENVY,SV phụ trách website / nhóm nghiên cứu
+T13,Không có phản hồi khách giả,Không hiển thị bình luận / lượt quét demo như người thật,ALL,NOT_EXECUTED,PASS (25/10/2026) - Đã xóa bình luận WinMart và lượt quét demo,SV phụ trách website / nhóm nghiên cứu
+T14,Bảo mật và cấu hình Render,Không bật debug trên máy chủ thật; HTTPS hoạt động,ALL,NOT_EXECUTED,PASS (25/10/2026) - Debug=False và endpoint QR an toàn HTTPS,SV phụ trách website / nhóm nghiên cứu
+T15,Hồ sơ kỹ thuật trống không crash,Không có event và ledger live vẫn mở trang,ALL,NOT_EXECUTED,PASS (25/10/2026) - Dữ liệu rỗng mở bình thường không phát sinh lỗi,SV phụ trách website / nhóm nghiên cứu
+T16,Hiển thị giới hạn xác minh,Trạng thái thông tin tại điểm bán khác chứng từ lô,ALL,NOT_EXECUTED,PASS (25/10/2026) - Hộp giới hạn xác minh hiển thị đầy đủ trên cả 2 hồ sơ,SV phụ trách website / nhóm nghiên cứu

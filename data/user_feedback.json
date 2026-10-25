@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1792958406355,
+    "name": "kit",
+    "product_id": "P-ZESPRI-VICHI-01",
+    "amount": "Rõ ràng",
+    "comment": "rõ ràng",
+    "created_at": "26/10/2026 03:00"
+  },
+  {
+    "id": 1792951368282,
+    "name": "kit",
+    "product_id": "P-ZESPRI-VICHI-01",
+    "amount": "Cần giải thích thêm",
+    "comment": "hiểu mơ hồ",
+    "created_at": "26/10/2026 01:02"
+  },
+  {
+    "id": 1792941054439,
+    "name": "Khách tham quan",
+    "product_id": "P-ENVY-VICHI-01",
+    "amount": "Vừa đủ",
+    "comment": "Thử nghiệm phản hồi người dùng",
+    "created_at": "25/10/2026 22:10"
+  },
+  {
+    "id": 1792938484800,
+    "name": "Khách tham quan",
+    "product_id": "P-ENVY-VICHI-01",
+    "amount": "Vừa đủ",
+    "comment": "Thử nghiệm phản hồi người dùng",
+    "created_at": "25/10/2026 21:28"
+  },
+  {
+    "id": 1792938423479,
+    "name": "Khách tham quan",
+    "product_id": "P-ENVY-VICHI-01",
+    "amount": "Vừa đủ",
+    "comment": "Thử nghiệm phản hồi người dùng",
+    "created_at": "25/10/2026 21:27"
+  },
+  {
+    "id": 1792906059691,
+    "name": "Huyền",
+    "product_id": "P-ENVY-VICHI-01",
+    "amount": "Vừa đủ",
+    "comment": "thông tin đầy đủ",
+    "created_at": "25/10/2026 12:27"
+  },
+  {
+    "id": 1792865171283,
+    "name": "Giám khảo NCKH",
+    "product_id": "",
+    "amount": "Vừa đủ",
+    "comment": "Giao diện phân lớp rất tốt, công khai giới hạn xác minh minh bạch.",
+    "created_at": "25/10/2026 01:06"
+  }
+]

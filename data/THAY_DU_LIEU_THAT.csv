@@ -1,11 +1,11 @@
 ﻿item_id,requirement,priority,owner,status
-R01,"Ảnh nhãn gốc, nhãn phụ tiếng Việt, mã QR thật",Bắt buộc,Doanh nghiệp/nhóm SV,CHUA_CO
-R02,Mã lô/GTIN và đối chiếu định danh đúng sản phẩm,Bắt buộc,Doanh nghiệp/nhóm SV,CHUA_CO
-R03,"Hồ sơ xuất xứ theo lô: đóng gói, nhà trồng/nhà xuất khẩu",Bắt buộc nếu tuyên bố truy xuất lô,Doanh nghiệp cung cấp được phép,CHUA_CO
-R04,Hồ sơ nhà nhập khẩu và thông tin phân phối phù hợp,Bắt buộc nếu công bố đơn vị nhập khẩu,Doanh nghiệp cung cấp được phép,CHUA_CO
-R05,Giấy/chứng nhận thật có ngày hết hạn và phạm vi lô,Chỉ khi công bố chứng nhận,Chủ thể có quyền sử dụng,CHUA_CO
-R06,Tài liệu hỗ trợ từng tuyên bố bền vững,Chỉ khi có tuyên bố,Doanh nghiệp/nhóm kiểm tra,CHUA_CO
-R07,"Quyền sử dụng ảnh/chứng từ, bảo vệ dữ liệu cá nhân",Bắt buộc,Doanh nghiệp và nhóm SV,CHUA_CO
-R08,TX hash on-chain + block explorer (nếu quảng bá blockchain thực),Bắt buộc nếu nói đã xác minh trên blockchain,Nhóm phát triển,CHUA_CO
-R09,"Mã QR URL đang chạy, HTTPS và cập nhật nội dung thực tế",Bắt buộc khi trình diễn công khai,Nhóm phát triển,CHUA_CO
-R10,Dữ liệu quét QR/feedback khách hàng thật với đồng ý phù hợp,Chỉ khi đưa vào báo cáo thử nghiệm thực tế,Nhóm SV,CHUA_CO
+R01,Ảnh sản phẩm hai SKU chính và nhãn giá,P0,Nhóm nghiên cứu,CO_ANH_NHUNG_CAN_XAC_MINH_QUYEN_CONG_BO
+R02,Mã lô thật / mã thùng gốc,P1_IF_CLAIM_LOT,VICHI / nhà cung cấp,CHUA_CO
+R03,Hóa đơn/phiếu nhập liên kết mã lô với VICHI,P1_IF_CLAIM_LOT,VICHI / nhà cung cấp,CHUA_CO
+R04,Tờ khai nhập khẩu và kiểm dịch đúng lô,P1_IF_CLAIM_LOT,Nhà nhập khẩu,CHUA_CO
+R05,Chứng nhận môi trường áp dụng đúng cơ sở/lô,P1_IF_CLAIM,Chủ thể có chứng nhận,CHUA_CO
+R06,Hai hồ sơ hiển thị bằng chứng có nguồn,P0,SV phụ trách website,CHUA_TEST
+R07,QR HTTPS của 2 hồ sơ sản phẩm,P0,SV phụ trách website,CHUA_TEST
+R08,Bộ câu hỏi giải thích có nguồn và giới hạn,P0,Nhóm XuatXu,DA_CHUAN_BI_DU_LIEU_CAN_KIEM_THU
+R09,Tách mô phỏng kỹ thuật và dữ liệu tại VICHI,P0,SV phụ trách website,CHUA_TEST
+R10,Phản hồi người dùng thật được sự đồng ý,P1,Nhóm khảo sát,CHUA_CO

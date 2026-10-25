@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Nền tròn xanh lá -->
+  <circle cx="100" cy="100" r="100" fill="#00a859"/>
+  
+  <!-- Lá cây lớn (biểu tượng nông sản) -->
+  <path d="M100 30 C60 50, 35 90, 50 140 C65 175, 100 180, 100 180 C100 180, 135 175, 150 140 C165 90, 140 50, 100 30Z" fill="white" opacity="0.95"/>
+  
+  <!-- Gân lá giữa -->
+  <line x1="100" y1="40" x2="100" y2="175" stroke="#00a859" stroke-width="3.5" stroke-linecap="round"/>
+  
+  <!-- Gân lá trái -->
+  <path d="M100 80 Q78 90 65 100" stroke="#00a859" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M100 105 Q75 115 60 125" stroke="#00a859" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M100 130 Q80 140 70 148" stroke="#00a859" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Gân lá phải -->
+  <path d="M100 80 Q122 90 135 100" stroke="#00a859" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M100 105 Q125 115 140 125" stroke="#00a859" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M100 130 Q120 140 130 148" stroke="#00a859" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Dấu tích xác nhận nhỏ ở góc dưới phải -->
+  <circle cx="152" cy="152" r="22" fill="#0f172a"/>
+  <polyline points="142,152 149,160 163,145" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

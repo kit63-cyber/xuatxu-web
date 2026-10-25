@@ -1,11 +1,7 @@
 ﻿actor_id,product_id,role,name,region,country,note,verification_level
-AC-E-01,P-ENVY-USA-01,grower,VƯỜN TÁO GIẢ LẬP – WASHINGTON,Washington,Hoa Kỳ,KHÔNG PHẢI VƯỜN TÁO CỤ THỂ CỦA ENVY,SYNTHETIC
-AC-E-02,P-ENVY-USA-01,packer,ĐƠN VỊ ĐÓNG GÓI GIẢ LẬP – WA,Washington,Hoa Kỳ,KHÔNG XÁC NHẬN ĐƠN VỊ ĐÓNG GÓI,SYNTHETIC
-AC-E-03,P-ENVY-USA-01,exporter,NHÀ XUẤT KHẨU GIẢ LẬP – US,Seattle area,Hoa Kỳ,KHÔNG XÁC NHẬN NHÀ XUẤT KHẨU,SYNTHETIC
-AC-E-04,P-ENVY-USA-01,importer,NHÀ NHẬP KHẨU GIẢ LẬP – VN,TP. Hồ Chí Minh,Việt Nam,KHÔNG XÁC NHẬN NHÀ NHẬP KHẨU,SYNTHETIC
-AC-E-05,P-ENVY-USA-01,retailer,SIÊU THỊ MÔ PHỎNG – VN,TP. Hồ Chí Minh,Việt Nam,KHÔNG GẮN VỚI SIÊU THỊ THẬT,SYNTHETIC
-AC-Z-01,P-ZESPRI-NZ-01,grower,VƯỜN KIWI GIẢ LẬP – BAY OF PLENTY,Bay of Plenty,New Zealand,KHÔNG PHẢI VƯỜN CỦA ZESPRI ĐƯỢC XÁC NHẬN,SYNTHETIC
-AC-Z-02,P-ZESPRI-NZ-01,packer,CƠ SỞ ĐÓNG GÓI GIẢ LẬP – NZ,Bay of Plenty,New Zealand,KHÔNG XÁC NHẬN CƠ SỞ ĐÓNG GÓI,SYNTHETIC
-AC-Z-03,P-ZESPRI-NZ-01,exporter,ĐƠN VỊ XUẤT KHẨU GIẢ LẬP – NZ,Tauranga,New Zealand,KHÔNG XÁC NHẬN ĐỐI TÁC CỦA ZESPRI,SYNTHETIC
-AC-Z-04,P-ZESPRI-NZ-01,importer,NHÀ NHẬP KHẨU GIẢ LẬP – VN,TP. Hồ Chí Minh,Việt Nam,KHÔNG XÁC NHẬN NHÀ NHẬP KHẨU,SYNTHETIC
-AC-Z-05,P-ZESPRI-NZ-01,retailer,SIÊU THỊ MÔ PHỎNG – VN,TP. Hồ Chí Minh,Việt Nam,KHÔNG GẮN VỚI SIÊU THỊ THẬT,SYNTHETIC
+ACT-E-01,P-ENVY-VICHI-01,brand_owner,T&G Group / ENVY,,,Thương hiệu; không suy ra đây là nhà trồng/đơn vị xuất khẩu của lô VICHI,BRAND_CONTEXT
+ACT-E-02,P-ENVY-VICHI-01,labelled_importer,Công ty TNHH T&G Global Việt Nam,,Việt Nam,Tên xuất hiện trên bao bì ENVY trong ảnh; chưa đối chiếu giấy tờ lô.,LABEL_OBSERVED_ONLY
+ACT-E-03,P-ENVY-VICHI-01,labelled_packaging_distribution,TONY FRUIT,,Việt Nam,Tên trên tem đóng gói/phân phối; chưa xác minh chuỗi giao nhận.,LABEL_OBSERVED_ONLY
+ACT-E-04,P-ENVY-VICHI-01,retail_context,VICHI MARKET,Đà Nẵng,Việt Nam,Ảnh sản phẩm do nhóm cung cấp.,RETAIL_OBSERVATION
+ACT-Z-01,P-ZESPRI-VICHI-01,brand,Zespri,,New Zealand,"Nguồn thương hiệu, không phải chứng từ cho hộp 4 quả tại VICHI.",BRAND_CONTEXT
+ACT-Z-02,P-ZESPRI-VICHI-01,retail_context,VICHI MARKET,Đà Nẵng,Việt Nam,Ảnh sản phẩm do nhóm cung cấp.,RETAIL_OBSERVATION

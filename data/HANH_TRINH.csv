@@ -1,15 +1,1 @@
 ﻿event_id,lot_id,event_date,event_type,event_title_vi,actor_id,location,supporting_document_label,event_source,verification_level
-EV-E-01,L-ENVY-US-2026-DEMO,2026-09-16,Harvest,Thu hoạch tại vùng trồng giả lập,AC-E-01,"Washington, Hoa Kỳ",LOG THU HOẠCH DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-E-02,L-ENVY-US-2026-DEMO,2026-09-18,Packing,Phân loại và đóng gói giả lập,AC-E-02,"Washington, Hoa Kỳ",PHIẾU ĐÓNG GÓI DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-E-03,L-ENVY-US-2026-DEMO,2026-09-20,Cold Storage,Bảo quản mát trước vận tải giả lập,AC-E-02,"Washington, Hoa Kỳ",NHẬT KÝ KHO DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-E-04,L-ENVY-US-2026-DEMO,2026-09-22,Export,Xuất hàng từ cảng khu vực Seattle – tuyến giả lập,AC-E-03,"Seattle, Hoa Kỳ",VẬN ĐƠN DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-E-05,L-ENVY-US-2026-DEMO,2026-10-11,Import Arrival,Đến cảng Việt Nam – tuyến giả lập,AC-E-04,"TP. Hồ Chí Minh, Việt Nam",LỆNH GIAO HÀNG DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-E-06,L-ENVY-US-2026-DEMO,2026-10-13,Customs/Cold Chain,Giả lập thông quan và chuyển kho lạnh,AC-E-04,"TP. Hồ Chí Minh, Việt Nam",PHIẾU KHO DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-E-07,L-ENVY-US-2026-DEMO,2026-10-17,Retail,Giả lập đưa lên quầy siêu thị,AC-E-05,"TP. Hồ Chí Minh, Việt Nam",PHIẾU NHẬP QUẦY DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-Z-01,L-ZESPRI-NZ-2026-DEMO,2026-05-29,Harvest,Thu hoạch tại vùng trồng giả lập,AC-Z-01,"Bay of Plenty, New Zealand",LOG THU HOẠCH DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-Z-02,L-ZESPRI-NZ-2026-DEMO,2026-05-31,Packing,Phân loại và đóng gói giả lập,AC-Z-02,"Bay of Plenty, New Zealand",PHIẾU ĐÓNG GÓI DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-Z-03,L-ZESPRI-NZ-2026-DEMO,2026-06-01,Cold Storage,Giả lập lưu kho lạnh dài hạn,AC-Z-02,"Bay of Plenty, New Zealand","LOG KHO DEMO, CHƯA CÓ HỒ SƠ GIÁM SÁT CHẤT LƯỢNG",SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-Z-04,L-ZESPRI-NZ-2026-DEMO,2026-08-25,Export,Xuất cảng Tauranga – tuyến giả lập,AC-Z-03,"Tauranga, New Zealand",VẬN ĐƠN DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-Z-05,L-ZESPRI-NZ-2026-DEMO,2026-09-13,Import Arrival,Giả lập cập cảng Việt Nam,AC-Z-04,"TP. Hồ Chí Minh, Việt Nam",LỆNH GIAO HÀNG DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-Z-06,L-ZESPRI-NZ-2026-DEMO,2026-09-15,Customs/Cold Chain,Giả lập thông quan và bảo quản kho lạnh,AC-Z-04,"TP. Hồ Chí Minh, Việt Nam",PHIẾU KHO DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT
-EV-Z-07,L-ZESPRI-NZ-2026-DEMO,2026-10-14,Retail,Giả lập phân phối tới siêu thị,AC-Z-05,"TP. Hồ Chí Minh, Việt Nam",PHIẾU NHẬP QUẦY DEMO,SYNTHETIC,SIMULATED_NO_REAL_DOCUMENT

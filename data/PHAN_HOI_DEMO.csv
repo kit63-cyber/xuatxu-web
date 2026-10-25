@@ -1,13 +1,1 @@
 ﻿feedback_id,product_id,synthetic_user_id,submitted_at,ease_of_use_1_5,clarity_1_5,usefulness_1_5,feedback_text,consent_to_use_data,data_origin
-FB-DEMO-01,P-ENVY-USA-01,SYN-U001,2026-10-18T10:15:00+07:00,4,4,5,Tìm thấy thông tin nguồn gốc nhanh nhưng cần ảnh chứng từ.,False,SYNTHETIC_TEST_NOT_REAL_CUSTOMER
-FB-DEMO-02,P-ENVY-USA-01,SYN-U002,2026-10-19T11:15:00+07:00,5,4,4,Phân biệt rõ dữ liệu công khai với dữ liệu giả lập.,False,SYNTHETIC_TEST_NOT_REAL_CUSTOMER
-FB-DEMO-03,P-ENVY-USA-01,SYN-U003,2026-10-18T12:15:00+07:00,3,3,4,Nên giải thích chứng nhận dễ hiểu hơn.,False,SYNTHETIC_TEST_NOT_REAL_CUSTOMER
-FB-DEMO-04,P-ENVY-USA-01,SYN-U004,2026-10-19T13:15:00+07:00,4,5,4,Timeline thuận tiện khi xem trên điện thoại.,False,SYNTHETIC_TEST_NOT_REAL_CUSTOMER
-FB-DEMO-05,P-ENVY-USA-01,SYN-U005,2026-10-18T14:15:00+07:00,5,5,5,Thích phần đặt câu hỏi AI.,False,SYNTHETIC_TEST_NOT_REAL_CUSTOMER
-FB-DEMO-06,P-ENVY-USA-01,SYN-U006,2026-10-19T15:15:00+07:00,4,4,3,Muốn xem bằng chứng cụ thể theo lô.,False,SYNTHETIC_TEST_NOT_REAL_CUSTOMER
-FB-DEMO-07,P-ZESPRI-NZ-01,SYN-U007,2026-10-18T16:15:00+07:00,4,3,4,Hồ sơ dễ đọc nhưng thiếu mã vườn thật.,False,SYNTHETIC_TEST_NOT_REAL_CUSTOMER
-FB-DEMO-08,P-ZESPRI-NZ-01,SYN-U008,2026-10-19T17:15:00+07:00,3,4,4,Cần nhãn thể hiện chứng nhận cấp lô.,False,SYNTHETIC_TEST_NOT_REAL_CUSTOMER
-FB-DEMO-09,P-ZESPRI-NZ-01,SYN-U009,2026-10-18T09:15:00+07:00,5,5,5,QR truy cập nhanh.,False,SYNTHETIC_TEST_NOT_REAL_CUSTOMER
-FB-DEMO-10,P-ZESPRI-NZ-01,SYN-U010,2026-10-19T10:15:00+07:00,4,4,5,Phần AI giải thích được vì sao không xác nhận hữu cơ.,False,SYNTHETIC_TEST_NOT_REAL_CUSTOMER
-FB-DEMO-11,P-ZESPRI-NZ-01,SYN-U011,2026-10-18T11:15:00+07:00,4,4,4,Mong có ảnh nhãn phụ thật.,False,SYNTHETIC_TEST_NOT_REAL_CUSTOMER
-FB-DEMO-12,P-ZESPRI-NZ-01,SYN-U012,2026-10-19T12:15:00+07:00,5,5,4,Hiển thị nguồn tham khảo rõ ràng.,False,SYNTHETIC_TEST_NOT_REAL_CUSTOMER

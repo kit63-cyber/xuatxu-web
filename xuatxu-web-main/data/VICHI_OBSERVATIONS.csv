@@ -1,0 +1,10 @@
+﻿observation_id,product_id,variant,field,value,unit,source_id,image_file,confidence,verification_scope,note
+OBS-01,P-ENVY-VICHI-01,Táo ENVY bán rời size 30,giá ghi trên biển,205000,VND/kg,SRC-VICHI-01,01_PRODUCT_PHOTOS/original/VICHI_01_tao_roi_va_kiwi.png,CLEAR_ON_IMAGE,PRICE_AT_PHOTO_NOT_CURRENT,KHÁC biến thể với túi 1 kg; không dùng thay giá túi
+OBS-02,P-ENVY-VICHI-01,Táo ENVY túi 1 kg,giá ghi trên tem,185000,VND/túi,SRC-VICHI-03,01_PRODUCT_PHOTOS/original/VICHI_03_tao_ENVY_dong_tui.png,CLEAR_ON_IMAGE,PRICE_AT_PHOTO_NOT_CURRENT,Không phải thông tin giá hiện tại
+OBS-03,P-ENVY-VICHI-01,Táo ENVY túi 1 kg,nhà nhập khẩu ghi trên bao bì,Công ty TNHH T&G Global Việt Nam,,SRC-VICHI-03,01_PRODUCT_PHOTOS/crops/ENVY_nhan_tui.png,VISIBLE_ON_IMAGE,PACKAGING_LABEL_NOT_CUSTOMS_VERIFICATION,Không thay thế tờ khai nhập khẩu
+OBS-04,P-ENVY-VICHI-01,Táo ENVY túi 1 kg,đóng gói/phân phối thể hiện,TONY FRUIT,,SRC-VICHI-03,01_PRODUCT_PHOTOS/crops/ENVY_nhan_tui.png,VISIBLE_ON_IMAGE,PACKAGING_LABEL,Tên và vai trò pháp nhân chi tiết cần ảnh nhãn rõ hơn nếu công bố
+OBS-05,P-ZESPRI-VICHI-01,Kiwi vàng Zespri 4 quả,giá trên tem,170000,VND/hộp,SRC-VICHI-02,01_PRODUCT_PHOTOS/crops/ZESPRI_hai_dong.png,CLEAR_ON_IMAGE,PRICE_AT_PHOTO_NOT_CURRENT,Không sử dụng như giá bán theo thời gian thực
+OBS-06,P-ZESPRI-VICHI-01,Kiwi vàng Zespri 4 quả,mã bán lẻ trên tem,SP12345950,,SRC-VICHI-02,01_PRODUCT_PHOTOS/crops/ZESPRI_hai_dong.png,CLEAR_ON_IMAGE,RETAIL_SKU_NOT_LOT,Không được gọi là batch/lot number
+OBS-07,P-ZESPRI-VICHI-01,Kiwi vàng Zespri 4 quả,xuất xứ theo nhãn bán lẻ,New Zealand,,SRC-VICHI-02,01_PRODUCT_PHOTOS/crops/ZESPRI_hai_dong.png,VISIBLE_ON_IMAGE,RETAIL_LABEL_NOT_LOT_VERIFIED,Chưa có tờ khai / giấy kiểm dịch lô
+OBS-08,,Zespri Organic 3 quả (BIẾN THỂ KHÁC),giá trên tem,145000,VND/hộp,SRC-VICHI-02,01_PRODUCT_PHOTOS/crops/ZESPRI_hai_dong.png,CLEAR_ON_IMAGE,OTHER_VARIANT_ONLY,Không áp dụng nhãn organic cho hộp 4 quả
+OBS-09,,Zespri Organic 3 quả (BIẾN THỂ KHÁC),mã bán lẻ trên tem,SP10469089,,SRC-VICHI-02,01_PRODUCT_PHOTOS/crops/ZESPRI_hai_dong.png,CLEAR_ON_IMAGE,OTHER_VARIANT_RETAIL_SKU,Không phải số chứng nhận hữu cơ theo lô

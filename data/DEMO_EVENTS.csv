@@ -1,0 +1,6 @@
+﻿event_id,simulation_case_id,event_date,event_type,title,location,is_simulated,vichi_product_id
+SIM-E01,SIM-AGRI-2026-01,2026-01-10,THU_HOACH,Thu hoạch tại vùng trồng giả định,Địa điểm giả định A,True,
+SIM-E02,SIM-AGRI-2026-01,2026-01-11,DONG_GOI,Phân loại và đóng gói giả định,Cơ sở giả định B,True,
+SIM-E03,SIM-AGRI-2026-01,2026-01-15,XUAT_KHAU,Giao hàng xuất khẩu giả định,Cảng giả định C,True,
+SIM-E04,SIM-AGRI-2026-01,2026-01-21,NHAP_KHAU,Giao nhận nhập khẩu giả định,Cảng giả định D,True,
+SIM-E05,SIM-AGRI-2026-01,2026-01-23,BAN_LE,Tiếp nhận tại điểm bán giả định,Cửa hàng giả định E,True,

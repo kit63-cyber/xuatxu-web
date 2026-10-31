@@ -5,3 +5,24 @@ ACT-E-03,P-ENVY-VICHI-01,labelled_packaging_distribution,TONY FRUIT,,Việt Nam,
 ACT-E-04,P-ENVY-VICHI-01,retail_context,VICHI MARKET,Đà Nẵng,Việt Nam,Ảnh sản phẩm do nhóm cung cấp.,RETAIL_OBSERVATION
 ACT-Z-01,P-ZESPRI-VICHI-01,brand,Zespri,,New Zealand,"Nguồn thương hiệu, không phải chứng từ cho hộp 4 quả tại VICHI.",BRAND_CONTEXT
 ACT-Z-02,P-ZESPRI-VICHI-01,retail_context,VICHI MARKET,Đà Nẵng,Việt Nam,Ảnh sản phẩm do nhóm cung cấp.,RETAIL_OBSERVATION
+ACT-03-01,P-GRAPE-SIM-03,simulated_producer,Cơ sở sản xuất A (giả định),,Hàn Quốc,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-03-02,P-GRAPE-SIM-03,simulated_exporter,Nhà xuất khẩu B (giả định),,Hàn Quốc,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-03-03,P-GRAPE-SIM-03,simulated_importer,Nhà nhập khẩu C (giả định),,Việt Nam,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-04-01,P-BLUBERRY-SIM-04,simulated_producer,Cơ sở sản xuất A (giả định),,Hoa Kỳ,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-04-02,P-BLUBERRY-SIM-04,simulated_exporter,Nhà xuất khẩu B (giả định),,Hoa Kỳ,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-04-03,P-BLUBERRY-SIM-04,simulated_importer,Nhà nhập khẩu C (giả định),,Việt Nam,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-05-01,P-CHERRY-SIM-05,simulated_producer,Cơ sở sản xuất A (giả định),,Chile,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-05-02,P-CHERRY-SIM-05,simulated_exporter,Nhà xuất khẩu B (giả định),,Chile,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-05-03,P-CHERRY-SIM-05,simulated_importer,Nhà nhập khẩu C (giả định),,Việt Nam,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-06-01,P-ORANGE-SIM-06,simulated_producer,Cơ sở sản xuất A (giả định),,Ai Cập,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-06-02,P-ORANGE-SIM-06,simulated_exporter,Nhà xuất khẩu B (giả định),,Ai Cập,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-06-03,P-ORANGE-SIM-06,simulated_importer,Nhà nhập khẩu C (giả định),,Việt Nam,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-07-01,P-PEAR-SIM-07,simulated_producer,Cơ sở sản xuất A (giả định),,Hàn Quốc,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-07-02,P-PEAR-SIM-07,simulated_exporter,Nhà xuất khẩu B (giả định),,Hàn Quốc,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-07-03,P-PEAR-SIM-07,simulated_importer,Nhà nhập khẩu C (giả định),,Việt Nam,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-08-01,P-MANDARIN-SIM-08,simulated_producer,Cơ sở sản xuất A (giả định),,Úc,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-08-02,P-MANDARIN-SIM-08,simulated_exporter,Nhà xuất khẩu B (giả định),,Úc,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-08-03,P-MANDARIN-SIM-08,simulated_importer,Nhà nhập khẩu C (giả định),,Việt Nam,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-09-01,P-KUMQUAT-SIM-09,simulated_producer,Cơ sở sản xuất A (giả định),,Đài Loan,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-09-02,P-KUMQUAT-SIM-09,simulated_exporter,Nhà xuất khẩu B (giả định),,Đài Loan,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY
+ACT-09-03,P-KUMQUAT-SIM-09,simulated_importer,Nhà nhập khẩu C (giả định),,Việt Nam,"Danh tính hư cấu cho kịch bản mô phỏng, không phải doanh nghiệp thực tế.",SIMULATION_ONLY

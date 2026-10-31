@@ -1804,10 +1804,12 @@ img, video, canvas, svg {
 }
 
 .card-scope-tag {
-    font-size: 10.5px;
-    color: var(--slate-400);
-    font-family: monospace;
-    font-weight: 600;
+    font-size: 11px;
+    color: var(--slate-600);
+    background: var(--slate-100);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 700;
 }
 
 .card-source-link, .card-source-btn {
@@ -1890,12 +1892,12 @@ img, video, canvas, svg {
 }
 
 .badge-scope {
-    font-size: 11px;
+    font-size: 11.5px;
     background: var(--slate-100);
     color: var(--slate-700);
-    padding: 2px 7px;
-    border-radius: 4px;
-    font-family: monospace;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 600;
 }
 
 .inline-ai-box {
@@ -2599,6 +2601,387 @@ footer {
 
 @media (max-width: 480px) {
     .detail-meta-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* XuatXu 9-product research/simulation release (W03, W04, W07, W11) */
+.catalog-tier-block {
+    margin-bottom: 32px;
+    border-radius: 20px;
+    padding: 22px 24px;
+    border: 1.5px solid var(--border);
+    background: #ffffff;
+}
+
+.tier-core-block {
+    background: linear-gradient(145deg, #f0fdf4 0%, #ffffff 65%);
+    border-color: #a7f3d0;
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.06);
+}
+
+.tier-sim-block {
+    background: linear-gradient(145deg, #f8fafc 0%, #ffffff 70%);
+    border-color: #cbd5e1;
+}
+
+.tier-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+    flex-wrap: wrap;
+}
+
+.tier-header-left h3 {
+    margin: 6px 0 4px;
+    font-size: 18.5px;
+    font-weight: 800;
+    color: var(--slate-900);
+    letter-spacing: 0.2px;
+}
+
+.tier-header-left p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--slate-600);
+    line-height: 1.55;
+}
+
+.tier-pill-core {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    color: #065f46;
+    background: #d1fae5;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.tier-pill-sim {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    color: #0369a1;
+    background: #e0f2fe;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.tier-count-badge {
+    background: #059669;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.tier-count-badge.sim {
+    background: #0284c7;
+}
+
+.core-two-col-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Khối Kết Quả Thử Nghiệm Thực Địa (MC10 - W11) */
+.pilot-results-container {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1.5px solid #cbd5e1;
+    border-radius: 18px;
+    padding: 22px 26px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.pilot-title {
+    margin: 4px 0 6px;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--slate-900);
+}
+
+.pilot-sub {
+    margin: 0 0 16px;
+    font-size: 13.5px;
+    color: var(--slate-600);
+    line-height: 1.55;
+}
+
+.pilot-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.pilot-metric-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid var(--primary);
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+
+.pilot-metric-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: 0.4px;
+    margin-bottom: 4px;
+}
+
+.pilot-metric-fraction {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.pilot-metric-label {
+    font-size: 13px;
+    color: var(--slate-700);
+    line-height: 1.5;
+}
+
+.pilot-disclaimer-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--slate-600);
+    background: #f1f5f9;
+    padding: 9px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* 04 Thẻ Thông Tin & Phạm Vi Xác Minh (2x2 Grid gọn đẹp) */
+.display-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.display-card-scope {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+.badge-scope-neutral {
+    background: #e2e8f0;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+}
+
+/* Hành trình 5 bước giả định & Chứng từ cần có (W04) */
+.sim-disclosure-banner {
+    margin: 14px auto 20px;
+    padding: 14px 18px;
+    border: 1px solid #bae6fd;
+    border-left: 4px solid #0284c7;
+    border-radius: 12px;
+    background: #f0f9ff;
+    color: #0c4a6e;
+    font-size: 13.5px;
+    line-height: 1.6;
+}
+
+.sim-journey-box, .sim-docs-box {
+    margin-top: 22px;
+    padding: 20px 22px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.sim-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.sim-box-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--slate-900);
+}
+
+.sim-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.sim-step-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sim-step-num {
+    font-size: 11px;
+    font-weight: 800;
+    color: #0284c7;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.sim-step-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--slate-900);
+}
+
+.sim-step-meta {
+    font-size: 11.5px;
+    color: var(--slate-600);
+}
+
+.sim-step-note {
+    font-size: 11px;
+    color: var(--slate-500);
+    line-height: 1.45;
+    margin-top: auto;
+    padding-top: 4px;
+    border-top: 1px dashed #e2e8f0;
+}
+
+/* Nguồn tham khảo liên kết (W07) */
+.sources-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.source-ref-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+
+.source-id-pill {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--primary-border);
+}
+
+/* Kho tri thức chuẩn hóa & bảng hỏi đáp (AI_KIEN_THUC & AI_HOI_DAP - Mục #10) */
+.kb-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.kb-item-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.kb-item-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 6px 18px rgba(5, 150, 105, 0.1);
+    transform: translateY(-2px);
+}
+
+.kb-card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.kb-topic-pill {
+    background: #f0f9ff;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.kb-fact-text {
+    font-size: 12.5px;
+    color: var(--slate-700);
+    line-height: 1.5;
+}
+
+.kb-answer-text {
+    font-size: 12.5px;
+    color: var(--slate-900);
+    background: var(--slate-50);
+    padding: 8px 11px;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary);
+    line-height: 1.55;
+    flex: 1;
+}
+
+.kb-card-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 11.5px;
+    color: var(--slate-500);
+    padding-top: 6px;
+    border-top: 1px dashed var(--border);
+}
+
+.kb-click-hint {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 11.5px;
+}
+
+@media (max-width: 900px) {
+    .core-two-col-grid,
+    .pilot-metrics-grid,
+    .display-cards-grid,
+    .sources-cards-grid,
+    .kb-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .sim-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .sim-steps-grid {
         grid-template-columns: 1fr;
     }
 }

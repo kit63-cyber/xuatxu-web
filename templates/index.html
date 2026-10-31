@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>XuatXu – Biết nguồn, hiểu bằng chứng | Nền tảng tra cứu nông sản nhập khẩu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/static/style.css?v=4">
+    <link rel="stylesheet" href="/static/style.css?v=5">
 </head>
 <body>
 
@@ -44,7 +44,7 @@
                 <li>
                     <a href="#ai" id="nav-ai" class="nav-pill-btn nav-icon-btn" onclick="showTab('ai')">
                         <i class="fa-solid fa-robot"></i>
-                        <span class="nav-text-label">Trợ lý AI</span>
+                        <span class="nav-text-label">Trợ lý giải thích</span>
                     </a>
                 </li>
                 <li>
@@ -66,24 +66,21 @@
 
     <!-- TAB 1: TRANG CHỦ -->
     <div id="tab-home" class="tab-content">
-        <!-- Hero Section: Tươi mới, ấm áp, thân thiện & tràn đầy năng lượng -->
+        <!-- Hero Section: Tươi mới, ấm áp, thân thiện & chuẩn mực học thuật -->
         <section class="hero-fresh-section">
             <div class="hero-fresh-pill">
                 <span class="fresh-dot"></span>
-                <span>Nông sản tươi sạch · Tra cứu minh bạch tại điểm bán</span>
+                <span>XuatXu – Biết nguồn, hiểu bằng chứng · Tra cứu minh bạch theo phạm vi dữ liệu</span>
             </div>
 
             <h1 class="hero-main-title">
-                Biết Rõ Nguồn Gốc, An Tâm Lựa Chọn <span class="text-gradient-fresh">Trái Cây Tươi</span>
+                XuatXu – Biết nguồn, <span class="text-gradient-fresh">hiểu bằng chứng</span>
             </h1>
-            <p class="hero-main-sub">
-                Tra cứu xuất xứ, giá niêm yết và tem nhãn đối chiếu thực tế của 9 loại trái cây tuyển chọn tại siêu thị VICHI MARKET.
-            </p>
 
             <div class="hero-search-wrapper">
                 <div class="search-box-container">
                     <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
-                    <input type="text" id="searchInput" placeholder="Tìm theo tên trái cây (Táo, Nho, Kiwi, Dưa lưới, Bưởi, Lê, Quýt...)" oninput="searchProduct()">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm tên sản phẩm hoặc mã hồ sơ (Táo ENVY, Kiwi Zespri, Nho, Blueberry, Cherry, Cam, Lê, Quýt, Kim quất...)" oninput="searchProduct()">
                     <button onclick="searchProduct()"><i class="fa-solid fa-arrow-right"></i> Tra cứu</button>
                 </div>
             </div>
@@ -91,7 +88,7 @@
             <!-- Nút hành động nhanh CTA -->
             <div class="hero-actions-row">
                 <button onclick="document.getElementById('catalogSection').scrollIntoView({behavior: 'smooth'})" class="btn-hero-primary">
-                    <i class="fa-solid fa-apple-whole"></i> Khám Phá 9 Sản Phẩm
+                    <i class="fa-solid fa-apple-whole"></i> Khám Phá 9 Hồ Sơ (2 Tại VICHI + 7 Mô Phỏng)
                 </button>
                 <button onclick="showTab('qr')" class="btn-hero-secondary">
                     <i class="fa-solid fa-qrcode"></i> Quét & Tạo Mã QR
@@ -99,27 +96,27 @@
             </div>
         </section>
 
-        <!-- 3 Thẻ Giá Trị Thân Thiện (Thay thế stats-bar khô khan) -->
+        <!-- 3 Thẻ Giá Trị Chuẩn Mực -->
         <div class="trust-features-row">
             <div class="trust-card">
                 <div class="trust-icon green"><i class="fa-solid fa-camera"></i></div>
                 <div class="trust-text">
-                    <strong>100% Ảnh Chụp Thực Tế</strong>
-                    <p>Khảo sát trực tiếp tại quầy kệ siêu thị VICHI MARKET Đà Nẵng</p>
+                    <strong>Ảnh sản phẩm và nguồn tham chiếu</strong>
+                    <p>Ảnh điểm bán có nguồn · Ảnh mở rộng minh họa · Thông tin có giải thích phạm vi.</p>
                 </div>
             </div>
             <div class="trust-card">
-                <div class="trust-icon blue"><i class="fa-solid fa-tag"></i></div>
+                <div class="trust-icon blue"><i class="fa-solid fa-layer-group"></i></div>
                 <div class="trust-text">
-                    <strong>Minh Bạch Giá & Tem Nhãn</strong>
-                    <p>Đối chiếu chuẩn xác nhãn phụ, thương hiệu & ranh giới xác minh</p>
+                    <strong>Phân Tầng Bằng Chứng Rõ Ràng</strong>
+                    <p>Tách biệt quan sát tại điểm bán, công bố thương hiệu, giới hạn theo lô và kịch bản mô phỏng</p>
                 </div>
             </div>
             <div class="trust-card">
                 <div class="trust-icon amber"><i class="fa-solid fa-qrcode"></i></div>
                 <div class="trust-text">
-                    <strong>Tra Cứu Tức Thì Bằng QR</strong>
-                    <p>Dùng camera điện thoại hoặc Zalo mở hồ sơ tức thì, không cần tải app</p>
+                    <strong>Tra Cứu Tức Thì Bằng Mã QR</strong>
+                    <p>Mỗi hồ sơ có mã QR chuẩn HTTPS mở trực tiếp trên trình duyệt điện thoại, không cần tải ứng dụng</p>
                 </div>
             </div>
         </div>
@@ -128,53 +125,89 @@
             <!-- Header khu vực Danh Mục Sản Phẩm -->
             <div class="catalog-heading-box">
                 <div class="catalog-heading-left">
-                    <span class="catalog-badge"><i class="fa-solid fa-basket-shopping"></i> NÔNG SẢN TƯƠI MỖI NGÀY</span>
-                    <h2 class="section-heading">Danh Mục Trái Cây & Nông Sản Thực Tế</h2>
-                    <p class="section-subheading">Chọn sản phẩm để xem hồ sơ nguồn gốc, giá bán lẻ và tem nhãn đối chiếu chi tiết.</p>
+                    <span class="catalog-badge"><i class="fa-solid fa-layer-group"></i> PHÂN TẦNG DỮ LIỆU MINH BẠCH</span>
+                    <h2 class="section-heading">Danh Mục Hồ Sơ Nông Sản Nhập Khẩu</h2>
                 </div>
                 
                 <!-- Bộ lọc danh mục (Filter Pills) -->
                 <div class="catalog-filter-bar">
                     <button class="filter-pill active" id="filterBtnAll" onclick="setCatalogFilter('ALL')">
-                        <i class="fa-solid fa-border-all"></i> Tất cả <span class="filter-count" id="countAll">9</span>
+                        <i class="fa-solid fa-border-all"></i> Tất cả hồ sơ <span class="filter-count" id="countAll">9</span>
                     </button>
                     <button class="filter-pill" id="filterBtnCore" onclick="setCatalogFilter('CORE')">
-                        <i class="fa-solid fa-shield-halved"></i> Đối chiếu chuyên sâu <span class="filter-count" id="countCore">2</span>
+                        <i class="fa-solid fa-shield-halved"></i> Thử nghiệm tại VICHI <span class="filter-count" id="countCore">2</span>
                     </button>
                     <button class="filter-pill" id="filterBtnSimulated" onclick="setCatalogFilter('SIMULATED')">
-                        <i class="fa-solid fa-store"></i> Bối cảnh bán lẻ <span class="filter-count" id="countSimulated">7</span>
+                        <i class="fa-solid fa-flask"></i> Mô phỏng mở rộng <span class="filter-count" id="countSimulated">7</span>
                     </button>
                 </div>
             </div>
 
-            <!-- Product Grid -->
-            <div class="product-grid" id="productGrid"></div>
+            <!-- Product Grid (Phân tách 2 tầng: 2 SP VICHI + 7 SP Mô phỏng) -->
+            <div id="productGrid"></div>
+
+            <!-- Khối Kết Quả Thử Nghiệm Thực Địa Tại Điểm Bán (MC10 - W11) -->
+            <div class="pilot-results-container">
+                <div class="pilot-header-row">
+                    <div>
+                        <span class="badge-verify" style="margin-bottom: 6px; display: inline-flex;">
+                            <i class="fa-solid fa-clipboard-check"></i> KẾT QUẢ THỬ NGHIỆM THỰC ĐỊA (21/10/2026)
+                        </span>
+                        <h3 class="pilot-title">Ghi Nhận Phản Hồi Bước Đầu Tại Điểm Bán VICHI MARKET</h3>
+                        <p class="pilot-sub">
+                            Phạm vi khảo sát: <strong>02 sản phẩm</strong> (Táo ENVY túi 1 kg & Kiwi vàng Zespri hộp 4 quả) · Cỡ mẫu: <strong>20 khách hàng khảo sát, 02 nhân viên điểm bán và 01 đại diện đơn vị phỏng vấn</strong>.
+                        </p>
+                    </div>
+                </div>
+                <div class="pilot-metrics-grid">
+                    <div class="pilot-metric-card">
+                        <div class="pilot-metric-value">75% <span class="pilot-metric-fraction">(15/20 khách)</span></div>
+                        <div class="pilot-metric-label">Đánh giá lượng thông tin hiển thị trên trang ở mức <strong>“Vừa đủ”</strong>, không gây quá tải khi đứng tại quầy kệ.</div>
+                    </div>
+                    <div class="pilot-metric-card">
+                        <div class="pilot-metric-value">75% <span class="pilot-metric-fraction">(15/20 khách)</span></div>
+                        <div class="pilot-metric-label">Cho biết <strong>“Dễ” hoặc “Rất dễ”</strong> tìm thấy các liên kết dẫn tới nguồn tham khảo chính thức.</div>
+                    </div>
+                    <div class="pilot-metric-card">
+                        <div class="pilot-metric-value">85% <span class="pilot-metric-fraction">(17/20 khách)</span></div>
+                        <div class="pilot-metric-label">Nhận định cách phân tầng bằng chứng <strong>“Rõ ràng hơn”</strong> so với việc chỉ đọc tem nhãn hoặc mã QR gốc.</div>
+                    </div>
+                    <div class="pilot-metric-card">
+                        <div class="pilot-metric-value">65% <span class="pilot-metric-fraction">(13/20 khách)</span></div>
+                        <div class="pilot-metric-label">Đánh giá hệ thống tra cứu <strong>“Hữu ích” hoặc “Rất hữu ích”</strong> cho quyết định tham khảo thông tin tại điểm bán.</div>
+                    </div>
+                </div>
+                <div class="pilot-disclaimer-note">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Phản hồi thăm dò của 20 khách tham gia tại VICHI (21/10/2026); kết quả không chứng minh tác động nhân quả.</span>
+                </div>
+            </div>
 
             <!-- Khối Cam Kết Minh Bạch (Gọn gàng, tinh tế) -->
             <div class="principles-container">
                 <h3 class="principles-title">
-                    <i class="fa-solid fa-shield-check" style="color: var(--primary);"></i> 3 Cam Kết Minh Bạch Của Nền Tảng XuatXu
+                    <i class="fa-solid fa-shield-check" style="color: var(--primary);"></i> 3 Nguyên Tắc Trung Thực Học Thuật Của Hệ Thống XuatXu
                 </h3>
                 <div class="principles-grid">
                     <div class="principle-card">
                         <div class="principle-icon green"><i class="fa-solid fa-camera"></i></div>
                         <div>
-                            <strong>1. Đúng Sự Thật Tại Điểm Bán</strong>
-                            <p>Mọi hình ảnh, giá bán và tem nhãn đều ghi nhận từ sản phẩm thực tế bày bán tại cửa hàng.</p>
+                            <strong>1. Tách Biệt Thực Tế & Mô Phỏng</strong>
+                            <p>Chỉ 02 hồ sơ (ENVY và Zespri) ghi nhận từ ảnh chụp thực tế tại VICHI MARKET; 07 hồ sơ còn lại được công bố rõ là kịch bản mô phỏng mở rộng.</p>
                         </div>
                     </div>
                     <div class="principle-card">
                         <div class="principle-icon blue"><i class="fa-solid fa-scale-balanced"></i></div>
                         <div>
-                            <strong>2. Minh Bạch Ranh Giới</strong>
-                            <p>Phân định rõ ràng giữa cam kết thương hiệu và chứng nhận cấp lô, không gây ngộ nhận tẩy xanh.</p>
+                            <strong>2. Minh Bạch Ranh Giới Bằng Chứng</strong>
+                            <p>Phân định rõ giữa quan sát nhãn bán lẻ, công bố cấp thương hiệu và bằng chứng cấp lô hàng; không suy diễn sang cáo buộc tẩy xanh.</p>
                         </div>
                     </div>
                     <div class="principle-card">
                         <div class="principle-icon amber"><i class="fa-solid fa-lock"></i></div>
                         <div>
-                            <strong>3. Không Tự Tạo Dữ Liệu</strong>
-                            <p>Không bịa đặt số lô hay giấy kiểm dịch khi chưa có chứng từ gốc đối chiếu từ cơ quan thẩm quyền.</p>
+                            <strong>3. Không Tự Tạo Chứng Từ Lô Hàng</strong>
+                            <p>Không tự điền số lô, tờ khai hải quan, giấy kiểm dịch hay chứng chỉ môi trường khi chưa có tài liệu gốc đối chiếu.</p>
                         </div>
                     </div>
                 </div>
@@ -186,10 +219,10 @@
     <div id="tab-qr" class="tab-content" style="display: none;">
         <div class="main-container">
             <div class="qr-page-header">
-                <span class="badge-tech"><i class="fa-solid fa-qrcode"></i> TRUY XUẤT TỨC THÌ</span>
-                <h2 class="section-heading"><i class="fa-solid fa-qrcode" style="color: var(--primary);"></i> Mã QR Hồ Sơ Nông Sản Công Khai</h2>
+                <span class="badge-tech"><i class="fa-solid fa-qrcode"></i> MÃ QR HỒ SƠ SẢN PHẨM</span>
+                <h2 class="section-heading"><i class="fa-solid fa-qrcode" style="color: var(--primary);"></i> Mã QR Dẫn Đến Hồ Sơ Sản Phẩm</h2>
                 <p class="section-subheading">
-                    Chọn sản phẩm từ danh mục bên dưới để tạo mã QR chuẩn HTTPS. Quét mã bằng camera điện thoại hoặc Zalo để mở ngay hồ sơ đối chiếu minh bạch.
+                    Chọn 1 trong 9 hồ sơ bên dưới để tạo mã QR chuẩn HTTPS. Quét mã bằng camera điện thoại hoặc Zalo để mở đúng hồ sơ sản phẩm tương ứng.
                 </p>
             </div>
 
@@ -206,7 +239,7 @@
                                 <img id="qrSelectedThumb" src="/static/images/vichi_envy_bag.jpg" alt="" class="qr-trigger-img">
                                 <div class="qr-trigger-info">
                                     <span class="qr-trigger-title" id="qrSelectedTitle">Táo ENVY đóng túi 1 kg</span>
-                                    <span class="qr-trigger-subtitle" id="qrSelectedSubtitle">Táo nhập khẩu · New Zealand · VICHI MARKET</span>
+                                    <span class="qr-trigger-subtitle" id="qrSelectedSubtitle">Hồ sơ sản phẩm ENVY tại VICHI. Chưa đối chiếu xuất xứ theo lô.</span>
                                 </div>
                             </div>
                             <div class="qr-trigger-right">
@@ -219,7 +252,7 @@
                         <div class="qr-dropdown-menu" id="qrDropdownMenu" style="display: none;">
                             <div class="qr-dropdown-search">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" placeholder="Tìm kiếm nhanh tên hoặc thương hiệu..." id="qrFilterInput" oninput="filterQrDropdownList()">
+                                <input type="text" placeholder="Tìm kiếm nhanh tên hoặc mã hồ sơ..." id="qrFilterInput" oninput="filterQrDropdownList()">
                             </div>
                             <div class="qr-dropdown-list" id="qrDropdownList"></div>
                         </div>
@@ -229,8 +262,8 @@
                 <!-- Khối hiển thị mã QR hồ sơ -->
                 <div id="qrDisplayBox" class="qr-card-display">
                     <div class="qr-card-header">
-                        <div class="qr-badge-origin" id="qrCardOriginBadge"><i class="fa-solid fa-location-dot"></i> New Zealand</div>
-                        <span class="badge-verify"><i class="fa-solid fa-shield-check"></i> Đã kích hoạt mã QR chuẩn</span>
+                        <div class="qr-badge-origin" id="qrCardOriginBadge"><i class="fa-solid fa-shield-halved"></i> Hồ sơ sản phẩm ENVY tại VICHI. Chưa đối chiếu xuất xứ theo lô.</div>
+                        <span class="badge-verify" id="qrCardScopeBadge"><i class="fa-solid fa-qrcode"></i> Mã QR dẫn đến hồ sơ sản phẩm</span>
                     </div>
                     
                     <h3 id="qrProductName" class="qr-card-title">Táo ENVY đóng túi 1 kg</h3>
@@ -270,37 +303,47 @@
         </div>
     </div>
 
-    <!-- TAB 4: GIẢI THÍCH & HỎI ĐÁP CÓ NGUỒN (AI ASSISTANT F4) -->
+    <!-- TAB 4: GIẢI THÍCH & HỎI ĐÁP CÓ NGUỒN (F4) -->
     <div id="tab-ai" class="tab-content" style="display: none;">
         <div class="main-container">
             <div class="ai-container-card">
                 <div class="ai-header-flex">
                     <div>
                         <h2 style="margin: 0; color: var(--slate-900); font-size: 20px; font-weight: 700;">
-                            <i class="fa-solid fa-robot" style="color: var(--primary);"></i> Trợ Lý AI
+                            <i class="fa-solid fa-robot" style="color: var(--primary);"></i> Trợ lý giải thích thông tin có nguồn – không thay thế xác minh chứng từ.
                         </h2>
                         <p style="color: var(--slate-500); font-size: 13.5px; margin: 4px 0 0;">
-                            Hỗ trợ giải đáp xuất xứ, tem nhãn tại điểm bán, quy cách đóng gói và ranh giới xác minh minh bạch.
+                            Phản hồi dựa trên 108 câu hỏi chuẩn hóa và 108 mục tri thức có nguồn; phân biệt rõ 02 hồ sơ thực tế tại VICHI và 07 hồ sơ mô phỏng mở rộng.
                         </p>
                     </div>
-                    <span class="badge-verify"><i class="fa-solid fa-shield-check"></i> Trả lời theo nguồn chuẩn</span>
+                    <span class="badge-verify"><i class="fa-solid fa-book-open-reader"></i> 108 Câu hỏi chuẩn hóa</span>
                 </div>
 
-                <!-- Bộ lọc theo sản phẩm -->
+                <!-- Bộ lọc theo sản phẩm (đủ 9 sản phẩm, không chứa trái cây nội địa cũ) -->
                 <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
-                    <span style="font-size: 13px; font-weight: 600; color: var(--slate-700);">Lọc theo chủ đề:</span>
-                    <button class="filter-pill active" id="faqFilterAll" onclick="filterFaqTab('')">Tất cả câu hỏi</button>
-                    <button class="filter-pill" id="faqFilterEnvy" onclick="filterFaqTab('P-ENVY-VICHI-01')">Táo ENVY túi 1kg</button>
-                    <button class="filter-pill" id="faqFilterZespri" onclick="filterFaqTab('P-ZESPRI-VICHI-01')">Kiwi vàng Zespri</button>
-                    <button class="filter-pill" id="faqFilterRetail" onclick="filterFaqTab('RETAIL')">Trái cây bán lẻ (8 SP)</button>
+                    <span style="font-size: 13px; font-weight: 600; color: var(--slate-700);">Lọc theo hồ sơ:</span>
+                    <button class="filter-pill active" id="faqFilterAll" onclick="filterFaqTab('')">Tất cả (108 câu)</button>
+                    <button class="filter-pill" id="faqFilterEnvy" onclick="filterFaqTab('P-ENVY-VICHI-01')">Táo ENVY tại VICHI (12)</button>
+                    <button class="filter-pill" id="faqFilterZespri" onclick="filterFaqTab('P-ZESPRI-VICHI-01')">Kiwi Zespri tại VICHI (12)</button>
+                    <button class="filter-pill" id="faqFilterSimAll" onclick="filterFaqTab('SIM_ALL')">7 Hồ sơ mô phỏng (84)</button>
+                    <select id="faqSimProductSelect" onchange="if(this.value) filterFaqTab(this.value)" style="padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); font-size: 12.5px; font-weight: 600; color: var(--slate-700); background: #f8fafc; cursor: pointer;">
+                        <option value="">-- Chọn nhanh 1 trong 7 SP mô phỏng --</option>
+                        <option value="P-GRAPE-SIM-03">Nho sữa Shine Muscat (12 câu)</option>
+                        <option value="P-BLUBERRY-SIM-04">Blueberry nhập khẩu (12 câu)</option>
+                        <option value="P-CHERRY-SIM-05">Cherry nhập khẩu (12 câu)</option>
+                        <option value="P-ORANGE-SIM-06">Cam Navel nhập khẩu (12 câu)</option>
+                        <option value="P-PEAR-SIM-07">Lê nâu Hàn Quốc (12 câu)</option>
+                        <option value="P-MANDARIN-SIM-08">Quýt nhập khẩu (12 câu)</option>
+                        <option value="P-KUMQUAT-SIM-09">Kim quất Đài Loan (12 câu)</option>
+                    </select>
                 </div>
 
                 <!-- Danh sách gợi ý câu hỏi mẫu -->
                 <div style="margin-bottom: 16px;">
-                    <div style="font-size: 12.5px; font-weight: 600; color: var(--slate-500); margin-bottom: 8px;">
+                    <div style="font-size: 12.5px; font-weight: 600; color: var(--slate-500); margin-bottom: 8px;" id="faqSuggestionHeader">
                         Gợi ý câu hỏi chuẩn hóa (nhấn để xem câu trả lời đối chiếu):
                     </div>
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="faqSuggestionButtons"></div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap; max-height: 170px; overflow-y: auto; padding-right: 4px;" id="faqSuggestionButtons"></div>
                 </div>
 
                 <!-- Khung lịch sử chat -->
@@ -308,14 +351,14 @@
                     <div class="chat-msg ai">
                         <i class="fa-solid fa-robot"></i>
                         <div>
-                            <strong>Xin chào!</strong> Tôi là Trợ lý giải thích thông tin XuatXu. Tôi có thể hỗ trợ bạn tìm hiểu nguồn gốc nhãn, giá cả tại điểm bán, phân biệt chính sách chất lượng thương hiệu và giải thích các giới hạn xác minh theo lô hàng.
+                            <strong>Xin chào!</strong> Tôi là Trợ lý giải thích thông tin có nguồn của XuatXu (không thay thế xác minh chứng từ). Tôi hỗ trợ giải thích thông tin quan sát trên nhãn tại VICHI MARKET (ENVY, Zespri), công bố cấp thương hiệu, giới hạn xác minh theo lô và làm rõ phạm vi của 07 hồ sơ mô phỏng mở rộng.
                         </div>
                     </div>
                 </div>
 
                 <!-- Ô nhập câu hỏi -->
                 <div class="chat-input-bar">
-                    <input type="text" id="globalChatInput" placeholder="Đặt câu hỏi về xuất xứ, tem nhãn, mã lô hoặc chứng nhận..." onkeydown="if(event.key === 'Enter') sendGlobalAIMessage()">
+                    <input type="text" id="globalChatInput" placeholder="Đặt câu hỏi về xuất xứ, tem nhãn, mã lô, chứng nhận hoặc phạm vi mô phỏng..." onkeydown="if(event.key === 'Enter') sendGlobalAIMessage()">
                     <button onclick="sendGlobalAIMessage()" class="btn-primary" style="padding: 10px 20px;">
                         <i class="fa-solid fa-paper-plane"></i> Gửi
                     </button>
@@ -330,12 +373,12 @@
             <div class="tech-container-card">
                 <div class="tech-header-box">
                     <div>
-                        <span class="badge-tech"><i class="fa-solid fa-microchip"></i> MÔ PHỎNG HỌC THUẬT</span>
+                        <span class="badge-tech"><i class="fa-solid fa-microchip"></i> MÔ PHỎNG HỌC THUẬT ĐỘC LẬP</span>
                         <h2 style="margin: 8px 0 4px; font-size: 21px; font-weight: 700; color: var(--slate-900);">
-                            Mô Phỏng Chuỗi Băm SHA-256 (Blockchain Affordance Demo)
+                            Mô phỏng kiểm tra tính toàn vẹn SHA-256 – không phải giao dịch blockchain thực tế.
                         </h2>
                         <p style="color: var(--slate-500); font-size: 13.5px; margin: 0; line-height: 1.5;">
-                            Minh họa tính bất biến và cơ chế phát hiện giả mạo dữ liệu qua 05 sự kiện mẫu. Khu vực này hoàn toàn tách biệt với dữ liệu quan sát thực tế tại điểm bán.
+                            Minh họa tính bất biến và cơ chế phát hiện sửa đổi dữ liệu qua 05 sự kiện giả định. Khu vực này là mô phỏng kỹ thuật độc lập, không phải chứng từ hay giao dịch blockchain on-chain của VICHI MARKET.
                         </p>
                     </div>
                     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
@@ -369,7 +412,7 @@
                 </div>
 
                 <div style="margin-top: 20px; padding: 16px 20px; background: var(--slate-50); border-radius: 14px; border: 1px solid var(--border); font-size: 13px; color: var(--slate-700); line-height: 1.6;">
-                    <strong><i class="fa-solid fa-lightbulb" style="color: var(--primary);"></i> Ý nghĩa khoa học:</strong> Cơ chế mã hóa băm liên kết đảm bảo nếu bất kỳ một thông tin nào trong quá khứ (như tên cơ sở đóng gói, ngày thu hoạch) bị sửa đổi trái phép, chữ ký băm của khối đó sẽ biến đổi hoàn toàn, dẫn đến toàn bộ các khối tiếp theo trong chuỗi đều không khớp (Verification FAIL). Đây là đặc tính kỹ thuật cốt lõi (Blockchain Affordance) củng cố niềm tin mà không cần phụ thuộc vào lời hứa chủ quan.
+                    <strong><i class="fa-solid fa-lightbulb" style="color: var(--primary);"></i> Ý nghĩa khoa học:</strong> Cơ chế mã hóa băm liên kết đảm bảo nếu bất kỳ một thông tin nào trong chuỗi sự kiện (như tên cơ sở đóng gói, ngày thu hoạch) bị sửa đổi trái phép, chữ ký băm SHA-256 của bước đó sẽ thay đổi hoàn toàn, kéo theo các bước kế tiếp báo lỗi không khớp (FAIL). Đây là mô phỏng kiểm tra tính toàn vẹn SHA-256 cục bộ phục vụ nghiên cứu, không phải giao dịch blockchain thực tế.
                 </div>
             </div>
         </div>
@@ -404,6 +447,7 @@
                     <li><a href="https://www.gs1.org/standards/gs1-global-traceability-standard/current-standard" target="_blank" rel="noopener">GS1 Global Traceability Standard</a></li>
                     <li><a href="https://envyapple.com/vn/" target="_blank" rel="noopener">Nguồn thương hiệu ENVY</a></li>
                     <li><a href="https://www.zespri.com/" target="_blank" rel="noopener">Nguồn thương hiệu Zespri</a></li>
+                    <li><a href="/static/image_credits.html" target="_blank" rel="noopener">Nguồn và giấy phép ảnh minh họa</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -434,158 +478,157 @@
     <script>
         let globalProducts = [];
         let globalQAs = [];
+        let globalKnowledge = [];
         let globalSources = {};
         let currentDetailProductId = '';
         let originalTechChain = [];
         let currentTechChain = [];
         let currentCatalogFilter = 'ALL';
+        let currentAiViewMode = 'KB';
 
         const fetchHeaders = {
             'Accept': 'application/json'
         };
 
-        // Hàm lấy siêu dữ liệu bán lẻ cho từng sản phẩm
+        // W06: Chuẩn hóa URL hình ảnh (chỉ gắn ?v= cho ảnh nội bộ /static/, tuyệt đối không gắn vào URL ngoài như Wikimedia)
+        function getSafeImageUrl(url) {
+            if (!url) return '/static/images/sim_fallback.svg';
+            if (url.startsWith('/static/')) {
+                return url.includes('?') ? url : (url + '?v=3');
+            }
+            return url;
+        }
+
+        function getFallbackImageForProduct(pid) {
+            const p = String(pid || '');
+            if (p.includes('ENVY')) return '/static/images/vichi_envy_bag.jpg';
+            if (p.includes('ZESPRI')) return '/static/images/vichi_zespri_gold_4.jpg';
+            if (p.includes('GRAPE')) return '/static/images/vichi_grape_shine_muscat.jpg';
+            if (p.includes('PEAR')) return '/static/images/vichi_pear_korea_eloasis.jpg';
+            if (p.includes('MANDARIN')) return '/static/images/vichi_mandarin_tony_fruit.jpg';
+            if (p.includes('KUMQUAT')) return '/static/images/vichi_kumquat_taiwan.jpg';
+            return '/static/images/sim_fallback.svg';
+        }
+
+        // W05: Việt hóa toàn bộ mã kỹ thuật (scope, applicable_scope, verification_scope, document_type, topic, confidence)
+        function translateScopeCode(code) {
+            if (!code) return '';
+            const c = String(code).trim();
+            if (c.startsWith('simulation_faq_')) {
+                const num = c.replace('simulation_faq_', '');
+                return 'Tri thức kịch bản mô phỏng #' + num;
+            }
+            const map = {
+                'RETAIL_OBSERVATION': 'Quan sát tại điểm bán',
+                'RETAIL_OBSERVATION_ONLY': 'Chỉ quan sát tại điểm bán',
+                'BRAND_ONLY': 'Công bố cấp thương hiệu',
+                'BRAND_CONTEXT_ONLY': 'Bối cảnh cấp thương hiệu',
+                'BRAND_CONTEXT': 'Thông tin cấp thương hiệu',
+                'COMPANY_CONTEXT_ONLY': 'Thông tin doanh nghiệp',
+                'COMPANY_CONTEXT': 'Thông tin doanh nghiệp',
+                'PRODUCT_LINE_ONLY': 'Thông tin dòng sản phẩm',
+                'PRODUCT_LINE_CONTEXT_ONLY': 'Bối cảnh dòng sản phẩm',
+                'PRODUCT_LINE_CONTEXT': 'Bối cảnh dòng sản phẩm',
+                'BRAND_POLICY': 'Chính sách hệ thống thương hiệu',
+                'BRAND_POLICY_NOT_LOT': 'Chính sách thương hiệu (chưa gắn lô)',
+                'LIMITATION': 'Phạm vi & giới hạn xác minh',
+                'IMAGE_REFERENCE_ONLY': 'Ảnh minh họa nguồn mở',
+                'SIMULATED_ORIGIN': 'Xuất xứ giả định (mô phỏng)',
+                'SIMULATED_JOURNEY': 'Hành trình giả định (mô phỏng)',
+                'SIMULATION_LIMIT': 'Giới hạn hồ sơ mô phỏng',
+                'SIMULATED_RETAIL_CONTEXT': 'Nguyên tắc hồ sơ mô phỏng',
+                'BRAND': 'Cấp thương hiệu chung',
+                'LOT_UNVERIFIED': 'Chưa có chứng từ cấp lô',
+                'BRAND_GROWER_POLICY': 'Chính sách nhà vườn của thương hiệu',
+                'BRAND_TRACEABILITY_CAPABILITY': 'Năng lực hệ thống của thương hiệu',
+                'ORGANIC_LINE_NOT_CONVENTIONAL_4PACK': 'Dòng Organic 3 quả (khác hộp 4 quả)',
+                'ORGANIC_PRODUCT_LINE_ONLY': 'Chỉ áp dụng dòng Organic',
+                'ORGANIC_PRODUCT_LINE_NOT_CURRENT_SKU': 'Dòng Organic (khác SKU hiện tại)',
+                'OTHER_RETAILER': 'Thông tin từ điểm bán khác',
+                'OTHER_RETAILER_CONTEXT_ONLY': 'Ví dụ từ điểm bán khác',
+                'OTHER_RETAILER_CONTEXT': 'Ví dụ từ điểm bán khác',
+                'OTHER_RETAILER_CLAIM': 'Tuyên bố của điểm bán khác',
+                'OTHER_RETAILER_CLAIM_NOT_DOCUMENT': 'Tuyên bố điểm bán khác (không phải chứng từ)',
+                'SIMULATION_NOT_ACTUAL_CLAIM': 'Tình huống giả định – không phải công bố thực',
+                'OBSERVED_ON_PACKAGING': 'Quan sát trên bao bì tại VICHI',
+                'OTHER_VARIANT_OBSERVED': 'Biến thể bán rời khác tại quầy',
+                'RETAIL_LABEL_OBSERVED': 'Quan sát nhãn bán lẻ tại VICHI',
+                'OTHER_VARIANT_ONLY': 'Biến thể khác trên cùng quầy kệ',
+                'METHODOLOGY_ONLY': 'Chuẩn phương pháp luận (GS1)',
+                'STANDARD_EXPLANATION_ONLY': 'Giải thích chuẩn truy xuất (GS1)',
+                'SIMULATED_PRODUCT_RECORD': 'Hồ sơ sản phẩm giả định',
+                'SIMULATED_CHAIN': 'Chuỗi sự kiện giả định',
+                'NOT_VERIFIED_REAL_LOT': 'Không có lô hàng thực tế',
+                'ORIGIN_LABEL': 'Nhãn thể hiện xuất xứ',
+                'LOT_CODE': 'Mã lô / hộp / thùng',
+                'PHYTOSANITARY_CERT': 'Giấy chứng nhận kiểm dịch thực vật',
+                'IMPORT_DOC': 'Chứng từ / tờ khai nhập khẩu theo lô',
+                'ENVIRONMENTAL_CERT': 'Chứng nhận chất lượng / môi trường',
+                'POINT_OF_SALE_OBSERVED': 'Quan sát tại điểm bán',
+                'INSUFFICIENT_LOT_EVIDENCE': 'Chưa đủ bằng chứng cấp lô',
+                'RETAIL_BRAND_SCOPE': 'Phạm vi nhãn điểm bán & thương hiệu',
+                'SIMULATION_ONLY': 'Chỉ áp dụng cho kịch bản mô phỏng',
+                'nhan_san_pham': 'Nhãn & quy cách sản phẩm',
+                'gia_tai_diem_ban': 'Giá quan sát tại điểm bán',
+                'xuat_xu': 'Phạm vi thông tin nguồn gốc',
+                'nha_nhap_khau': 'Đơn vị nhập khẩu / phân phối',
+                'vuon_trong': 'Thông tin vùng trồng / nhà vườn',
+                'chung_nhan': 'Chứng nhận & tiêu chuẩn',
+                'lo_hang': 'Bằng chứng cấp lô hàng',
+                'blockchain': 'Giới hạn công nghệ & chuỗi băm',
+                'greenwashing': 'Nguyên tắc diễn giải trung thực',
+                'organic': 'Phân biệt dòng sản phẩm (Organic / Thường)',
+                'gap': 'Tiêu chuẩn canh tác (ZespriGAP / thương hiệu)',
+                'truy_xuat': 'Khả năng truy xuất nguồn gốc',
+                'phytosanitary': 'Kiểm dịch thực vật theo lô',
+                'ma_ban_le': 'Mã vạch / mã nội bộ điểm bán',
+                'main_scope_1': 'Ghi nhận tại điểm bán & thương hiệu',
+                'main_scope_2': 'Nguồn tham chiếu cấp thương hiệu',
+                'main_scope_3': 'Giới hạn đối chiếu theo lô'
+            };
+            return map[c] || c;
+        }
+
+        // Hàm lấy siêu dữ liệu bán lẻ cho từng sản phẩm (Không hiển thị cờ/tên nước xuất xứ chưa xác minh theo yêu cầu #4, #9, #11)
         function getProductRetailMeta(p) {
             const id = p.product_id || '';
+            const isCore = id.includes('P-ENVY-VICHI-01') || id.includes('P-ZESPRI-VICHI-01');
+            const isSim = p.profile_type === 'SIMULATED_IMPORT_EXPANSION' || (!isCore && id.includes('-SIM-'));
+            const packClean = (p.packaging_demo || 'Quy cách hồ sơ').replace(/\s*\(mô phỏng\)/gi, '');
+            const priceText = p.price_display || '';
+            const numbers = priceText.match(/^[0-9.,]+/);
+            const priceMain = numbers ? numbers[0].replace(/,/g, '.') : '—';
+            const priceUnit = isSim ? 'đ (giả định)' : (id.includes('ENVY') ? 'đ/túi 1 kg' : 'đ/hộp 4 quả');
+
+            // Câu mô tả phạm vi trên thẻ & QR theo đúng mục #4, #9, #11 (không gắn tên nước xuất xứ)
+            let cardScopeNote = 'Ảnh minh họa từ nguồn web; giá, xuất xứ, quy cách, nhân sự, hành trình đều giả định.';
             if (id.includes('ENVY')) {
-                return { 
-                    price: '185.000 đ/túi 1kg', 
-                    priceMain: '185.000', 
-                    priceUnit: 'đ/túi 1kg', 
-                    priceNote: '', 
-                    packClean: 'Túi 1 kg',
-                    origin: 'New Zealand (Bao bì T&G / TONY FRUIT)', 
-                    originShort: 'New Zealand', 
-                    flag: '🇳🇿', 
-                    isCore: true, 
-                    badge: 'Hồ sơ chuyên sâu VICHI', 
-                    tagClass: 'badge-core' 
-                };
+                cardScopeNote = 'Hồ sơ sản phẩm ENVY tại VICHI. Chưa đối chiếu xuất xứ theo lô.';
             } else if (id.includes('ZESPRI')) {
-                return { 
-                    price: '170.000 đ/hộp 4 quả', 
-                    priceMain: '170.000', 
-                    priceUnit: 'đ/hộp 4 quả', 
-                    priceNote: '', 
-                    packClean: 'Hộp 4 quả',
-                    origin: 'New Zealand (Tem nhãn tại điểm bán)', 
-                    originShort: 'New Zealand', 
-                    flag: '🇳🇿', 
-                    isCore: true, 
-                    badge: 'Hồ sơ chuyên sâu VICHI', 
-                    tagClass: 'badge-core' 
-                };
-            } else if (id.includes('GRAPE')) {
-                return { 
-                    price: '320.000 đ/hộp 450g', 
-                    priceMain: '320.000', 
-                    priceUnit: 'đ/hộp 450g', 
-                    priceNote: '', 
-                    packClean: 'Hộp 450g cao cấp',
-                    origin: 'Hàn Quốc (eloasis Korea / Evergood)', 
-                    originShort: 'Hàn Quốc', 
-                    flag: '🇰🇷', 
-                    isCore: false, 
-                    badge: 'Bối cảnh bán lẻ', 
-                    tagClass: 'badge-simulated' 
-                };
-            } else if (id.includes('MELON')) {
-                return { 
-                    price: '125.000 đ/kg (~180k/trái)', 
-                    priceMain: '125.000', 
-                    priceUnit: 'đ/kg', 
-                    priceNote: '~180k/trái', 
-                    packClean: 'Bọc xốp lưới',
-                    origin: 'Việt Nam (USDA Organic Danny Green)', 
-                    originShort: 'Việt Nam (Hữu cơ)', 
-                    flag: '🇻🇳', 
-                    isCore: false, 
-                    badge: 'Bối cảnh bán lẻ', 
-                    tagClass: 'badge-simulated' 
-                };
-            } else if (id.includes('POMELO')) {
-                return { 
-                    price: '95.000 đ/kg (~140k/trái)', 
-                    priceMain: '95.000', 
-                    priceUnit: 'đ/kg', 
-                    priceNote: '~140k/trái', 
-                    packClean: 'Tem cân VICHI',
-                    origin: 'Việt Nam (HuKa Farm · Tem VICHI Đà Nẵng)', 
-                    originShort: 'Bến Tre, VN', 
-                    flag: '🇻🇳', 
-                    isCore: false, 
-                    badge: 'Bối cảnh bán lẻ', 
-                    tagClass: 'badge-simulated' 
-                };
-            } else if (id.includes('MANGO')) {
-                return { 
-                    price: '85.000 đ/kg', 
-                    priceMain: '85.000', 
-                    priceUnit: 'đ/kg', 
-                    priceNote: '', 
-                    packClean: 'Đai tem Mr. 9',
-                    origin: 'Đồng Tháp, VN (Mr. 9 Sweet Mango)', 
-                    originShort: 'Đồng Tháp, VN', 
-                    flag: '🇻🇳', 
-                    isCore: false, 
-                    badge: 'Bối cảnh bán lẻ', 
-                    tagClass: 'badge-simulated' 
-                };
-            } else if (id.includes('PEAR')) {
-                return { 
-                    price: '165.000 đ/kg (85.000 đ/trái)', 
-                    priceMain: '165.000', 
-                    priceUnit: 'đ/kg', 
-                    priceNote: '85k/trái', 
-                    packClean: 'Khay bọc tổ ong',
-                    origin: 'Hàn Quốc (K-PEAR eloasis / Evergood)', 
-                    originShort: 'Hàn Quốc', 
-                    flag: '🇰🇷', 
-                    isCore: false, 
-                    badge: 'Bối cảnh bán lẻ', 
-                    tagClass: 'badge-simulated' 
-                };
-            } else if (id.includes('MANDARIN')) {
-                return { 
-                    price: '85.000 đ/hộp 4 trái (500g)', 
-                    priceMain: '85.000', 
-                    priceUnit: 'đ/hộp 4 trái', 
-                    priceNote: '500g', 
-                    packClean: 'Hộp nắp gài',
-                    origin: 'Australia (BGP / Tú Phương Tony · SP12347306)', 
-                    originShort: 'Australia', 
-                    flag: '🇦🇺', 
-                    isCore: false, 
-                    badge: 'Bối cảnh bán lẻ', 
-                    tagClass: 'badge-simulated' 
-                };
-            } else if (id.includes('KUMQUAT')) {
-                return { 
-                    price: '92.000 đ/hộp 400g', 
-                    priceMain: '92.000', 
-                    priceUnit: 'đ/hộp 400g', 
-                    priceNote: '', 
-                    packClean: 'Hộp định hình 400g',
-                    origin: 'Đài Loan (Nhập khẩu chính ngạch · SP1045782)', 
-                    originShort: 'Đài Loan', 
-                    flag: '🇹🇼', 
-                    isCore: false, 
-                    badge: 'Bối cảnh bán lẻ', 
-                    tagClass: 'badge-simulated' 
-                };
+                cardScopeNote = 'Hồ sơ sản phẩm Zespri tại VICHI. Chưa đối chiếu chứng từ theo lô.';
             }
-            return { 
-                price: 'Tại điểm bán', 
-                priceMain: 'Liên hệ', 
-                priceUnit: '', 
-                priceNote: '', 
-                packClean: 'Tại quầy',
-                origin: p.assumed_country_of_origin || 'Chưa xác định', 
-                originShort: p.assumed_country_of_origin || 'Việt Nam', 
-                flag: '🌿', 
-                isCore: false, 
-                badge: 'Sản phẩm bán lẻ', 
-                tagClass: 'badge-simulated' 
+
+            const storeBadgeText = isCore
+                ? 'Ghi nhận tại VICHI MARKET'
+                : 'Mô phỏng mở rộng · Ảnh minh họa từ nguồn web';
+
+            const detailOriginScope = isCore
+                ? 'Chưa đối chiếu xuất xứ và chứng từ theo lô (chỉ ghi nhận thông tin trên nhãn/bao bì tại điểm bán)'
+                : 'Thông tin nguồn gốc giả định phục vụ mô phỏng (chưa xác minh thực tế)';
+
+            return {
+                price: priceText,
+                priceMain: priceMain,
+                priceUnit: priceUnit,
+                priceNote: isSim ? 'Giá giả định' : 'Giá tại thời điểm chụp',
+                packClean: packClean,
+                cardScopeNote: cardScopeNote,
+                storeBadgeText: storeBadgeText,
+                detailOriginScope: detailOriginScope,
+                isCore: isCore,
+                isSim: isSim,
+                badge: isSim ? 'Mô phỏng mở rộng' : 'Đã ghi nhận tại VICHI',
+                tagClass: isSim ? 'badge-simulated' : 'badge-core'
             };
         }
 
@@ -609,7 +652,6 @@
             }
             window.scrollTo(0, 0);
 
-            // Tự động tải dữ liệu khi chuyển tab
             if (tabName === 'tech') {
                 loadTechDemo();
             } else if (tabName === 'qr') {
@@ -627,6 +669,7 @@
                     if (data.success) {
                         globalProducts = data.products;
                         globalQAs = data.qa_list || [];
+                        globalKnowledge = data.knowledge_list || [];
                         if (data.sources) {
                             data.sources.forEach(s => {
                                 globalSources[s.source_id] = s;
@@ -639,11 +682,10 @@
                         if (document.getElementById('countAll')) document.getElementById('countAll').innerText = globalProducts.length;
                         if (document.getElementById('countCore')) document.getElementById('countCore').innerText = coreCount;
                         if (document.getElementById('countSimulated')) document.getElementById('countSimulated').innerText = simulatedCount;
-                        if (document.getElementById('statProductCount')) document.getElementById('statProductCount').innerText = globalProducts.length + ' Sản Phẩm';
 
                         renderProducts(globalProducts);
                         renderQRButtons(globalProducts);
-                        renderFaqSuggestions(globalQAs);
+                        renderFaqSuggestions(globalQAs, 'Toàn bộ 108 câu hỏi chuẩn hóa (cuộn hoặc chọn bộ lọc phía trên theo từng hồ sơ):');
                         loadTechDemo();
 
                         // Điều hướng trực tiếp theo Hash URL
@@ -685,68 +727,110 @@
             searchProduct();
         }
 
-        // Render danh sách sản phẩm tại Trang chủ (Thân thiện, hấp dẫn, nổi bật giá & xuất xứ)
+        // Sinh HTML cho 1 thẻ sản phẩm (Bỏ hoàn toàn nhãn nước xuất xứ trên thẻ theo yêu cầu #9; hiển thị rõ mô phỏng mở rộng theo #4 & #11)
+        function buildProductCardHTML(p) {
+            const meta = getProductRetailMeta(p);
+            const isCore = meta.isCore;
+            const imgUrl = getSafeImageUrl(p.image_url);
+            const fallbackImg = getFallbackImageForProduct(p.product_id);
+
+            return `
+            <div class="product-card ${isCore ? 'card-core' : 'card-simulated'}">
+                <div class="product-img-box">
+                    <img src="${imgUrl}" onerror="this.onerror=null;this.src='${fallbackImg}'" class="product-img" alt="${escapeHtml(p.display_name)}" onclick="openImageModal('${imgUrl}', '${escapeHtml(p.display_name)}')">
+                    <span class="card-store-float"><i class="fa-solid ${isCore ? 'fa-store' : 'fa-flask'}"></i> ${escapeHtml(meta.storeBadgeText)}</span>
+                </div>
+                <div class="product-body">
+                    <div class="card-tag-row">
+                        <span class="product-cat-pill">${escapeHtml(p.category || 'Trái cây')}</span>
+                        <span class="${meta.tagClass}">${meta.badge}</span>
+                    </div>
+                    <h3 class="product-title" onclick="loadProductDetail('${p.product_id}')">${escapeHtml(p.display_name)}</h3>
+                    
+                    <div class="card-price-highlight">
+                        <div class="price-left-box">
+                            <div class="price-val-row">
+                                <span class="price-val">${meta.priceMain}</span>
+                                <span class="price-unit">${meta.priceUnit}</span>
+                            </div>
+                            ${meta.priceNote ? `<span class="price-note-pill">${meta.priceNote}</span>` : ''}
+                        </div>
+                        <div class="pack-badge" title="${escapeHtml(p.packaging_demo || '')}">
+                            <i class="fa-solid fa-box-archive"></i> <span>${escapeHtml(meta.packClean)}</span>
+                        </div>
+                    </div>
+
+                    <div class="info-row-clean">
+                        <i class="fa-solid ${isCore ? 'fa-circle-check' : 'fa-circle-info'}" style="color: ${isCore ? 'var(--primary)' : '#0284c7'};"></i>
+                        <span>${escapeHtml(meta.cardScopeNote)}</span>
+                    </div>
+
+                    <div class="product-btn-group">
+                        <button class="btn-detail" onclick="loadProductDetail('${p.product_id}')">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i> Xem nguồn và giới hạn bằng chứng
+                        </button>
+                        <button class="btn-qr-action" onclick="showQrForProduct('${p.product_id}')" title="Xem & tạo mã QR">
+                            <i class="fa-solid fa-qrcode"></i> Mã QR
+                        </button>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        // W03 (Q09, Q10): Render danh sách sản phẩm phân tách rõ 2 tầng (Hồ sơ thử nghiệm tại VICHI vs Danh mục mô phỏng mở rộng)
         function renderProducts(products) {
-            let html = '';
-            if (products.length === 0) {
-                document.getElementById('productGrid').innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--slate-500); background: white; border-radius: 16px; border: 1px dashed var(--border);">
+            const container = document.getElementById('productGrid');
+            if (!products || products.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px; color: var(--slate-500); background: white; border-radius: 16px; border: 1px dashed var(--border);">
                         <i class="fa-solid fa-magnifying-glass" style="font-size: 32px; margin-bottom: 12px; color: var(--primary);"></i>
-                        <p style="font-size: 16px; font-weight: 700; color: var(--slate-800);">Không tìm thấy trái cây phù hợp</p>
-                        <p style="font-size: 13.5px; color: var(--slate-500); margin-top: 4px;">Thử tìm theo từ khóa: Táo, Nho, Kiwi, Dưa lưới, Bưởi, Lê, Quýt...</p>
-                        <button onclick="document.getElementById('searchInput').value=''; searchProduct();" class="btn-primary" style="margin-top: 14px; padding: 8px 18px; font-size: 13px;">Xem tất cả sản phẩm</button>
+                        <p style="font-size: 16px; font-weight: 700; color: var(--slate-800);">Không tìm thấy hồ sơ trái cây phù hợp</p>
+                        <p style="font-size: 13.5px; color: var(--slate-500); margin-top: 4px;">Thử tìm theo từ khóa: Táo ENVY, Kiwi Zespri, Nho, Blueberry, Cherry, Cam, Lê, Quýt, Kim quất...</p>
+                        <button onclick="document.getElementById('searchInput').value=''; searchProduct();" class="btn-primary" style="margin-top: 14px; padding: 8px 18px; font-size: 13px;">Xem tất cả 9 hồ sơ</button>
                     </div>`;
                 return;
             }
 
-            products.forEach(p => {
-                const meta = getProductRetailMeta(p);
-                const isCore = p.product_id.includes('ENVY') || p.product_id.includes('ZESPRI');
+            const coreProducts = products.filter(p => p.product_id.includes('ENVY') || p.product_id.includes('ZESPRI'));
+            const simProducts = products.filter(p => !p.product_id.includes('ENVY') && !p.product_id.includes('ZESPRI'));
 
+            let html = '';
+
+            if (coreProducts.length > 0) {
                 html += `
-                <div class="product-card ${isCore ? 'card-core' : 'card-simulated'}">
-                    <div class="product-img-box">
-                        <img src="${p.image_url}?v=2" class="product-img" alt="${escapeHtml(p.display_name)}" onclick="openImageModal('${p.image_url}?v=2', '${escapeHtml(p.display_name)}')">
-                        <span class="card-origin-float">${meta.flag} ${meta.originShort}</span>
-                        <span class="card-store-float"><i class="fa-solid fa-store"></i> ${escapeHtml(p.retailer_display || 'Ghi nhận tại VICHI MARKET')}</span>
+                <div class="catalog-tier-block tier-core-block">
+                    <div class="tier-section-header tier-core-header">
+                        <div class="tier-header-left">
+                            <span class="tier-pill-core"><i class="fa-solid fa-camera"></i> DỮ LIỆU KHẢO SÁT THỰC ĐỊA</span>
+                            <h3>Hồ sơ thử nghiệm tại VICHI MARKET – ENVY và Zespri.</h3>
+                            <p>02 sản phẩm có ảnh chụp tem nhãn thực tế tại quầy kệ VICHI MARKET Đà Nẵng và dữ liệu khảo sát người tiêu dùng bước đầu (21/10/2026).</p>
+                        </div>
+                        <span class="tier-count-badge">${coreProducts.length} hồ sơ tại VICHI</span>
                     </div>
-                    <div class="product-body">
-                        <div class="card-tag-row">
-                            <span class="product-cat-pill">${escapeHtml(p.category || 'Trái cây')}</span>
-                            <span class="${meta.tagClass}">${meta.badge}</span>
-                        </div>
-                        <h3 class="product-title" onclick="loadProductDetail('${p.product_id}')">${escapeHtml(p.display_name)}</h3>
-                        
-                        <div class="card-price-highlight">
-                            <div class="price-left-box">
-                                <div class="price-val-row">
-                                    <span class="price-val">${meta.priceMain}</span>
-                                    <span class="price-unit">${meta.priceUnit}</span>
-                                </div>
-                                ${meta.priceNote ? `<span class="price-note-pill">${meta.priceNote}</span>` : ''}
-                            </div>
-                            <div class="pack-badge" title="${escapeHtml(p.packaging_demo || '')}">
-                                <i class="fa-solid fa-box-archive"></i> <span>${meta.packClean}</span>
-                            </div>
-                        </div>
-
-                        <div class="info-row-clean">
-                            <i class="fa-solid fa-circle-check" style="color: var(--primary);"></i>
-                            <span>${meta.origin}</span>
-                        </div>
-
-                        <div class="product-btn-group">
-                            <button class="btn-detail" onclick="loadProductDetail('${p.product_id}')">
-                                <i class="fa-solid fa-arrow-right-to-bracket"></i> Xem Hồ Sơ & Tem Nhãn
-                            </button>
-                            <button class="btn-qr-action" onclick="showQrForProduct('${p.product_id}')" title="Xem & tạo mã QR">
-                                <i class="fa-solid fa-qrcode"></i> Mã QR
-                            </button>
-                        </div>
+                    <div class="product-grid core-two-col-grid">
+                        ${coreProducts.map(p => buildProductCardHTML(p)).join('')}
                     </div>
                 </div>`;
-            });
-            document.getElementById('productGrid').innerHTML = html;
+            }
+
+            if (simProducts.length > 0) {
+                html += `
+                <div class="catalog-tier-block tier-sim-block">
+                    <div class="tier-section-header tier-sim-header">
+                        <div class="tier-header-left">
+                            <span class="tier-pill-sim"><i class="fa-solid fa-flask"></i> KỊCH BẢN TRÌNH DIỄN MỞ RỘNG</span>
+                            <h3>Danh mục mô phỏng mở rộng – thông tin, giá và hành trình giả định; ảnh minh họa từ nguồn mở.</h3>
+                            <p>07 hồ sơ nông sản nhập khẩu giả định nhằm minh họa khả năng mở rộng cấu trúc dữ liệu của nền tảng; hoàn toàn tách biệt với kết quả khảo sát tại VICHI MARKET.</p>
+                        </div>
+                        <span class="tier-count-badge sim">${simProducts.length} hồ sơ mô phỏng</span>
+                    </div>
+                    <div class="product-grid">
+                        ${simProducts.map(p => buildProductCardHTML(p)).join('')}
+                    </div>
+                </div>`;
+            }
+
+            container.innerHTML = html;
         }
 
         // ==========================================
@@ -761,22 +845,23 @@
         function renderQRControls(products) {
             if (!products || products.length === 0) return;
             
-            // 1. Render dropdown menu list
             let dropdownHtml = '';
             products.forEach(p => {
                 const meta = getProductRetailMeta(p);
-                const isCore = p.product_id.includes('ENVY') || p.product_id.includes('ZESPRI');
+                const isCore = meta.isCore;
+                const imgUrl = getSafeImageUrl(p.image_url);
+                const fallbackImg = getFallbackImageForProduct(p.product_id);
                 dropdownHtml += `
                     <div class="qr-dropdown-item ${p.product_id === currentSelectedQrProductId ? 'active' : ''}" 
                          id="qrItem_${p.product_id}" 
-                         data-name="${escapeHtml(p.display_name.toLowerCase())}"
+                         data-name="${escapeHtml((p.display_name + ' ' + p.product_id).toLowerCase())}"
                          onclick="selectProductForQR('${p.product_id}')">
-                        <img src="${p.image_url}" alt="" class="qr-item-thumb">
+                        <img src="${imgUrl}" onerror="this.onerror=null;this.src='${fallbackImg}'" alt="" class="qr-item-thumb">
                         <div class="qr-item-info">
                             <div class="qr-item-name">${escapeHtml(p.display_name)}</div>
                             <div class="qr-item-sub">
-                                <span class="badge-mini ${isCore ? '' : 'blue'}">${isCore ? 'Đối chiếu VICHI' : 'Bối cảnh bán lẻ'}</span>
-                                <span>${meta.origin} · ${meta.price}</span>
+                                <span class="badge-mini ${isCore ? '' : 'blue'}">${isCore ? 'Thử nghiệm tại VICHI' : 'Mô phỏng mở rộng'}</span>
+                                <span>${escapeHtml(meta.price)}</span>
                             </div>
                         </div>
                     </div>`;
@@ -784,7 +869,6 @@
             const listEl = document.getElementById('qrDropdownList');
             if (listEl) listEl.innerHTML = dropdownHtml;
 
-            // Tự động chọn sản phẩm đầu tiên
             if (products[0]) {
                 selectProductForQR(products[0].product_id);
             }
@@ -810,7 +894,6 @@
             }
         }
 
-        // Đóng dropdown khi click ra ngoài
         document.addEventListener('click', function(e) {
             const wrapper = document.getElementById('qrDropdownWrapper');
             if (wrapper && !wrapper.contains(e.target)) {
@@ -841,16 +924,10 @@
         function selectProductForQR(productId) {
             currentSelectedQrProductId = productId;
 
-            // Đánh dấu active item & chip
             document.querySelectorAll('.qr-dropdown-item').forEach(el => el.classList.remove('active'));
             const activeItem = document.getElementById('qrItem_' + productId);
             if (activeItem) activeItem.classList.add('active');
 
-            document.querySelectorAll('.qr-chip-pill').forEach(el => el.classList.remove('active'));
-            const activeChip = document.getElementById('qrChip_' + productId);
-            if (activeChip) activeChip.classList.add('active');
-
-            // Đóng menu nếu đang mở
             const menu = document.getElementById('qrDropdownMenu');
             const chevron = document.getElementById('qrDropdownChevron');
             if (menu) menu.style.display = 'none';
@@ -863,28 +940,33 @@
                         const p = data.product;
                         const qrUrl = data.qr_target_url;
                         const meta = getProductRetailMeta(p);
+                        const imgUrl = getSafeImageUrl(p.image_url);
+                        const fallbackImg = getFallbackImageForProduct(p.product_id);
 
-                        // Cập nhật Trigger Button
                         const thumbEl = document.getElementById('qrSelectedThumb');
-                        if (thumbEl) thumbEl.src = p.image_url;
+                        if (thumbEl) {
+                            thumbEl.onerror = function() { this.onerror = null; this.src = fallbackImg; };
+                            thumbEl.src = imgUrl;
+                        }
                         const titleEl = document.getElementById('qrSelectedTitle');
                         if (titleEl) titleEl.innerText = p.display_name;
                         const subEl = document.getElementById('qrSelectedSubtitle');
-                        if (subEl) subEl.innerText = `${p.category || 'Nông sản'} · ${meta.origin} · ${p.retailer_display || 'VICHI MARKET'}`;
+                        if (subEl) subEl.innerText = meta.cardScopeNote;
 
-                        // Cập nhật thẻ hiển thị QR
                         const pNameEl = document.getElementById('qrProductName');
                         if (pNameEl) pNameEl.innerText = p.display_name;
-                        const pDescEl = document.getElementById('qrProductDesc');
-                        if (pDescEl) pDescEl.innerText = p.description || `Hồ sơ đối chiếu tem nhãn và nguồn gốc xuất xứ tại điểm bán ${p.retailer_display || 'VICHI MARKET'}`;
                         const originBadge = document.getElementById('qrCardOriginBadge');
-                        if (originBadge) originBadge.innerHTML = `<i class="fa-solid fa-location-dot"></i> ${meta.origin}`;
+                        if (originBadge) originBadge.innerHTML = `<i class="fa-solid fa-shield-halved"></i> ${escapeHtml(meta.cardScopeNote)}`;
+                        const scopeBadge = document.getElementById('qrCardScopeBadge');
+                        if (scopeBadge) {
+                            scopeBadge.innerHTML = `<i class="fa-solid fa-qrcode"></i> ${meta.isSim ? 'Mã QR dẫn đến hồ sơ mô phỏng' : 'Mã QR dẫn đến hồ sơ sản phẩm'}`;
+                        }
 
                         const qrImg = document.getElementById('qrImageDisplay');
                         if (qrImg) qrImg.src = `/api/generate-qr?product_id=${encodeURIComponent(productId)}`;
 
                         const urlText = document.getElementById('qrTargetUrlText');
-                        if (urlText) urlText.innerHTML = `<strong>URL Đích (HTTPS):</strong> <code>${qrUrl}</code>`;
+                        if (urlText) urlText.innerHTML = `<strong>URL Đích (HTTPS):</strong> <code>${escapeHtml(qrUrl)}</code>`;
 
                         const btnDetail = document.getElementById('btnGoToDetail');
                         if (btnDetail) btnDetail.onclick = function() { loadProductDetail(productId); };
@@ -904,7 +986,7 @@
             });
         }
 
-        // Tải chi tiết hồ sơ sản phẩm (W03)
+        // W04, W05, W07 (Q11-Q15): Tải chi tiết hồ sơ sản phẩm
         function loadProductDetail(productId) {
             currentDetailProductId = productId;
             window.location.hash = 'detail/' + productId;
@@ -913,7 +995,7 @@
             document.getElementById('detailContent').innerHTML = `
                 <div style="text-align: center; padding: 60px 20px; color: var(--text-muted);">
                     <i class="fa-solid fa-spinner fa-spin" style="font-size: 32px; color: var(--primary);"></i>
-                    <p style="margin-top: 15px; font-size: 15px;">Đang tải hồ sơ ${productId}...</p>
+                    <p style="margin-top: 15px; font-size: 15px;">Đang tải hồ sơ ${escapeHtml(productId)}...</p>
                 </div>`;
 
             fetch(`/api/product-detail/${productId}`, { headers: fetchHeaders })
@@ -929,43 +1011,46 @@
                     }
 
                     const p = data.product;
-                    const lot = data.lot || {};
                     const cards = data.display_cards || [];
                     const evidences = data.evidences || [];
                     const claims = data.claims || [];
-                    const certs = data.certifications || [];
+                    const sources = data.sources || [];
                     const faqs = data.faqs || [];
-                    const qrUrl = data.qr_target_url;
+                    const knowledgeItems = data.knowledge_items || [];
                     const meta = getProductRetailMeta(p);
+                    const simJourneys = data.simulated_journey || [];
+                    const simDocs = data.simulated_documents || [];
+                    const isSimulatedProfile = data.is_simulated === true;
+                    const imgUrl = getSafeImageUrl(p.image_url);
+                    const fallbackImg = getFallbackImageForProduct(p.product_id);
 
-                    // 1. Phân nhóm thẻ thông tin PUBLIC_DISPLAY_CARDS
-                    const infoCards = cards.filter(c => c.section !== 'LIMIT');
-
-                    // Render các thẻ thông tin chính
-                    let infoCardsHTML = '';
-                    infoCards.forEach(c => {
+                    // 1. Render 04 thẻ PUBLIC_DISPLAY_CARDS.csv (03 thẻ thông tin + 01 thẻ phạm vi xác minh/sử dụng tinh tế, không có cảnh báo vàng)
+                    let displayCardsHTML = '';
+                    cards.forEach(c => {
+                        const isLimitCard = c.section === 'LIMIT';
                         let linkBtn = '';
                         if (c.source_url) {
                             linkBtn = `<a href="${c.source_url}" target="_blank" rel="noopener" class="card-source-link">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Mở nguồn chính thức (${escapeHtml(c.source_ids || '')})
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Mở nguồn tham khảo (${escapeHtml(c.source_ids || '')})
                             </a>`;
                         } else if (c.source_ids && c.source_ids.includes('VICHI')) {
-                            linkBtn = `<button onclick="openImageModal('${p.image_url}', '${escapeHtml(c.title)}')" class="card-source-btn">
-                                <i class="fa-solid fa-image"></i> Xem ảnh nhãn tại điểm bán
+                            linkBtn = `<button onclick="openImageModal('${imgUrl}', '${escapeHtml(c.title)}')" class="card-source-btn">
+                                <i class="fa-solid fa-image"></i> Xem ảnh nhãn tại điểm bán (${escapeHtml(c.source_ids)})
                             </button>`;
                         }
 
                         let statusBadgeClass = 'badge-brand';
-                        if (c.visual_status && c.visual_status.includes('điểm bán')) statusBadgeClass = 'badge-retail';
+                        if (isLimitCard) statusBadgeClass = 'badge-scope-neutral';
+                        else if (c.visual_status && c.visual_status.includes('điểm bán')) statusBadgeClass = 'badge-retail';
                         else if (c.visual_status && c.visual_status.includes('hệ thống')) statusBadgeClass = 'badge-system';
 
-                        infoCardsHTML += `
-                        <div class="display-card">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 10px;">
+                        displayCardsHTML += `
+                        <div class="display-card ${isLimitCard ? 'display-card-scope' : ''}">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
                                 <span class="card-status-badge ${statusBadgeClass}">
-                                    <i class="fa-solid fa-check-double"></i> ${escapeHtml(c.visual_status)}
+                                    <i class="fa-solid ${isLimitCard ? 'fa-sliders' : 'fa-check-double'}"></i> ${escapeHtml(c.visual_status)}
                                 </span>
-                                <span class="card-scope-tag">${escapeHtml(c.scope)}</span>
+                                <span class="card-scope-tag">${escapeHtml(translateScopeCode(c.scope))}</span>
                             </div>
                             <h4 style="margin: 0 0 8px; font-size: 15.5px; color: var(--slate-900); font-weight: 700;">${escapeHtml(c.title)}</h4>
                             <p style="margin: 0 0 14px; font-size: 13.5px; color: var(--slate-700); line-height: 1.6; flex: 1;">
@@ -975,7 +1060,7 @@
                         </div>`;
                     });
 
-                    // Render Bảng Phân Tích Tuyên Bố & Bằng Chứng (nếu có trong CLAIM_EVIDENCE.csv)
+                    // 2. Render Tuyên bố & Bằng chứng (CLAIM_EVIDENCE.csv) đã Việt hóa hoàn toàn mã kỹ thuật
                     let claimsHTML = '';
                     if (claims.length > 0) {
                         claims.forEach(cl => {
@@ -984,7 +1069,7 @@
                             if (cl.applicable_scope.includes('ORGANIC')) {
                                 claimBadgeColor = '#fef3c7';
                                 claimTextColor = '#92400e';
-                            } else if (cl.applicable_scope.includes('OTHER_RETAILER')) {
+                            } else if (cl.applicable_scope.includes('OTHER_RETAILER') || cl.applicable_scope.includes('SIMULATION')) {
                                 claimBadgeColor = '#f1f5f9';
                                 claimTextColor = '#475569';
                             }
@@ -997,8 +1082,8 @@
                                         ${escapeHtml(cl.display_status)}
                                     </span>
                                 </div>
-                                <div style="font-size: 12.5px; color: var(--slate-500); margin-bottom: 4px;">
-                                    <strong>Chủ thể công bố:</strong> ${escapeHtml(cl.claimant)} · <strong>Phạm vi:</strong> ${escapeHtml(cl.applicable_scope)}
+                                <div style="font-size: 12.5px; color: var(--slate-500); margin-bottom: 6px;">
+                                    <strong>Chủ thể công bố:</strong> ${escapeHtml(cl.claimant)} · <strong>Phạm vi áp dụng:</strong> ${escapeHtml(translateScopeCode(cl.applicable_scope))} · <strong>Đối chiếu lô tại VICHI:</strong> Chưa xác minh theo lô
                                 </div>
                                 <div style="font-size: 12.5px; color: #047857; background: #ecfdf5; padding: 6px 10px; border-radius: 6px; border-left: 3px solid var(--primary);">
                                     <i class="fa-solid fa-circle-info"></i> ${escapeHtml(cl.consumer_explanation)}
@@ -1007,34 +1092,122 @@
                         });
                     }
 
-                    // Render Bảng Bằng Chứng Chi Tiết (nếu có trong BANG_CHUNG.csv)
+                    // 3. Render Bảng Bằng Chứng Chi Tiết (BANG_CHUNG.csv)
                     let evidencesTableHTML = '';
                     if (evidences.length > 0) {
                         evidences.forEach(e => {
                             let linkDisplay = '-';
                             if (e.url) {
-                                linkDisplay = `<a href="${e.url}" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600;"><i class="fa-solid fa-link"></i> Mở nguồn</a>`;
+                                linkDisplay = `<a href="${e.url}" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Mở nguồn gốc</a>`;
                             } else if (e.document_ref) {
                                 linkDisplay = `<span style="color: var(--slate-500); font-size: 11.5px;">${escapeHtml(e.document_ref)}</span>`;
                             }
 
                             evidencesTableHTML += `
                             <tr>
-                                <td style="font-weight: 700; color: var(--slate-900); font-size: 12px;">${e.evidence_id}</td>
+                                <td style="font-weight: 700; color: var(--slate-900); font-size: 12px;">${escapeHtml(e.evidence_id)}</td>
                                 <td>
                                     <div style="font-weight: 700; font-size: 13px; color: var(--slate-900);">${escapeHtml(e.title)}</div>
                                     <div style="font-size: 12px; color: var(--slate-500); margin-top: 3px;">${escapeHtml(e.description)}</div>
                                 </td>
-                                <td><span class="badge-scope">${escapeHtml(e.verification_scope)}</span></td>
-                                <td style="font-size: 12px; color: #b45309; font-weight: 700;">Chưa gắn lô (${e.verified_for_lot})</td>
+                                <td><span class="badge-scope">${escapeHtml(translateScopeCode(e.verification_scope))}</span></td>
+                                <td style="font-size: 12px; color: #475569; font-weight: 700;">${isSimulatedProfile ? 'Kịch bản mô phỏng (không có lô thực)' : 'Chưa đối chiếu chứng từ theo lô'}</td>
                                 <td>${linkDisplay}</td>
                             </tr>`;
                         });
                     }
 
-                    // Render Gợi ý câu hỏi trợ lý AI cho sản phẩm này
+                    // 4. Render Danh sách Nguồn Tham Khảo Liên Kết (NGUON_THAM_KHAO.csv - W07 / Q15)
+                    let sourcesListHTML = '';
+                    if (sources.length > 0) {
+                        sourcesListHTML = `
+                        <div class="section-title-box" style="margin-top: 22px; margin-bottom: 12px;">
+                            <h3 style="font-size: 16px; font-weight: 700; color: var(--slate-900); margin: 0;">
+                                <i class="fa-solid fa-book-bookmark" style="color: var(--primary);"></i> Nguồn Tham Khảo & Liên Kết Gốc (${sources.length} nguồn)
+                            </h3>
+                        </div>
+                        <div class="sources-cards-grid">
+                            ${sources.map(s => `
+                                <div class="source-ref-card">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                        <span class="source-id-pill">${escapeHtml(s.source_id)}</span>
+                                        <span class="card-scope-tag">${escapeHtml(translateScopeCode(s.scope))}</span>
+                                    </div>
+                                    <div style="font-weight: 700; font-size: 13.5px; color: var(--slate-900); margin-bottom: 4px;">${escapeHtml(s.title)}</div>
+                                    <div style="font-size: 12px; color: var(--slate-600); margin-bottom: 8px; line-height: 1.5;">
+                                        <strong>Đơn vị:</strong> ${escapeHtml(s.organization)} · ${escapeHtml(s.supported_fact)}
+                                    </div>
+                                    ${s.url ? `<a href="${s.url}" target="_blank" rel="noopener" class="card-source-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Mở nguồn gốc</a>` : `<span style="font-size: 11.5px; color: var(--slate-500);"><i class="fa-solid fa-folder"></i> Lưu trữ trong bộ hồ sơ nghiên cứu (${escapeHtml(s.checked_at || '')})</span>`}
+                                </div>
+                            `).join('')}
+                        </div>`;
+                    }
+
+                    // 5. Render Hành trình 5 bước giả định & 5 loại chứng từ cần có nếu triển khai thật (W04 / Q14)
+                    let simSectionsHTML = '';
+                    if (isSimulatedProfile) {
+                        let journeyItems = '';
+                        if (simJourneys.length > 0) {
+                            journeyItems = `
+                            <div class="sim-journey-box">
+                                <div class="sim-box-header">
+                                    <h4><i class="fa-solid fa-route" style="color: #0284c7;"></i> Hành trình 5 bước giả định — chỉ phục vụ trình diễn giao diện</h4>
+                                    <span class="badge-simulated">5 bước giả định</span>
+                                </div>
+                                <div class="sim-steps-grid">
+                                    ${simJourneys.map(ev => `
+                                        <div class="sim-step-card">
+                                            <div class="sim-step-num">Bước ${escapeHtml(ev.sequence_no)}</div>
+                                            <div class="sim-step-title">${escapeHtml(ev.event_title)}</div>
+                                            <div class="sim-step-meta"><i class="fa-regular fa-calendar"></i> ${escapeHtml(ev.event_date)} · ${escapeHtml(ev.location)}</div>
+                                            <div class="sim-step-note">${escapeHtml(ev.note)}</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>`;
+                        }
+
+                        let docItems = '';
+                        if (simDocs.length > 0) {
+                            docItems = `
+                            <div class="sim-docs-box">
+                                <div class="sim-box-header">
+                                    <h4><i class="fa-solid fa-file-circle-question" style="color: var(--primary);"></i> Danh mục 5 loại chứng từ cần có nếu triển khai thật</h4>
+                                    <span class="badge-scope">Cần có nếu triển khai thật</span>
+                                </div>
+                                <p style="font-size: 12.5px; color: var(--slate-600); margin: 0 0 12px;">
+                                    Đây là danh mục giấy tờ cần có khi phát triển thực tế cho nông sản nhập khẩu, không phải giấy tờ đã phát hành cho hồ sơ mô phỏng này:
+                                </p>
+                                <div class="table-responsive-wrapper">
+                                    <table class="evidence-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 210px;">LOẠI CHỨNG TỪ YÊU CẦU</th>
+                                                <th>MÔ TẢ YÊU CẦU KHI TRIỂN KHAI THẬT</th>
+                                                <th style="width: 210px;">TRẠNG THÁI TRONG HỒ SƠ MÔ PHỎNG</th>
+                                                <th>GHI CHÚ CÔNG BỐ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${simDocs.map(d => `
+                                                <tr>
+                                                    <td style="font-weight: 700; color: var(--slate-900); font-size: 12.5px;">${escapeHtml(translateScopeCode(d.document_type))}</td>
+                                                    <td style="font-size: 12.5px; color: var(--slate-700);">${escapeHtml(d.description)}</td>
+                                                    <td><span class="badge-scope">Cần có nếu triển khai thật</span></td>
+                                                    <td style="font-size: 12px; color: var(--slate-500);">${escapeHtml(d.publication_note)}</td>
+                                                </tr>
+                                            `).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>`;
+                        }
+                        simSectionsHTML = journeyItems + docItems;
+                    }
+
+                    // 6. Render toàn bộ 12 câu hỏi chuẩn hóa (AI_HOI_DAP.csv) & 12 mục tri thức chuẩn hóa (AI_KIEN_THUC.csv - Mục #10)
                     let inlineFaqBtns = '';
-                    faqs.slice(0, 6).forEach(q => {
+                    faqs.forEach(q => {
                         inlineFaqBtns += `<button class="suggest-btn-sm" onclick="askInlineProductQA('${q.qa_id}')">${escapeHtml(q.user_question)}</button>`;
                     });
 
@@ -1048,51 +1221,51 @@
                             <span style="color: var(--slate-900); font-weight: 700;">${escapeHtml(p.display_name)}</span>
                         </div>
 
+                        ${isSimulatedProfile ? `<div class="sim-disclosure-banner"><strong>Mô phỏng mở rộng:</strong> Ảnh minh họa từ nguồn web (<a href="/static/image_credits.html" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">xem giấy phép ảnh</a>); giá, xuất xứ, quy cách, nhân sự, hành trình đều giả định. Không phải sản phẩm hoặc lô hàng đã được thử nghiệm tại VICHI MARKET.</div>` : ''}
                         <!-- Header Card Thông Tin Sản Phẩm -->
                         <div class="detail-header-card">
-                            <div class="detail-img-wrapper" onclick="openImageModal('${p.image_url}?v=2', '${escapeHtml(p.display_name)}')">
-                                <img src="${p.image_url}?v=2" class="detail-img" alt="${escapeHtml(p.display_name)}">
+                            <div class="detail-img-wrapper" onclick="openImageModal('${imgUrl}', '${escapeHtml(p.display_name)}')">
+                                <img src="${imgUrl}" onerror="this.onerror=null;this.src='${fallbackImg}'" class="detail-img" alt="${escapeHtml(p.display_name)}">
                                 <span class="badge-vichi-float"><i class="fa-solid fa-magnifying-glass-plus"></i> Nhấn xem to</span>
                             </div>
                             <div style="flex: 1;">
                                 <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px; flex-wrap: wrap;">
-                                    <span class="${meta.tagClass}"><i class="fa-solid fa-store"></i> ${meta.badge}</span>
-                                    <span style="font-size: 12px; color: var(--slate-500);">Mã hồ sơ: <strong>${p.product_id}</strong></span>
+                                    <span class="${meta.tagClass}"><i class="fa-solid ${isSimulatedProfile ? 'fa-flask' : 'fa-store'}"></i> ${meta.badge}</span>
+                                    <span style="font-size: 12px; color: var(--slate-500);">Mã hồ sơ: <strong>${escapeHtml(p.product_id)}</strong></span>
                                 </div>
                                 <h1 style="margin: 0 0 14px; font-size: 22px; color: var(--slate-900); font-weight: 800; line-height: 1.35;">${escapeHtml(p.display_name)}</h1>
                                 
                                 <div class="detail-meta-grid">
                                     <div class="meta-item">
-                                        <label>Điểm Bán Ghi Nhận</label>
-                                        <span>${escapeHtml(p.retailer_display || 'Ghi nhận tại VICHI MARKET')}</span>
+                                        <label>${isSimulatedProfile ? 'Phạm vi hồ sơ' : 'Điểm bán ghi nhận'}</label>
+                                        <span>${escapeHtml(meta.storeBadgeText)}</span>
                                     </div>
                                     <div class="meta-item">
                                         <label>Quy Cách</label>
                                         <span>${escapeHtml(p.packaging_demo || 'Tại điểm bán')}</span>
                                     </div>
                                     <div class="meta-item">
-                                        <label>Giá Quan Sát Tại Ảnh</label>
-                                        <span><strong style="color: var(--slate-900);">${meta.price}</strong></span>
+                                        <label>${isSimulatedProfile ? 'Giá giả định (mô phỏng)' : 'Giá quan sát tại thời điểm chụp'}</label>
+                                        <span><strong style="color: var(--slate-900); letter-spacing: 0.35px;">${escapeHtml(meta.price)}</strong></span>
                                     </div>
                                     <div class="meta-item">
                                         <label>Mã Lô Hàng</label>
-                                        <span style="color: #b45309; font-weight: 700;">Chưa có mã lô theo sản phẩm</span>
+                                        <span style="color: #475569; font-weight: 700;">${isSimulatedProfile ? 'Không áp dụng (hồ sơ mô phỏng)' : 'Chưa có mã lô được đối chiếu'}</span>
                                     </div>
                                     <div class="meta-item">
-                                        <label>Nguồn Gốc Trên Nhãn</label>
-                                        <span>${meta.origin}</span>
+                                        <label>Phạm Vi Nguồn Gốc</label>
+                                        <span>${escapeHtml(meta.detailOriginScope)}</span>
                                     </div>
                                     <div class="meta-item">
                                         <label>Trạng Thái Bằng Chứng</label>
-                                        <span style="color: var(--primary); font-weight: 700;">Quan sát điểm bán & Nguồn công khai</span>
+                                        <span style="color: var(--primary); font-weight: 700;">${isSimulatedProfile ? 'Dữ liệu mô phỏng – ảnh nguồn mở' : 'Ảnh chụp tại VICHI & nguồn thương hiệu'}</span>
                                     </div>
                                 </div>
 
                                 <div style="margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap;">
-                                    ${claimsHTML || evidencesTableHTML ? `
                                     <button onclick="toggleDetailLayers()" id="btnToggleEvidence" class="btn-primary" style="padding: 10px 18px; font-size: 13.5px;">
-                                        <i class="fa-solid fa-folder-open"></i> <span id="evidenceBtnText">Xem bằng chứng chi tiết & Tuyên bố</span>
-                                    </button>` : ''}
+                                        <i class="fa-solid fa-folder-open"></i> <span id="evidenceBtnText">Thu gọn bảng bằng chứng & nguồn gốc</span>
+                                    </button>
                                     <button onclick="showQrForProduct('${productId}')" class="btn-secondary" style="padding: 10px 16px; font-size: 13.5px;">
                                         <i class="fa-solid fa-qrcode"></i> Xem Mã QR
                                     </button>
@@ -1100,22 +1273,23 @@
                             </div>
                         </div>
 
-                        <!-- 03 THẺ THÔNG TIN CÓ NGUỒN (W03) -->
+                        <!-- 04 THẺ THÔNG TIN & PHẠM VI XÁC MINH (PUBLIC_DISPLAY_CARDS.csv) -->
                         <div class="section-title-box" style="margin-top: 24px; margin-bottom: 14px;">
                             <h3 style="font-size: 17px; font-weight: 700; color: var(--slate-900); margin: 0;">
-                                <i class="fa-solid fa-layer-group" style="color: var(--primary);"></i> Thẻ Thông Tin Có Nguồn Tham Chiếu
+                                <i class="fa-solid fa-layer-group" style="color: var(--primary);"></i> 04 Thẻ Thông Tin & Phạm Vi Xác Minh
                             </h3>
-                            <span style="font-size: 12.5px; color: var(--slate-500);">Phân cấp rành mạch giữa quan sát và chính sách thương hiệu</span>
+                            <span style="font-size: 12.5px; color: var(--slate-500);">Tách biệt rõ thông tin quan sát, công bố thương hiệu và giới hạn dữ liệu</span>
                         </div>
-                        <div class="display-cards-grid">${infoCardsHTML}</div>
+                        <div class="display-cards-grid">${displayCardsHTML}</div>
 
-                        <!-- KHU VỰC BẰNG CHỨNG MỞ RỘNG (ẨN MẶC ĐỊNH THEO TẦNG) -->
-                        ${claimsHTML || evidencesTableHTML ? `
-                        <div id="extendedLayersBox" style="display: none; margin-top: 24px;">
+                        ${simSectionsHTML}
+
+                        <!-- KHU VỰC BẰNG CHỨNG, TUYÊN BỐ & NGUỒN THAM KHẢO (HIỂN THỊ MẶC ĐỊNH ĐỂ DỄ ĐỐI CHIẾU) -->
+                        <div id="extendedLayersBox" style="display: block; margin-top: 24px;">
                             ${claimsHTML ? `
                             <div class="section-title-box" style="margin-bottom: 12px;">
                                 <h3 style="font-size: 16px; font-weight: 700; color: var(--slate-900); margin: 0;">
-                                    <i class="fa-solid fa-scale-balanced" style="color: var(--primary);"></i> Đối Chiếu Tuyên Bố & Bằng Chứng
+                                    <i class="fa-solid fa-scale-balanced" style="color: var(--primary);"></i> Đối Chiếu Tuyên Bố & Phạm Vi Bằng Chứng (${claims.length} mục)
                                 </h3>
                             </div>
                             <div style="display: grid; gap: 10px; margin-bottom: 24px;">${claimsHTML}</div>` : ''}
@@ -1123,59 +1297,61 @@
                             ${evidencesTableHTML ? `
                             <div class="section-title-box" style="margin-bottom: 12px;">
                                 <h3 style="font-size: 16px; font-weight: 700; color: var(--slate-900); margin: 0;">
-                                    <i class="fa-solid fa-file-shield" style="color: var(--primary);"></i> Bảng Bằng Chứng Chi Tiết Tuyển Chọn
+                                    <i class="fa-solid fa-file-shield" style="color: var(--primary);"></i> Bảng Bằng Chứng Chi Tiết (${evidences.length} bản ghi)
                                 </h3>
                             </div>
                             <div class="table-responsive-wrapper">
                                 <table class="evidence-table">
                                     <thead>
                                         <tr>
-                                            <th style="width: 100px;">MÃ MINH CHỨNG</th>
-                                            <th>TIÊU ĐỀ & MÔ TẢ TÀI LIỆU</th>
-                                            <th style="width: 150px;">PHẠM VI ÁP DỤNG</th>
-                                            <th style="width: 160px;">TÌNH TRẠNG THEO LÔ</th>
-                                            <th style="width: 120px;">LIÊN KẾT GỐC</th>
+                                            <th style="width: 110px;">MÃ BẰNG CHỨNG</th>
+                                            <th>TIÊU ĐỀ & NỘI DUNG GHI NHẬN</th>
+                                            <th style="width: 180px;">PHẠM VI XÁC MINH</th>
+                                            <th style="width: 190px;">TÌNH TRẠNG THEO LÔ</th>
+                                            <th style="width: 130px;">NGUỒN GỐC</th>
                                         </tr>
                                     </thead>
                                     <tbody>${evidencesTableHTML}</tbody>
                                 </table>
                             </div>` : ''}
-                        </div>` : ''}
 
-                        <!-- TRỢ LÝ GIẢI THÍCH NHANH TRONG TRANG CHI TIẾT -->
+                            ${sourcesListHTML}
+                        </div>
+
+                        <!-- TRỢ LÝ GIẢI THÍCH NHANH TRONG TRANG CHI TIẾT (ĐỦ 12 CÂU HỎI / SẢN PHẨM) -->
                         ${inlineFaqBtns ? `
                         <div class="inline-ai-box">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 6px;">
                                 <h4 style="margin: 0; font-size: 14.5px; font-weight: 700; color: var(--slate-900);">
-                                    <i class="fa-solid fa-robot" style="color: var(--primary);"></i> Hỏi đáp nhanh về sản phẩm này:
+                                    <i class="fa-solid fa-robot" style="color: var(--primary);"></i> Trợ lý giải thích thông tin có nguồn – không thay thế xác minh chứng từ:
                                 </h4>
-                                <span style="font-size: 11.5px; color: var(--slate-500);">19 câu hỏi chuẩn hóa</span>
+                                <span style="font-size: 11.5px; font-weight: 600; color: var(--primary);">${faqs.length} câu hỏi chuẩn hóa</span>
                             </div>
                             <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">${inlineFaqBtns}</div>
-                            <div id="inlineChatHistory" class="chat-history-box" style="max-height: 240px; display: none;"></div>
+                            <div id="inlineChatHistory" class="chat-history-box" style="max-height: 260px; display: none;"></div>
                             <div class="chat-input-bar" style="margin-top: 10px;">
-                                <input type="text" id="inlineChatInput" placeholder="Nhập câu hỏi về nhãn, nguồn hoặc phạm vi bằng chứng..." onkeydown="if(event.key === 'Enter') sendInlineAIMessage('${productId}')">
+                                <input type="text" id="inlineChatInput" placeholder="Nhập câu hỏi về nhãn, nguồn hoặc phạm vi bằng chứng của sản phẩm này..." onkeydown="if(event.key === 'Enter') sendInlineAIMessage('${productId}')">
                                 <button onclick="sendInlineAIMessage('${productId}')" class="btn-primary" style="padding: 9px 18px; font-size: 13px;">Gửi</button>
                             </div>
                         </div>` : ''}
 
-                        <!-- BIỂU MẪU GÓP Ý THỰC TẾ TRONG HỒ SƠ -->
+                        <!-- BIỂU MẪU GÓP Ý ẨN DANH AN TOÀN (W12) -->
                         <div style="margin-top: 24px; padding: 20px; background: white; border-radius: 16px; border: 1px solid var(--border);">
                             <h4 style="margin: 0 0 8px; font-size: 15px; font-weight: 700; color: var(--slate-900);">
-                                <i class="fa-solid fa-comments" style="color: var(--primary);"></i> Góp ý của bạn về hồ sơ ${escapeHtml(p.display_name)}:
+                                <i class="fa-solid fa-comments" style="color: var(--primary);"></i> Góp ý ẩn danh về hồ sơ ${escapeHtml(p.display_name)}:
                             </h4>
                             <div class="feedback-inputs-grid" style="margin-bottom: 10px;">
-                                <input type="text" id="inlineFbName" placeholder="Tên hoặc biệt danh của bạn..." style="padding: 9px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px;">
+                                <input type="text" id="inlineFbName" placeholder="Biệt danh (tự động ẩn danh khi lưu công khai)..." style="padding: 9px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px;">
                                 <select id="inlineFbAmount" style="padding: 9px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px; font-weight: 600;">
-                                    <option value="Rõ ràng">Mức độ dễ hiểu: Rõ ràng, minh bạch</option>
+                                    <option value="Vừa đủ, rõ ràng">Mức độ thông tin: Vừa đủ, rõ ràng</option>
                                     <option value="Cần giải thích thêm">Cần thêm giải thích thuật ngữ</option>
-                                    <option value="Cần thêm nguồn">Cần thêm tài liệu cấp lô</option>
+                                    <option value="Cần thêm tài liệu cấp lô">Cần thêm tài liệu cấp lô</option>
                                 </select>
                             </div>
-                            <textarea id="inlineFbComment" rows="2" placeholder="Chia sẻ cảm nhận về tính minh bạch của các thẻ thông tin..." style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px;"></textarea>
+                            <textarea id="inlineFbComment" rows="2" placeholder="Chia sẻ nhận xét về cách phân tầng thông tin (vui lòng không nhập SĐT hoặc email cá nhân)..." style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px;"></textarea>
                             <div style="margin-top: 8px; display: flex; justify-content: flex-end;">
                                 <button onclick="submitUserFeedback('${productId}')" class="btn-primary" style="padding: 8px 18px; font-size: 13px;">
-                                    <i class="fa-solid fa-paper-plane"></i> Gửi ý kiến
+                                    <i class="fa-solid fa-paper-plane"></i> Gửi góp ý ẩn danh
                                 </button>
                             </div>
                             <div id="inlineFbAlert" style="display: none; margin-top: 10px; padding: 8px 12px; border-radius: 8px; font-size: 12.5px;"></div>
@@ -1198,73 +1374,100 @@
             if (extBox) {
                 if (extBox.style.display === 'none') {
                     extBox.style.display = 'block';
-                    btnText.innerText = 'Thu gọn bằng chứng mở rộng';
+                    btnText.innerText = 'Thu gọn bảng bằng chứng & nguồn gốc';
                     extBox.scrollIntoView({ behavior: 'smooth' });
                 } else {
                     extBox.style.display = 'none';
-                    btnText.innerText = 'Xem bằng chứng chi tiết & Tuyên bố';
+                    btnText.innerText = 'Xem bằng chứng chi tiết & Nguồn gốc';
                 }
             }
         }
 
         // ==========================================
-        // KHỐI TRỢ LÝ GIẢI THÍCH XUATXU AI
+        // KHỐI TRỢ LÝ GIẢI THÍCH THÔNG TIN CÓ NGUỒN (108 CÂU HỎI CHUẨN HÓA)
         // ==========================================
-        function renderFaqSuggestions(qas) {
+        let currentFaqFilterProductId = '';
+
+        function renderFaqSuggestions(qas, customHeader) {
             let html = '';
-            qas.slice(0, 8).forEach(q => {
+            qas.forEach(q => {
                 const qText = q.user_question || q.question || '';
                 const qId = q.qa_id || qText;
                 html += `<button class="suggest-btn-sm" onclick="askGlobalQA('${escapeHtml(qId)}')">${escapeHtml(qText)}</button>`;
             });
             const btnContainer = document.getElementById('faqSuggestionButtons');
             if (btnContainer) btnContainer.innerHTML = html;
+            const headerEl = document.getElementById('faqSuggestionHeader');
+            if (headerEl && customHeader) {
+                headerEl.innerText = customHeader;
+            }
         }
 
         function filterFaqTab(categoryOrId) {
             document.querySelectorAll('#tab-ai .filter-pill').forEach(b => b.classList.remove('active'));
+            const simSelect = document.getElementById('faqSimProductSelect');
+
             if (!categoryOrId) {
+                currentFaqFilterProductId = '';
                 document.getElementById('faqFilterAll')?.classList.add('active');
-                renderFaqSuggestions(globalQAs);
-            } else if (categoryOrId.includes('ENVY')) {
+                if (simSelect) simSelect.value = '';
+                renderFaqSuggestions(globalQAs, `Toàn bộ ${globalQAs.length} câu hỏi chuẩn hóa (cuộn để chọn câu hỏi):`);
+            } else if (categoryOrId === 'P-ENVY-VICHI-01') {
+                currentFaqFilterProductId = categoryOrId;
                 document.getElementById('faqFilterEnvy')?.classList.add('active');
+                if (simSelect) simSelect.value = '';
                 const filtered = globalQAs.filter(q => q.product_id === categoryOrId);
-                renderFaqSuggestions(filtered);
-            } else if (categoryOrId.includes('ZESPRI')) {
+                renderFaqSuggestions(filtered, `12 câu hỏi chuẩn hóa về Táo ENVY túi 1 kg tại VICHI MARKET:`);
+            } else if (categoryOrId === 'P-ZESPRI-VICHI-01') {
+                currentFaqFilterProductId = categoryOrId;
                 document.getElementById('faqFilterZespri')?.classList.add('active');
+                if (simSelect) simSelect.value = '';
                 const filtered = globalQAs.filter(q => q.product_id === categoryOrId);
-                renderFaqSuggestions(filtered);
-            } else if (categoryOrId === 'RETAIL') {
-                document.getElementById('faqFilterRetail')?.classList.add('active');
-                const retailQuestions = [
-                    { qa_id: 'Nho sữa Shine Muscat có nguồn gốc từ đâu?', user_question: 'Nho sữa Shine Muscat có nguồn gốc từ đâu?' },
-                    { qa_id: 'Dưa lưới Danny Green đạt chứng nhận gì?', user_question: 'Dưa lưới Danny Green đạt chứng nhận gì?' },
-                    { qa_id: 'Bưởi da xanh HuKa Farm có tem tại đâu?', user_question: 'Bưởi da xanh HuKa Farm có tem cân tại đâu?' },
-                    { qa_id: 'Xoài Cát Chu Mr. 9 có xuất xứ thế nào?', user_question: 'Xoài Cát Chu Mr. 9 có xuất xứ thế nào?' },
-                    { qa_id: 'Lê nâu Hàn Quốc K-PEAR phân phối qua ai?', user_question: 'Lê nâu Hàn Quốc K-PEAR phân phối qua ai?' },
-                    { qa_id: 'Quýt Úc Tony Fruit có quy cách ra sao?', user_question: 'Quýt Úc Tony Fruit có quy cách đóng gói ra sao?' }
-                ];
-                renderFaqSuggestions(retailQuestions);
+                renderFaqSuggestions(filtered, `12 câu hỏi chuẩn hóa về Kiwi vàng Zespri hộp 4 quả tại VICHI MARKET:`);
+            } else if (categoryOrId === 'SIM_ALL') {
+                currentFaqFilterProductId = '';
+                document.getElementById('faqFilterSimAll')?.classList.add('active');
+                if (simSelect) simSelect.value = '';
+                const filtered = globalQAs.filter(q => q.product_id && q.product_id.includes('-SIM-'));
+                renderFaqSuggestions(filtered, `84 câu hỏi chuẩn hóa cho 07 hồ sơ mô phỏng mở rộng:`);
+            } else {
+                currentFaqFilterProductId = categoryOrId;
+                document.getElementById('faqFilterSimAll')?.classList.add('active');
+                if (simSelect) simSelect.value = categoryOrId;
+                const filtered = globalQAs.filter(q => q.product_id === categoryOrId);
+                const prod = globalProducts.find(p => p.product_id === categoryOrId);
+                renderFaqSuggestions(filtered, `12 câu hỏi chuẩn hóa cho ${prod ? prod.display_name : categoryOrId} (hồ sơ mô phỏng):`);
             }
+        }
+
+        function buildKnowledgeSourceMeta(q) {
+            const matchedKB = (globalKnowledge || []).find(k => k.product_id === q.product_id && k.allowed_answer === q.recommended_answer);
+            const srcPolicy = q.source_policy || q.source_ids || '';
+            const kbTopic = matchedKB ? translateScopeCode(matchedKB.topic) : (q.question_group || '');
+            const kbConf = matchedKB ? translateScopeCode(matchedKB.confidence) : translateScopeCode(srcPolicy);
+            const kbSources = (matchedKB && matchedKB.source_evidence_ids) ? matchedKB.source_evidence_ids : '';
+            let parts = [];
+            if (kbTopic) parts.push(`Chủ đề: <strong>${escapeHtml(kbTopic)}</strong>`);
+            if (kbConf) parts.push(`Phạm vi: <strong>${escapeHtml(kbConf)}</strong>`);
+            if (kbSources) parts.push(`Mã bằng chứng/nguồn: <strong>${escapeHtml(kbSources)}</strong>`);
+            if (parts.length === 0) return '';
+            return `<div class="chat-source-tag"><i class="fa-solid fa-link"></i> ${parts.join(' · ')}</div>`;
         }
 
         function askGlobalQA(qaId) {
             const chatBox = document.getElementById('globalChatHistory');
             if (!chatBox) return;
 
-            // Nếu qaId là câu hỏi trực tiếp (từ gợi ý bán lẻ)
-            if (typeof qaId === 'string' && !qaId.startsWith('QA-')) {
+            const q = globalQAs.find(item => item.qa_id === qaId);
+            if (!q) {
                 chatBox.innerHTML += `
                     <div class="chat-msg user">
                         <i class="fa-solid fa-user"></i>
                         <div>${escapeHtml(qaId)}</div>
                     </div>`;
-                sendAIMessageToBackend(qaId, '', chatBox);
+                sendAIMessageToBackend(qaId, currentFaqFilterProductId, chatBox);
                 return;
             }
-
-            const q = globalQAs.find(item => item.qa_id === qaId);
-            if (!q) return;
 
             chatBox.innerHTML += `
                 <div class="chat-msg user">
@@ -1273,11 +1476,7 @@
                 </div>`;
 
             const answerText = q.recommended_answer || q.official_answer || q.answer || 'Chưa có thông tin cho câu hỏi này.';
-            let sourceInfo = '';
-            const src = q.source_policy || q.source_ids;
-            if (src) {
-                sourceInfo = `<div class="chat-source-tag"><i class="fa-solid fa-link"></i> Nguồn đối chiếu: <strong>${escapeHtml(src)}</strong></div>`;
-            }
+            const sourceInfo = buildKnowledgeSourceMeta(q);
 
             chatBox.innerHTML += `
                 <div class="chat-msg ai">
@@ -1295,7 +1494,8 @@
             if (!chatBox) return;
             chatBox.style.display = 'block';
 
-            if (typeof qaId === 'string' && !qaId.startsWith('QA-')) {
+            const q = globalQAs.find(item => item.qa_id === qaId);
+            if (!q) {
                 chatBox.innerHTML += `
                     <div class="chat-msg user">
                         <i class="fa-solid fa-user"></i>
@@ -1305,9 +1505,6 @@
                 return;
             }
 
-            const q = globalQAs.find(item => item.qa_id === qaId);
-            if (!q) return;
-
             chatBox.innerHTML += `
                 <div class="chat-msg user">
                     <i class="fa-solid fa-user"></i>
@@ -1315,11 +1512,7 @@
                 </div>`;
 
             const answerText = q.recommended_answer || q.official_answer || q.answer || 'Chưa có thông tin cho câu hỏi này.';
-            let sourceInfo = '';
-            const src = q.source_policy || q.source_ids;
-            if (src) {
-                sourceInfo = `<div class="chat-source-tag"><i class="fa-solid fa-link"></i> Nguồn tham chiếu: <strong>${escapeHtml(src)}</strong></div>`;
-            }
+            const sourceInfo = buildKnowledgeSourceMeta(q);
 
             chatBox.innerHTML += `
                 <div class="chat-msg ai">
@@ -1345,7 +1538,7 @@
                     <div>${escapeHtml(q)}</div>
                 </div>`;
 
-            sendAIMessageToBackend(q, '', chatBox);
+            sendAIMessageToBackend(q, currentFaqFilterProductId, chatBox);
         }
 
         function sendInlineAIMessage(productId) {
@@ -1389,7 +1582,7 @@
                 if (data.success) {
                     let sourceHtml = '';
                     if (data.source_ids) {
-                        sourceHtml = `<div class="chat-source-tag"><i class="fa-solid fa-link"></i> Nguồn đối chiếu: <strong>${escapeHtml(data.source_ids)}</strong> (${escapeHtml(data.source_nature || 'Kho tri thức XuatXu')})</div>`;
+                        sourceHtml = `<div class="chat-source-tag"><i class="fa-solid fa-link"></i> Nguồn đối chiếu: <strong>${escapeHtml(data.source_ids)}</strong></div>`;
                     }
                     chatContainer.innerHTML += `
                         <div class="chat-msg ai">
@@ -1415,7 +1608,7 @@
                 chatContainer.innerHTML += `
                     <div class="chat-msg ai" style="color: #b91c1c;">
                         <i class="fa-solid fa-triangle-exclamation"></i>
-                        <div>Không thể kết nối máy chủ trợ lý AI. Vui lòng thử lại.</div>
+                        <div>Không thể kết nối máy chủ trợ lý giải thích. Vui lòng thử lại.</div>
                     </div>`;
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             });
@@ -1502,12 +1695,12 @@
                     statusBox.style.background = '#ecfdf5';
                     statusBox.style.color = '#047857';
                     statusBox.style.border = '1.5px solid #a7f3d0';
-                    statusBox.innerHTML = `<i class="fa-solid fa-circle-check" style="font-size: 18px;"></i> <span>${data.message || 'PASS: Toàn bộ 5 sự kiện giả định khớp chữ ký SHA-256. Chuỗi nhất quán cục bộ.'}</span>`;
+                    statusBox.innerHTML = `<i class="fa-solid fa-circle-check" style="font-size: 18px;"></i> <span>${escapeHtml(data.message || 'PASS: Toàn bộ 5 sự kiện giả định khớp chữ ký SHA-256. Chuỗi nhất quán cục bộ.')}</span>`;
                 } else {
                     statusBox.style.background = '#fff5f5';
                     statusBox.style.color = '#b91c1c';
                     statusBox.style.border = '1.5px solid #fecaca';
-                    statusBox.innerHTML = `<i class="fa-solid fa-triangle-exclamation" style="font-size: 18px;"></i> <span>${data.message || 'FAIL: Phát hiện sai lệch dữ liệu! Chữ ký băm không khớp.'}</span>`;
+                    statusBox.innerHTML = `<i class="fa-solid fa-triangle-exclamation" style="font-size: 18px;"></i> <span>${escapeHtml(data.message || 'FAIL: Phát hiện sai lệch dữ liệu! Chữ ký băm không khớp.')}</span>`;
                 }
 
                 if (data.records) {
@@ -1541,17 +1734,15 @@
                 return;
             }
 
-            // Sửa đổi dữ liệu địa điểm tại Bước 2 để giả lập tấn công dữ liệu
             let payload = currentTechChain[1].canonical_payload || '';
             if (payload.includes('Cơ sở giả định B')) {
                 currentTechChain[1].canonical_payload = payload.replace('Cơ sở giả định B', 'Cơ sở giả mạo X (đã can thiệp dữ liệu)');
-            } else {
-                currentTechChain[1].canonical_payload = payload.replace('"location":', '"location":"Cơ sở giả mạo X", "old_location":');
+            } else if (!payload.includes('Cơ sở giả mạo X')) {
+                currentTechChain[1].canonical_payload = payload + ' [ĐÃ SỬA ĐỔI TRÁI PHÉP]';
             }
             
             renderTechTable(currentTechChain);
             verifyTechChain(currentTechChain);
-            alert('ĐÃ CAN THIỆP DỮ LIỆU BƯỚC 2: Tên cơ sở bị sửa đổi trái phép.\nQuan sát cách chuỗi SHA-256 lập tức phát hiện sai lệch toàn chuỗi!');
         }
 
         function restoreOriginalSimulation() {
@@ -1562,10 +1753,9 @@
                 renderTechTable(currentTechChain);
                 verifyTechChain(currentTechChain);
             }
-            alert('ĐÃ KHÔI PHỤC: Toàn bộ 5 sự kiện mô phỏng trở về trạng thái nguyên bản.');
         }
 
-        // Gửi phản hồi người dùng thực tế (F6)
+        // Gửi phản hồi người dùng ẩn danh an toàn (W12 / Q20)
         function submitUserFeedback(productId) {
             let name, amount, comment, alertEl;
             if (productId) {
@@ -1573,11 +1763,6 @@
                 amount = document.getElementById('inlineFbAmount').value;
                 comment = document.getElementById('inlineFbComment').value.trim();
                 alertEl = document.getElementById('inlineFbAlert');
-            } else {
-                name = document.getElementById('fbUserName').value.trim();
-                amount = document.getElementById('fbClarityRating').value;
-                comment = document.getElementById('fbUserComment').value.trim();
-                alertEl = document.getElementById('fbSubmitAlert');
             }
 
             if (!comment) {
@@ -1604,13 +1789,9 @@
                         alertEl.style.color = '#047857';
                         alertEl.style.border = '1px solid #a7f3d0';
                         alertEl.innerText = data.message;
-                    } else {
-                        alert(data.message);
                     }
-                    if (productId) {
+                    if (productId && document.getElementById('inlineFbComment')) {
                         document.getElementById('inlineFbComment').value = '';
-                    } else {
-                        document.getElementById('fbUserComment').value = '';
                     }
                 }
             })
@@ -1634,6 +1815,7 @@
                     p.product_id.toLowerCase().includes(q) ||
                     (p.brand && p.brand.toLowerCase().includes(q)) ||
                     (p.category && p.category.toLowerCase().includes(q)) ||
+                    (p.assumed_country_of_origin && p.assumed_country_of_origin.toLowerCase().includes(q)) ||
                     (p.description && p.description.toLowerCase().includes(q))
                 );
             }
@@ -1643,7 +1825,7 @@
         // Modal xem ảnh
         function openImageModal(imgSrc, caption) {
             document.getElementById('modalImgDisplay').src = imgSrc;
-            document.getElementById('modalImgCaption').innerText = caption || 'Minh chứng hình ảnh thực tế';
+            document.getElementById('modalImgCaption').innerText = caption || 'Minh chứng hình ảnh hồ sơ';
             document.getElementById('imageModal').style.display = 'flex';
         }
 

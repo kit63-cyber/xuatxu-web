@@ -1,0 +1,23 @@
+{
+  "release": "2026-10-30 final nine-product data + matched website code",
+  "counts": {
+    "SAN_PHAM.csv": 9,
+    "AI_HOI_DAP.csv": 108,
+    "AI_KIEN_THUC.csv": 108,
+    "BANG_CHUNG.csv": 42,
+    "CLAIM_EVIDENCE.csv": 27,
+    "NGUON_THAM_KHAO.csv": 20,
+    "MO_PHONG_HANH_TRINH.csv": 35,
+    "MO_PHONG_DANH_MUC_CHUNG_TU.csv": 35
+  },
+  "checks": {
+    "product_ids": true,
+    "referential_integrity": true,
+    "python_syntax": true,
+    "javascript_syntax": true,
+    "remote_images_online_verified": false,
+    "flask_http_runtime_tests": "NOT_RUN_MODULE_NOT_INSTALLED",
+    "render_deployment": "NOT_PERFORMED",
+    "notes": "Remote Wikimedia image URLs need verification in actual browser and licensing attribution. All tests in QA_FINAL_RELEASE.csv are NOT_EXECUTED by design."
+  }
+}

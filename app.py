@@ -70,6 +70,8 @@ def get_all_data():
         "vichi_observations": load_csv('VICHI_OBSERVATIONS.csv'),
         "tech_events": load_csv('DEMO_EVENTS.csv'),
         "tech_hash_chain": load_csv('DEMO_HASH_CHAIN.csv'),
+        "simulated_journeys": load_csv('MO_PHONG_HANH_TRINH.csv'),
+        "simulated_documents": load_csv('MO_PHONG_DANH_MUC_CHUNG_TU.csv'),
         "kiem_thu": load_csv('KIEM_THU.csv')
     }
 
@@ -112,7 +114,13 @@ def api_init():
             'image_url': img,
             'image_alt': p.get('image_alt', ''),
             'qr_target': p.get('qr_target', ''),
-            'consumer_banner': p.get('consumer_banner', '')
+            'consumer_banner': p.get('consumer_banner', ''),
+            'profile_type': p.get('profile_type', ''),
+            'simulation_notice': p.get('simulation_notice', ''),
+            'price_display': p.get('price_display', ''),
+            'price_nature': p.get('price_nature', ''),
+            'photo_nature': p.get('photo_nature', ''),
+            'country_nature': p.get('country_nature', '')
         })
 
     return jsonify({
@@ -120,6 +128,7 @@ def api_init():
         "positioning": "XuatXu – Biết nguồn, hiểu bằng chứng",
         "products": clean_products,
         "qa_list": data['ai_hoi_dap'],
+        "knowledge_list": data['ai_kien_thuc'],
         "sources": data['nguon_tham_khao'],
         "display_cards": data['display_cards'],
         "base_url": get_base_url()
@@ -163,20 +172,30 @@ def api_product_detail(product_id):
     # Chứng nhận
     certs = [c for c in data['chung_nhan'] if c.get('product_id') == pid]
     
-    # Nguồn tham khảo liên quan
+    # Nguồn tham khảo liên quan (tổng hợp từ sản phẩm, thẻ hiển thị, bằng chứng, tuyên bố và liên kết nguồn)
     used_source_ids = set()
+    for raw_src in [product.get('source_ids', '')]:
+        for sid in re.findall(r'SRC-[A-Z0-9-]+', str(raw_src)):
+            used_source_ids.add(sid)
     for c in cards:
-        if c.get('source_ids'):
-            for s in c['source_ids'].split(','):
-                used_source_ids.add(s.strip())
+        for sid in re.findall(r'SRC-[A-Z0-9-]+', str(c.get('source_ids', ''))):
+            used_source_ids.add(sid)
     for e in evidences:
-        if e.get('source_id'):
-            used_source_ids.add(e['source_id'].strip())
+        for sid in re.findall(r'SRC-[A-Z0-9-]+', str(e.get('source_id', ''))):
+            used_source_ids.add(sid)
+    for cl in claims:
+        for sid in re.findall(r'SRC-[A-Z0-9-]+', str(cl.get('source_id', ''))):
+            used_source_ids.add(sid)
+    for psl in data.get('product_source_links', []):
+        if psl.get('product_id') == pid and psl.get('source_id'):
+            used_source_ids.add(psl.get('source_id').strip())
             
     sources = [s for s in data['nguon_tham_khao'] if s.get('source_id') in used_source_ids]
     
-    # 19 câu hỏi đáp chuẩn hóa lọc theo sản phẩm
+    # 12 câu hỏi đáp chuẩn hóa & 12 mục tri thức chuẩn hóa lọc theo sản phẩm (tổng 108 câu & 108 tri thức trên 9 sản phẩm)
     faqs = [q for q in data['ai_hoi_dap'] if q.get('product_id') == pid]
+    knowledge_items = [k for k in data['ai_kien_thuc'] if k.get('product_id') == pid]
+    is_sim = product.get('profile_type') == 'SIMULATED_IMPORT_EXPANSION'
     
     # Tạo URL HTTPS chuẩn cho mã QR
     base_url = get_base_url()
@@ -192,24 +211,42 @@ def api_product_detail(product_id):
         "sources": sources,
         "certifications": certs,
         "faqs": faqs,
-        "journeys": [],  # Rỗng theo đúng bộ dữ liệu thực tế v1.1
-        "ledger": [],    # Rỗng theo đúng bộ dữ liệu thực tế v1.1
+        "knowledge_items": knowledge_items,
+        "journeys": [],  # Rỗng đối với hồ sơ thực tế tại VICHI theo đúng bộ dữ liệu v1.1
+        "ledger": [],    # Mô phỏng SHA-256 được trình diễn trong tab riêng
+        "simulated_journey": [j for j in data['simulated_journeys'] if j.get('product_id') == pid] if is_sim else [],
+        "simulated_documents": [d for d in data['simulated_documents'] if d.get('product_id') == pid] if is_sim else [],
+        "is_simulated": is_sim,
         "qr_target_url": qr_target_url
     })
 
 @app.route('/api/generate-qr', methods=['GET'])
 def generate_qr():
-    """Tạo ảnh QR Code HTTPS màu đen chuẩn trỏ chính xác đến hồ sơ sản phẩm."""
+    """Tạo ảnh QR Code HTTPS màu đen chuẩn trỏ chính xác đến hồ sơ sản phẩm (đã kiểm tra product_id trong SAN_PHAM.csv)."""
     product_id = request.args.get('product_id', '').strip()
     target_url = request.args.get('url', '').strip()
     
+    data = get_all_data()
+    valid_products = {p.get('product_id'): p for p in data.get('san_pham', []) if p.get('product_id')}
+    for p in data.get('san_pham', []):
+        if p.get('slug') and p.get('product_id'):
+            valid_products[p.get('slug')] = p
+            
     base_url = get_base_url()
     
     if product_id:
-        final_url = f"{base_url}/#detail/{product_id}"
+        if product_id not in valid_products:
+            return jsonify({"success": False, "message": "Mã sản phẩm không nằm trong SAN_PHAM.csv"}), 400
+        canonical_id = valid_products[product_id].get('product_id')
+        final_url = f"{base_url}/#detail/{canonical_id}"
     elif target_url:
-        # Giới hạn hostname hợp lệ tránh open-redirect/phishing
-        if target_url.startswith('/') or target_url.startswith('#') or 'xuatxu' in target_url or '127.0.0.1' in target_url or 'localhost' in target_url:
+        # Chỉ cho phép host đã cấu hình trong PUBLIC_BASE_URL hoặc đường dẫn nội bộ
+        allowed_host = PUBLIC_BASE_URL.replace('https://', '').replace('http://', '').split('/')[0]
+        if target_url.startswith('/#detail/') or target_url.startswith('#detail/'):
+            req_pid = target_url.split('#detail/')[-1].strip()
+            canonical_id = valid_products.get(req_pid, {}).get('product_id', 'P-ENVY-VICHI-01')
+            final_url = f"{base_url}/#detail/{canonical_id}"
+        elif allowed_host and allowed_host in target_url:
             final_url = target_url
         else:
             final_url = f"{base_url}/#detail/P-ENVY-VICHI-01"
@@ -231,10 +268,28 @@ def generate_qr():
     buf.seek(0)
     return send_file(buf, mimetype='image/png')
 
+def _detect_product_from_question(q_lower, products):
+    """Nhận diện 1 trong 9 sản phẩm từ câu hỏi tự do của người dùng (dùng ranh giới từ chính xác)."""
+    product_patterns = [
+        ('P-GRAPE-SIM-03', [r'\bnho sữa\b', r'\bshine muscat\b', r'\bnho hàn\b', r'\bnho\b']),
+        ('P-BLUBERRY-SIM-04', [r'\bblueberry\b', r'\bviệt quất\b', r'\bbluberry\b']),
+        ('P-CHERRY-SIM-05', [r'\bcherry\b', r'\banh đào\b']),
+        ('P-ORANGE-SIM-06', [r'\bcam navel\b', r'\bcam ai cập\b', r'\bnavel\b', r'\bquả cam\b', r'\btrái cam\b']),
+        ('P-PEAR-SIM-07', [r'\blê nâu\b', r'\blê hàn quốc\b', r'\bk-pear\b', r'\beloasis\b', r'\bquả lê\b', r'\btrái lê\b']),
+        ('P-MANDARIN-SIM-08', [r'\bquýt úc\b', r'\bquýt nhập khẩu\b', r'\bmandarin\b', r'\bquýt\b']),
+        ('P-KUMQUAT-SIM-09', [r'\bkim quất\b', r'\bkumquat\b', r'\btắc đài loan\b']),
+        ('P-ENVY-VICHI-01', [r'\benvy\b', r'\btáo envy\b', r't&g', r'\btáo\b']),
+        ('P-ZESPRI-VICHI-01', [r'\bzespri\b', r'\bkiwi\b', r'\bsungold\b'])
+    ]
+    for pid, patterns in product_patterns:
+        if pid.lower() in q_lower or any(re.search(pat, q_lower) for pat in patterns):
+            return next((p for p in products if p.get('product_id') == pid), None)
+    return None
+
 @app.route('/api/ai-ask', methods=['POST'])
 @app.route('/api/ai/ask', methods=['POST'])
 def api_ai_ask():
-    """Trợ lý giải thích thông tin XuatXu: Trả lời dựa trên 19 nội dung hỏi đáp có nguồn tham chiếu và 10 hồ sơ nông sản thực tế."""
+    """Trợ lý giải thích thông tin có nguồn dựa trên AI_HOI_DAP.csv (108 câu) và AI_KIEN_THUC.csv (108 mục)."""
     req = request.json or {}
     user_q = (req.get('question') or req.get('user_q') or '').strip()
     qa_id = req.get('qa_id', '').strip()
@@ -242,6 +297,7 @@ def api_ai_ask():
     
     data = get_all_data()
     qa_list = data.get('ai_hoi_dap', [])
+    kb_list = data.get('ai_kien_thuc', [])
     products = data.get('san_pham', [])
     sources_dict = {s.get('source_id'): s for s in data.get('nguon_tham_khao', [])}
     
@@ -251,10 +307,16 @@ def api_ai_ask():
     if qa_id:
         matched_qa = next((q for q in qa_list if q.get('qa_id') == qa_id), None)
         
-    # 2. Khớp theo câu hỏi người dùng
+    # Tự động nhận diện sản phẩm trong câu hỏi nếu chưa truyền product_id
+    detected_product = None
+    if user_q:
+        detected_product = _detect_product_from_question(user_q.lower(), products)
+    effective_pid = product_id or (detected_product.get('product_id') if detected_product else '')
+    
+    # 2. Khớp theo câu hỏi người dùng trong AI_HOI_DAP.csv
     if not matched_qa and user_q:
         q_norm = user_q.lower().strip()
-        candidates = [q for q in qa_list if (not product_id or q.get('product_id') == product_id)]
+        candidates = [q for q in qa_list if (not effective_pid or q.get('product_id') == effective_pid)]
         
         # Khớp chính xác câu hỏi
         for c in candidates:
@@ -262,24 +324,50 @@ def api_ai_ask():
                 matched_qa = c
                 break
                 
-        # Khớp từ khóa chủ đề (topic-matching) có kiểm soát
+        # Khớp theo chủ đề (topic) + từ khóa có kiểm soát
         if not matched_qa:
+            topic_hints = []
+            if any(w in q_norm for w in ['xuất xứ', 'nước nào', 'nguồn gốc', 'trồng ở đâu']):
+                topic_hints.extend(['origin', 'grower'])
+            if any(w in q_norm for w in ['giá', 'bao nhiêu', 'tiền', 'đắt']):
+                topic_hints.append('price')
+            if any(w in q_norm for w in ['mã lô', 'số lô', 'lô hàng', 'lot', 'batch', 'thùng']):
+                topic_hints.extend(['lot', 'sp_code', 'traceability'])
+            if any(w in q_norm for w in ['chứng nhận', 'organic', 'hữu cơ', 'globalg.a.p', 'globalgap', 'biogro', 'môi trường', 'kiểm dịch', 'chứng chỉ']):
+                topic_hints.extend(['certification', 'organic', 'gap', 'import_docs'])
+            if any(w in q_norm for w in ['blockchain', 'sha-256', 'sha256', 'hash', 'mã băm', 'on-chain']):
+                topic_hints.append('blockchain')
+            if any(w in q_norm for w in ['tẩy xanh', 'greenwashing', 'gian lận']):
+                topic_hints.append('greenwashing')
+            if any(w in q_norm for w in ['hành trình', 'chuỗi cung ứng', 'nhập khẩu', 'tờ khai', 'vận chuyển']):
+                topic_hints.extend(['journey', 'importer', 'import_docs'])
+            if any(w in q_norm for w in ['ảnh', 'hình ảnh', 'wikimedia', 'minh họa', 'chụp']):
+                topic_hints.extend(['photo', 'packaging'])
+            if any(w in q_norm for w in ['vichi', 'siêu thị', 'thử nghiệm', 'bán tại', 'bán ở']):
+                topic_hints.extend(['vichi_scope', 'simulation', 'overview'])
+            if any(w in q_norm for w in ['qr', 'quét mã']):
+                topic_hints.append('qr_scope')
+            if any(w in q_norm for w in ['mô phỏng', 'giả định', 'thật không']):
+                topic_hints.extend(['simulation', 'overview'])
+
+            stop_words = {'có', 'không', 'là', 'gì', 'ở', 'tại', 'cho', 'của', 'và', 'này', 'được', 'như', 'thế', 'về', 'trong', 'với', 'hay', 'phải', 'từ', 'khi', 'đã', 'sẽ', 'cần', 'một', 'các', 'những', 'sản', 'phẩm'}
+            words = [w for w in re.findall(r'[\w]+', q_norm) if len(w) > 1 and w not in stop_words]
+            intent_terms = ['giá', 'bao nhiêu', 'xuất xứ', 'nước nào', 'quy cách', 'đóng gói', 'hành trình', 'tờ khai', 'hải quan', 'kiểm dịch', 'organic', 'bền vững', 'blockchain', 'hiểu nhầm', 'nguồn thông tin', 'chụp tại vichi', 'mã lô', 'tẩy xanh']
             best_score = 0
-            words = [w for w in re.findall(r'[\w]+', q_norm) if len(w) > 1]
             
             for c in candidates:
                 q_text = c.get('user_question', '').lower()
                 ans_text = (c.get('recommended_answer') or c.get('official_answer') or '').lower()
                 score = 0
                 
-                # So khớp từ khóa trực tiếp
+                for term in intent_terms:
+                    if term in q_norm and term in q_text:
+                        score += 10
                 for w in words:
                     if w in q_text:
-                        score += 3
+                        score += 4
                     elif w in ans_text:
                         score += 1
-                        
-                # Nếu câu hỏi trùng cụm từ
                 if q_text in q_norm or q_norm in q_text:
                     score += 8
                     
@@ -287,12 +375,14 @@ def api_ai_ask():
                     best_score = score
                     matched_qa = c
                     
-            if best_score < 3:
+            if best_score < 4:
                 matched_qa = None
 
     if matched_qa:
+        prod_obj = next((p for p in products if p.get('product_id') == matched_qa.get('product_id')), None)
+        is_sim_prod = (prod_obj and prod_obj.get('profile_type') == 'SIMULATED_IMPORT_EXPANSION')
         answer_text = matched_qa.get('recommended_answer') or matched_qa.get('official_answer') or ''
-        source_ids = re.findall(r'SRC-[A-Z0-9-]+', answer_text)
+        source_ids = list(dict.fromkeys(re.findall(r'SRC-[A-Z0-9-]+', answer_text)))
         sources_info = [sources_dict[sid] for sid in source_ids if sid in sources_dict]
         
         return jsonify({
@@ -300,78 +390,108 @@ def api_ai_ask():
             "answer": answer_text,
             "qa_id": matched_qa.get('qa_id'),
             "product_id": matched_qa.get('product_id'),
+            "profile_type": prod_obj.get('profile_type') if prod_obj else '',
             "question": matched_qa.get('user_question'),
-            "source_ids": ", ".join(source_ids) if source_ids else (matched_qa.get('source_policy') or 'Kho tri thức XuatXu'),
+            "source_ids": ", ".join(source_ids) if source_ids else (matched_qa.get('source_policy') or ('SRC-SIM-POLICY' if is_sim_prod else 'Kho tri thức XuatXu')),
             "sources": sources_info,
-            "source_nature": "Kho tri thức chuẩn hóa XuatXu",
+            "source_nature": "SIMULATION_ONLY" if is_sim_prod else "Kho tri thức chuẩn hóa XuatXu",
             "matched": True
         })
 
-    # 3. Tra cứu sản phẩm trong hệ thống nếu câu hỏi nhắc đến tên quả / thương hiệu
-    if user_q:
-        q_lower = user_q.lower()
-        matched_prod = None
-        for p in products:
-            p_name = (p.get('display_name') or '').lower()
-            pid = (p.get('product_id') or '').lower()
-            
-            key_terms = []
-            if 'nho' in p_name: key_terms.extend(['nho', 'shine muscat', 'sữa'])
-            elif 'dưa lưới' in p_name: key_terms.extend(['dưa lưới', 'danny green', 'hoàng kim'])
-            elif 'bưởi' in p_name: key_terms.extend(['bưởi', 'huka', 'da xanh'])
-            elif 'xoài' in p_name: key_terms.extend(['xoài', 'cát chu', 'mr 9', 'mr. 9', 'chú mười'])
-            elif 'lê' in p_name: key_terms.extend(['lê', 'eloasis', 'k-pear', 'lê nâu', 'hàn quốc'])
-            elif 'quýt' in p_name: key_terms.extend(['quýt', 'tony fruit', 'quýt úc'])
-            elif 'kim quất' in p_name: key_terms.extend(['kim quất', 'quất', 'đài loan'])
-            elif 'măng cụt' in p_name: key_terms.extend(['măng cụt', 'nam bộ'])
-            elif 'envy' in p_name: key_terms.extend(['envy', 'táo'])
-            elif 'zespri' in p_name: key_terms.extend(['zespri', 'kiwi'])
-            
-            if any(term in q_lower for term in key_terms) or (pid and pid in q_lower):
-                matched_prod = p
-                break
-                
-        if matched_prod:
-            p_name = matched_prod.get('display_name')
-            p_origin = matched_prod.get('assumed_country_of_origin') or 'Ghi nhận trên nhãn'
-            p_brand = matched_prod.get('brand') or 'Thương hiệu đối tác'
-            p_desc = matched_prod.get('description') or ''
-            p_retailer = matched_prod.get('retailer_display', 'VICHI MARKET')
-            p_pack = matched_prod.get('packaging_demo', 'Quy cách chuẩn')
-            
-            if any(w in q_lower for w in ['giá', 'bao nhiêu', 'tiền', 'cost', 'bán']):
-                answer = f"Sản phẩm {p_name} có quy cách '{p_pack}' được ghi nhận trực tiếp tại điểm bán {p_retailer}. Mức giá bán lẻ được cập nhật minh bạch tại thời điểm khảo sát và hiển thị đầy đủ trong hồ sơ chi tiết."
-            elif any(w in q_lower for w in ['xuất xứ', 'nước nào', 'ở đâu', 'nguồn gốc', 'nhập khẩu']):
-                answer = f"Sản phẩm {p_name} thuộc thương hiệu {p_brand}, xuất xứ ghi nhận là {p_origin}. Thông tin này được ghi nhận từ tem nhãn thực tế tại điểm bán {p_retailer} và liên kết nguồn xác minh thương hiệu."
-            elif any(w in q_lower for w in ['mã lô', 'lô', 'hải quan', 'chứng chỉ', 'batch', 'lot']):
-                answer = f"Đối với {p_name}: Nền tảng XuatXu thực hiện phân tầng thông tin - hiển thị tem nhãn quan sát thực tế tại điểm bán và công khai giới hạn xác minh cấp lô hàng (chưa khẳng định lô khi chưa có chứng từ gốc đối chiếu)."
+    # 3. Tra cứu tiếp trong AI_KIEN_THUC.csv (108 mục tri thức chuẩn hóa) nếu chưa khớp trực tiếp câu hỏi
+    if user_q and effective_pid:
+        q_norm = user_q.lower()
+        stop_words = {'có', 'không', 'là', 'gì', 'ở', 'đâu', 'tại', 'cho', 'của', 'và', 'này', 'được', 'như', 'thế', 'nào', 'bao', 'nhiêu', 'về', 'trong', 'với', 'hay', 'phải', 'từ', 'khi', 'đã', 'sẽ', 'cần', 'một', 'các', 'những', 'câu', 'hỏi', 'danh', 'mục', 'ngoài', 'hoàn', 'toàn'}
+        kb_candidates = [k for k in kb_list if k.get('product_id') == effective_pid]
+        best_kb = None
+        best_kb_score = 0
+        words = [w for w in re.findall(r'[\w]+', q_norm) if len(w) > 1 and w not in stop_words]
+        for kb in kb_candidates:
+            kb_text = ((kb.get('topic') or '') + ' ' + (kb.get('fact') or '') + ' ' + (kb.get('allowed_answer') or '')).lower()
+            sc = sum(2 for w in words if w in kb_text)
+            if sc > best_kb_score:
+                best_kb_score = sc
+                best_kb = kb
+        if best_kb and best_kb_score >= 6:
+            prod_obj = next((p for p in products if p.get('product_id') == effective_pid), None)
+            is_sim_prod = (prod_obj and prod_obj.get('profile_type') == 'SIMULATED_IMPORT_EXPANSION')
+            ans_text = best_kb.get('allowed_answer') or best_kb.get('fact') or ''
+            source_ids = list(dict.fromkeys(re.findall(r'SRC-[A-Z0-9-]+', ans_text)))
+            sources_info = [sources_dict[sid] for sid in source_ids if sid in sources_dict]
+            return jsonify({
+                "success": True,
+                "answer": ans_text,
+                "kb_id": best_kb.get('kb_id'),
+                "product_id": effective_pid,
+                "profile_type": prod_obj.get('profile_type') if prod_obj else '',
+                "source_ids": ", ".join(source_ids) if source_ids else ('SRC-SIM-POLICY' if is_sim_prod else 'Kho tri thức XuatXu'),
+                "sources": sources_info,
+                "source_nature": "SIMULATION_ONLY" if is_sim_prod else "Kho tri thức chuẩn hóa XuatXu",
+                "matched": True
+            })
+
+    # 4. Khi có sản phẩm (truyền qua product_id hoặc nhận diện từ câu hỏi) nhưng câu hỏi ngoài phạm vi kịch bản:
+    # Phân biệt nghiêm ngặt VICHI_OBSERVED và SIMULATED_IMPORT_EXPANSION, tuyệt đối không khẳng định hàng giả định là hàng tại VICHI.
+    if effective_pid and user_q:
+        selected_product = next((p for p in products if p.get('product_id') == effective_pid), None)
+        if selected_product:
+            is_sim = selected_product.get('profile_type') == 'SIMULATED_IMPORT_EXPANSION'
+            p_name = selected_product.get('display_name', effective_pid)
+            if is_sim:
+                answer = (
+                    f"{p_name} thuộc nhóm Hồ sơ mô phỏng mở rộng (SIMULATED_IMPORT_EXPANSION): "
+                    f"ảnh hiển thị là ảnh minh họa từ nguồn mở (Wikimedia Commons), còn xuất xứ ({selected_product.get('assumed_country_of_origin')}), "
+                    f"mức giá ({selected_product.get('price_display')}) và hành trình 5 bước chỉ là dữ liệu giả định phục vụ trình diễn giao diện. "
+                    f"Sản phẩm này KHÔNG thuộc 02 mẫu khảo sát thực địa tại VICHI MARKET và không thể xác minh thông tin lô hàng thực tế. [Nguồn: SRC-SIM-POLICY]"
+                )
             else:
-                answer = f"{p_name}: {p_desc} Sản phẩm mang thương hiệu {p_brand}, xuất xứ {p_origin}, được ghi nhận tại điểm bán {p_retailer}."
-                
+                answer = (
+                    f"Đối với {p_name} (Hồ sơ thử nghiệm tại VICHI MARKET): hệ thống chỉ hiển thị thông tin quan sát được từ ảnh chụp nhãn tại điểm bán "
+                    f"và thông tin công bố cấp thương hiệu. Câu hỏi này chưa có chứng từ cấp lô hàng (như mã lô, tờ khai hải quan hay giấy kiểm dịch) để đối chiếu; "
+                    f"XuatXu không suy đoán ngoài phạm vi bằng chứng hiện có."
+                )
             return jsonify({
                 'success': True,
                 'answer': answer,
-                'source_ids': f"Hồ sơ {matched_prod.get('product_id')}",
-                'source_nature': 'Ghi nhận thực tế tại VICHI MARKET',
-                'matched': True
+                'product_id': effective_pid,
+                'profile_type': selected_product.get('profile_type', ''),
+                'source_nature': 'SIMULATION_ONLY' if is_sim else 'LIMITED_RETAIL_EVIDENCE',
+                'source_ids': 'SRC-SIM-POLICY' if is_sim else 'Kho tri thức nguồn XuatXu',
+                'matched': False
             })
-            
-        # 4. Câu hỏi chung về hệ thống
+
+    # 5. Câu hỏi chung về hệ thống / phương pháp luận (khi không hỏi riêng sản phẩm nào)
+    if user_q:
+        q_lower = user_q.lower()
         if any(k in q_lower for k in ['xuatxu', 'hệ thống', 'làm sao', 'cách dùng', 'chức năng', 'lợi ích']):
-            answer = "Hệ thống XuatXu giúp bạn: (1) Tra cứu hồ sơ minh bạch nông sản bán lẻ; (2) Quét và tạo mã QR truy cập nhanh; (3) Kiểm tra tính toàn vẹn dữ liệu với mô phỏng mã băm SHA-256; (4) Trợ lý AI giải đáp nguồn gốc và tem nhãn."
+            answer = (
+                "Hệ thống XuatXu hỗ trợ: (1) Tra cứu 02 hồ sơ thử nghiệm thực tế tại VICHI MARKET (Táo ENVY và Kiwi vàng Zespri) tách biệt rõ với 07 hồ sơ mô phỏng mở rộng; "
+                "(2) Quét và tạo mã QR chuẩn HTTPS cho từng hồ sơ; (3) Trợ lý giải thích thông tin có nguồn (108 câu hỏi chuẩn hóa); "
+                "(4) Mô phỏng kiểm tra tính toàn vẹn SHA-256 độc lập."
+            )
         elif any(k in q_lower for k in ['3 không', 'nguyên tắc', 'tẩy xanh', 'greenwashing', 'minh bạch']):
-            answer = "Nguyên tắc 3 Không của XuatXu: (1) Không bịa đặt mã lô khi chưa có chứng từ gốc; (2) Không nhầm lẫn giữa cam kết thương hiệu và chứng nhận cấp lô; (3) Không tự đưa phán quyết cảm tính, minh bạch ranh giới xác minh."
-        elif any(k in q_lower for k in ['sha256', 'hash', 'mã băm', 'mật mã', 'blockchain']):
-            answer = "Mô phỏng SHA-256 trên XuatXu chứng minh tính toàn vẹn dữ liệu: nếu bất kỳ thông tin nào trong chuỗi (như tên cơ sở hay ngày thu hoạch) bị chỉnh sửa, chữ ký mã băm sẽ không khớp (FAIL) ngay lập tức."
+            answer = (
+                "Nguyên tắc minh bạch của XuatXu: (1) Không bịa đặt mã lô, tờ khai hải quan hay giấy kiểm dịch khi chưa có chứng từ gốc; "
+                "(2) Không đánh đồng công bố cấp thương hiệu hoặc dòng sản phẩm khác với bằng chứng của từng lô tại điểm bán; "
+                "(3) Không tự đưa cáo buộc tẩy xanh khi chỉ mới thiếu dữ liệu công khai."
+            )
+        elif any(k in q_lower for k in ['sha256', 'sha-256', 'hash', 'mã băm', 'mật mã', 'blockchain']):
+            answer = (
+                "Mô phỏng kiểm tra tính toàn vẹn SHA-256 trên XuatXu minh họa cơ chế phát hiện sửa đổi dữ liệu qua 05 sự kiện giả định: "
+                "nếu một thông tin trong chuỗi bị chỉnh sửa, chữ ký băm sẽ báo lỗi (FAIL) ngay lập tức. Đây không phải giao dịch blockchain thực tế."
+            )
         else:
-            answer = f"Cảm ơn bạn đã hỏi về '{html.escape(user_q)}'. Bạn có thể nhấn vào các gợi ý câu hỏi chuẩn hóa bên trên, hoặc hỏi về thông tin xuất xứ, tem nhãn, giá cả của 10 loại trái cây trên hệ thống!"
+            answer = (
+                "Câu hỏi chưa khớp với dữ liệu đối chiếu trong kho tri thức. Vui lòng chọn một trong 108 câu hỏi gợi ý chuẩn hóa bên trên, "
+                "hoặc nêu rõ tên sản phẩm (Táo ENVY, Kiwi Zespri, hay một trong 7 hồ sơ mô phỏng mở rộng) để hệ thống phản hồi đúng phạm vi bằng chứng."
+            )
             
         return jsonify({
             'success': True,
             'answer': answer,
             'source_ids': 'Kho tri thức XuatXu',
-            'source_nature': 'Trợ lý thông tin xuất xứ',
-            'matched': True
+            'source_nature': 'Trợ lý giải thích thông tin có nguồn',
+            'matched': False
         })
         
     return jsonify({
@@ -449,31 +569,31 @@ def api_tech_demo_verify():
         "message": msg,
         "records": results
     })
-    
-    return jsonify({
-        "success": True,
-        "is_valid": is_valid,
-        "broken_step": broken_step,
-        "message": msg,
-        "records": results
-    })
+
+def _sanitize_feedback_text(text):
+    """Ẩn thông tin định danh cá nhân (số điện thoại, email) trong nội dung phản hồi."""
+    if not text:
+        return ''
+    cleaned = re.sub(r'[\w\.-]+@[\w\.-]+\.\w+', '[email ẩn]', str(text))
+    cleaned = re.sub(r'(\+?\d[\d\s\-\.]{7,}\d)', '[SĐT ẩn]', cleaned)
+    return cleaned
 
 @app.route('/api/feedback', methods=['GET', 'POST'])
 def api_feedback():
-    """Tiếp nhận và lưu trữ phản hồi người dùng thực tế sau khi trải nghiệm hồ sơ."""
+    """Tiếp nhận và lưu trữ phản hồi người dùng với cơ chế ẩn danh hóa PII công khai (W12 / Q20)."""
     if request.method == 'POST':
         req = request.json or {}
-        name = html.escape(str(req.get('name', 'Khách tham quan')).strip()[:100])
         product_id = html.escape(str(req.get('product_id', '')).strip()[:50])
         amount = html.escape(str(req.get('amount', 'Vừa đủ')).strip()[:50])
-        comment = html.escape(str(req.get('comment', '')).strip()[:500])
+        raw_comment = _sanitize_feedback_text(str(req.get('comment', '')).strip()[:500])
+        comment = html.escape(raw_comment)
         
         if not comment:
             return jsonify({'success': False, 'message': 'Vui lòng nhập nội dung góp ý'}), 400
             
         feedback_item = {
             'id': int(time.time() * 1000),
-            'name': name or 'Khách tham quan',
+            'participant_label': 'Người dùng ẩn danh',
             'product_id': product_id,
             'amount': amount,
             'comment': comment,
@@ -497,19 +617,33 @@ def api_feedback():
             
         return jsonify({
             'success': True,
-            'message': 'Cảm ơn bạn đã đóng góp phản hồi thực tế!',
+            'message': 'Cảm ơn bạn đã đóng góp phản hồi (thông tin cá nhân được tự động ẩn danh)!',
             'feedback': feedback_item
         })
     else:
-        # GET danh sách phản hồi thực
+        # GET công khai: chỉ trả về dữ liệu đã ẩn danh hóa hoàn toàn, không trả về tên/SĐT/email cá nhân
         feedbacks = []
         if os.path.exists(FEEDBACK_FILE):
             try:
                 with open(FEEDBACK_FILE, 'r', encoding='utf-8') as f:
-                    feedbacks = json.load(f)
+                    raw_list = json.load(f)
+                    for item in raw_list:
+                        feedbacks.append({
+                            'id': item.get('id'),
+                            'participant_label': 'Người dùng ẩn danh',
+                            'product_id': item.get('product_id', ''),
+                            'amount': item.get('amount', ''),
+                            'comment': _sanitize_feedback_text(item.get('comment', '')),
+                            'created_at': item.get('created_at', '')
+                        })
             except Exception:
                 feedbacks = []
-        return jsonify({'success': True, 'feedbacks': feedbacks})
+        return jsonify({
+            'success': True,
+            'privacy_mode': 'ANONYMIZED_PUBLIC_VIEW',
+            'total_count': len(feedbacks),
+            'feedbacks': feedbacks
+        })
 
 if __name__ == '__main__':
     # Chạy local server

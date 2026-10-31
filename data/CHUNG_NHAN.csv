@@ -1,3 +1,10 @@
 ﻿cert_id,product_id,certification_name,issuer,certificate_number,valid_from,valid_to,link,scope,status,note
 CERT-E-VICHI,P-ENVY-VICHI-01,Chứng nhận môi trường/kiểm dịch theo lô ENVY tại VICHI: chưa có tài liệu,,,,,,CHUA_CO_CHUNG_TU_LO,CHUA_XAC_MINH_LO,Không tạo số chứng nhận. Thương hiệu ENVY không tự chứng minh chứng nhận cho túi tại VICHI.
 CERT-Z-GAP-POLICY,P-ZESPRI-VICHI-01,GLOBALG.A.P. – chính sách và yêu cầu đối với nhà vườn Zespri,Zespri giới thiệu tiêu chuẩn GLOBALG.A.P.,,,,https://www.zespri.com/en-NZ/zespri-system-assurance-program,CHINH_SACH_THUONG_HIEU,CHUA_XAC_MINH_LO,Không ghi “hộp kiwi tại VICHI đã được chứng nhận”. Chưa có mã vườn và chứng nhận của lô.
+CERT-03-SIM,P-GRAPE-SIM-03,Không gán chứng nhận cho hồ sơ mô phỏng,,,,,,SIMULATION_ONLY,NOT_VERIFIED,Không tạo chứng chỉ hoặc số chứng nhận giả.
+CERT-04-SIM,P-BLUBERRY-SIM-04,Không gán chứng nhận cho hồ sơ mô phỏng,,,,,,SIMULATION_ONLY,NOT_VERIFIED,Không tạo chứng chỉ hoặc số chứng nhận giả.
+CERT-05-SIM,P-CHERRY-SIM-05,Không gán chứng nhận cho hồ sơ mô phỏng,,,,,,SIMULATION_ONLY,NOT_VERIFIED,Không tạo chứng chỉ hoặc số chứng nhận giả.
+CERT-06-SIM,P-ORANGE-SIM-06,Không gán chứng nhận cho hồ sơ mô phỏng,,,,,,SIMULATION_ONLY,NOT_VERIFIED,Không tạo chứng chỉ hoặc số chứng nhận giả.
+CERT-07-SIM,P-PEAR-SIM-07,Không gán chứng nhận cho hồ sơ mô phỏng,,,,,,SIMULATION_ONLY,NOT_VERIFIED,Không tạo chứng chỉ hoặc số chứng nhận giả.
+CERT-08-SIM,P-MANDARIN-SIM-08,Không gán chứng nhận cho hồ sơ mô phỏng,,,,,,SIMULATION_ONLY,NOT_VERIFIED,Không tạo chứng chỉ hoặc số chứng nhận giả.
+CERT-09-SIM,P-KUMQUAT-SIM-09,Không gán chứng nhận cho hồ sơ mô phỏng,,,,,,SIMULATION_ONLY,NOT_VERIFIED,Không tạo chứng chỉ hoặc số chứng nhận giả.

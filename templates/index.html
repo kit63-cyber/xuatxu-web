@@ -80,7 +80,7 @@
             <div class="hero-search-wrapper">
                 <div class="search-box-container">
                     <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
-                    <input type="text" id="searchInput" placeholder="Tìm kiếm tên sản phẩm hoặc mã hồ sơ (Táo ENVY, Kiwi Zespri, Nho, Blueberry, Cherry, Cam, Lê, Quýt, Kim quất...)" oninput="searchProduct()">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm tên sản phẩm hoặc mã hồ sơ..." oninput="searchProduct()">
                     <button onclick="searchProduct()"><i class="fa-solid fa-arrow-right"></i> Tra cứu</button>
                 </div>
             </div>
@@ -818,7 +818,7 @@
                 <div class="catalog-tier-block tier-sim-block">
                     <div class="tier-section-header tier-sim-header">
                         <div class="tier-header-left">
-                            <span class="tier-pill-sim"><i class="fa-solid fa-flask"></i> KỊCH BẢN TRÌNH DIỄN MỞ RỘNG</span>
+                            <span class="tier-pill-sim"><i class="fa-solid fa-flask"></i> Hồ sơ mô phỏng</span>
                             <h3>Danh mục mô phỏng mở rộng – thông tin, giá và hành trình giả định; ảnh minh họa từ nguồn mở.</h3>
                             <p>07 hồ sơ nông sản nhập khẩu giả định nhằm minh họa khả năng mở rộng cấu trúc dữ liệu của nền tảng; hoàn toàn tách biệt với kết quả khảo sát tại VICHI MARKET.</p>
                         </div>
@@ -1117,31 +1117,7 @@
                         });
                     }
 
-                    // 4. Render Danh sách Nguồn Tham Khảo Liên Kết (NGUON_THAM_KHAO.csv - W07 / Q15)
-                    let sourcesListHTML = '';
-                    if (sources.length > 0) {
-                        sourcesListHTML = `
-                        <div class="section-title-box" style="margin-top: 22px; margin-bottom: 12px;">
-                            <h3 style="font-size: 16px; font-weight: 700; color: var(--slate-900); margin: 0;">
-                                <i class="fa-solid fa-book-bookmark" style="color: var(--primary);"></i> Nguồn Tham Khảo & Liên Kết Gốc (${sources.length} nguồn)
-                            </h3>
-                        </div>
-                        <div class="sources-cards-grid">
-                            ${sources.map(s => `
-                                <div class="source-ref-card">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px;">
-                                        <span class="source-id-pill">${escapeHtml(s.source_id)}</span>
-                                        <span class="card-scope-tag">${escapeHtml(translateScopeCode(s.scope))}</span>
-                                    </div>
-                                    <div style="font-weight: 700; font-size: 13.5px; color: var(--slate-900); margin-bottom: 4px;">${escapeHtml(s.title)}</div>
-                                    <div style="font-size: 12px; color: var(--slate-600); margin-bottom: 8px; line-height: 1.5;">
-                                        <strong>Đơn vị:</strong> ${escapeHtml(s.organization)} · ${escapeHtml(s.supported_fact)}
-                                    </div>
-                                    ${s.url ? `<a href="${s.url}" target="_blank" rel="noopener" class="card-source-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Mở nguồn gốc</a>` : `<span style="font-size: 11.5px; color: var(--slate-500);"><i class="fa-solid fa-folder"></i> Lưu trữ trong bộ hồ sơ nghiên cứu (${escapeHtml(s.checked_at || '')})</span>`}
-                                </div>
-                            `).join('')}
-                        </div>`;
-                    }
+                    
 
                     // 5. Render Hành trình 5 bước giả định & 5 loại chứng từ cần có nếu triển khai thật (W04 / Q14)
                     let simSectionsHTML = '';
@@ -1264,7 +1240,7 @@
 
                                 <div style="margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap;">
                                     <button onclick="toggleDetailLayers()" id="btnToggleEvidence" class="btn-primary" style="padding: 10px 18px; font-size: 13.5px;">
-                                        <i class="fa-solid fa-folder-open"></i> <span id="evidenceBtnText">Thu gọn bảng bằng chứng & nguồn gốc</span>
+                                        <i class="fa-solid fa-folder-open"></i> <span id="evidenceBtnText">Thu gọn bảng bằng chứng chi tiết</span>
                                     </button>
                                     <button onclick="showQrForProduct('${productId}')" class="btn-secondary" style="padding: 10px 16px; font-size: 13.5px;">
                                         <i class="fa-solid fa-qrcode"></i> Xem Mã QR
@@ -1315,7 +1291,6 @@
                                 </table>
                             </div>` : ''}
 
-                            ${sourcesListHTML}
                         </div>
 
                         <!-- TRỢ LÝ GIẢI THÍCH NHANH TRONG TRANG CHI TIẾT (ĐỦ 12 CÂU HỎI / SẢN PHẨM) -->
@@ -1374,11 +1349,11 @@
             if (extBox) {
                 if (extBox.style.display === 'none') {
                     extBox.style.display = 'block';
-                    btnText.innerText = 'Thu gọn bảng bằng chứng & nguồn gốc';
+                    btnText.innerText = 'Thu gọn bảng bằng chứng chi tiết';
                     extBox.scrollIntoView({ behavior: 'smooth' });
                 } else {
                     extBox.style.display = 'none';
-                    btnText.innerText = 'Xem bằng chứng chi tiết & Nguồn gốc';
+                    btnText.innerText = 'Xem bảng bằng chứng chi tiết';
                 }
             }
         }

@@ -11,10 +11,19 @@ from flask import Flask, render_template, request, jsonify, send_file, abort
 import qrcode
 
 app = Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.jinja_env.auto_reload = True
 
 # Cấu hình BASE URL và Scheme cho môi trường Render / Production
 PUBLIC_BASE_URL = os.environ.get('PUBLIC_BASE_URL', 'https://xuatxu-web.onrender.com').rstrip('/')
 app.config['PREFERRED_URL_SCHEME'] = 'https'
+
+@app.after_request
+def add_no_cache_headers(response):
+    if response.mimetype == 'text/html':
+        response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+        response.headers['Pragma'] = 'no-cache'
+    return response
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 FEEDBACK_FILE = os.path.join(DATA_DIR, 'user_feedback.json')
